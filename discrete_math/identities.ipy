@@ -1,0 +1,111 @@
+from collections import defaultdict
+dct = defaultdict(set)
+for i in (True, False):
+    for j in (True, False):
+        for k in (True, False):
+            p = 'p' if i else '~p'
+            q = 'q' if j else '~q'
+            r = 'p' if k else '~p'
+            expr = f'({p} | {q}) & {r}'
+            anf = to_anf(expr)
+            cnf = to_cnf(expr)
+            dnf = to_dnf(expr)
+            nnf = to_nnf(expr)
+            simple = simplify_logic(expr)
+            if len(str(simple)) > 2:
+                print(f'[{expr}] ≡ {simple}\nanf: "{anf}"\ncnf: "{cnf}"\ndnf: "{dnf}"\nnnf: "{nnf}"\n')
+                dct[str(simple)].add(expr)
+                dct[str(simple)].add(anf)
+                dct[str(simple)].add(cnf)
+                dct[str(simple)].add(dnf)
+                dct[str(simple)].add(nnf)
+                
+                
+                  
+
+for i in (True, False):
+    for j in (True, False):
+        for k in (True, False):
+            p = 'p' if i else '~p'
+            q = 'q' if j else '~q'
+            r = 'p' if k else '~p'
+            expr = f'({p} & {q}) | {r}'
+            anf = to_anf(expr)
+            cnf = to_cnf(expr)
+            dnf = to_dnf(expr)
+            nnf = to_nnf(expr)
+            simple = simplify_logic(expr)
+            if len(str(simple)) > 2:
+                print(f'[{expr}] ≡ {simple}\nanf: "{anf}"\ncnf: "{cnf}"\ndnf: "{dnf}"\nnnf: "{nnf}"\n')
+                dct[str(simple)].add(expr)
+                dct[str(simple)].add(anf)
+                dct[str(simple)].add(cnf)
+                dct[str(simple)].add(dnf)
+                dct[str(simple)].add(nnf)
+                
+                
+                  
+for i in (True, False):
+    for j in (True, False):
+        for k in (True, False):
+            p = 'p' if i else '~p'
+            q = 'q' if j else '~q'
+            r = 'q' if k else '~q'
+            expr = f'({p} | {q}) & {r}'
+            anf = to_anf(expr)
+            cnf = to_cnf(expr)
+            dnf = to_dnf(expr)
+            nnf = to_nnf(expr)
+            simple = simplify_logic(expr)
+            if len(str(simple)) > 2:
+                print(f'[{expr}] ≡ {simple}\nanf: "{anf}"\ncnf: "{cnf}"\ndnf: "{dnf}"\nnnf: "{nnf}"\n')
+                dct[str(simple)].add(expr)
+                dct[str(simple)].add(anf)
+                dct[str(simple)].add(cnf)
+                dct[str(simple)].add(dnf)
+                dct[str(simple)].add(nnf)
+                
+                
+                
+                  
+for i in (True, False):
+    for j in (True, False):
+        for k in (True, False):
+            p = 'p' if i else '~p'
+            q = 'q' if j else '~q'
+            r = 'q' if k else '~q'
+            expr = f'({p} & {q}) | {r}'
+            anf = to_anf(expr)
+            cnf = to_cnf(expr)
+            dnf = to_dnf(expr)
+            nnf = to_nnf(expr)
+            simple = simplify_logic(expr)
+            if len(str(simple)) > 2:
+                print(f'[{expr}] ≡ {simple}\nanf: "{anf}"\ncnf: "{cnf}"\ndnf: "{dnf}"\nnnf: "{nnf}"\n')
+                dct[str(simple)].add(expr)
+                dct[str(simple)].add(anf)
+                dct[str(simple)].add(cnf)
+                dct[str(simple)].add(dnf)
+                dct[str(simple)].add(nnf)
+                
+                
+                
+                  
+       
+dct2 = dict()
+for e, equivs in dct.items():
+    dct2[e] = set(
+       map(sympify, 
+        filter(lambda x: all(bad not in str(x) for bad in [
+            str('p | ~p'),
+            str('p & ~p'),
+            str('q | ~q'),
+            str('q & ~q'),
+            str(x)
+            ]), equivs)
+       )
+   )
+ for exp, equivs in dct2.items():
+     print(exp)
+     for eq in equivs:
+         print('\t'+str(eq))
