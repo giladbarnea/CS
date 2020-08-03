@@ -2,12 +2,20 @@
 	margin: 3pt;
 	/* padding: 0; */
 }
+div.box{
+	border-width: 1px;
+	border-color: black;
+	background-color: rgb(235,235,235);
+	width: 80%;
+	margin-top: 5pt;
+	margin-bottom: 5pt;
+}
 
 h1{
 	margin-bottom: 25pt;
 }
 h2{
-	margin: 20pt 5pt 15pt 5pt;
+	margin: 20pt 5pt 10pt 5pt;
 }
 h3{
 	margin: 15pt 5pt 10pt 5pt;

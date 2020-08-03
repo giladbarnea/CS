@@ -7,28 +7,40 @@ import click
 import re
 
 
+def escape(pair: tuple):
+    if isinstance(pair[0], str):
+        return '\\' + pair[0].strip(), pair[0].strip()
+    return pair
+
+
 def get_pairs():
     old_new_pairs = [
+        (re.compile(r'(not )(\([^ ]* [^ ]* [^ ]*.*\))', re.DOTALL),
+         lambda match: f'<span style="text-decoration: overline">{match.group(2)}</span>'),
         (' and ', ' ∧ '),
         (' AND ', ' ∧ '),
-        ('\\and', 'and'),
+        # ('\\and', 'and'),
         (' !in ', ' ∉ '),
         (' !IN ', ' ∉ '),
         (' in ', ' ∈ '),
-        ('\\in', 'in'),
+        # ('\\in', 'in'),
         (' IN ', ' ∈ '),
         (' union ', ' ∪ '),
-        ('\\union', 'union'),
+        (' uin ', ' ∪ '),
+        # ('\\union', 'union'),
         (' UNION ', ' ∪ '),
+        (' UIN ', ' ∪ '),
         (' intersection ', ' ∩ '),
         (' intersect ', ' ∩ '),
+        (' isct ', ' ∩ '),
         (' INTERSECTION ', ' ∩ '),
         (' INTERSECT ', ' ∩ '),
+        (' ISCT ', ' ∩ '),
         ('not ', '¬ '),
-        ('\\not', 'not'),
+        # ('\\not', 'not'),
         ('NOT ', '¬ '),
         (' or ', ' ∨ '),
-        ('\\or', 'or'),
+        # ('\\or', 'or'),
         (' OR ', ' ∨ '),
         ('All ', '∀ '),
         ('ALL ', '∀ '),
@@ -37,7 +49,7 @@ def get_pairs():
         (' equiv ', ' ≡ '),
         (' EQUIV ', ' ≡ '),
         (' equivalent ', ' ≡ '),
-        (' \\equivalent ', ' equivalent '),
+        # (' \\equivalent ', ' equivalent '),
         (' EQUIVALENT ', ' ≡ '),
         (' <=> ', ' ⇔ '),
         (' <-> ', ' ↔ '),
@@ -49,16 +61,19 @@ def get_pairs():
         ('=>', '⇒'),
         ('!<=', '⊈'),
         ('<=', '⊆'),
+        
         ('!<', '⊄'),
-        ('<', '⊂'),
+        (re.compile(r'(?<!\\)<(?!(span|/|strike|br|div))'), '⊂'),
         (' u ', ' ∪ '),
         (' n ', ' ∩ '),
-        ('-', '¬'),
+        # (re.compile(r'(?<= -)[^-]*(?!- )'), lambda match: f'<strike>{match.group()}</strike>'),
+        (re.compile(r'(?<![-\w])-(?![- ])'), '¬'),
         ('~', '¬'),
         ('!=', '≠'),
         
         ]
-    return old_new_pairs
+    escaped = list(map(escape, old_new_pairs))
+    return old_new_pairs + escaped
 
 
 def replace_values(old_new_pairs: list, text):
@@ -115,12 +130,16 @@ def from_file(input: Path, out: Path, css: str = None, keepmath=False):
     print(f'backed up to {input.with_suffix(".backup")}')
     
     pairs = get_pairs()
-    # make each newline a double newline
-    # breakpoint()
     text = replace_values([
-        (re.compile(r'// [^\n]*'), lambda match: f'<span style="padding-left: 25pt; color: rgb(75,75,75)">{match.group()}</span>'),
+        # inline comment:
+        (re.compile(r'(?<!\n)// [^\n]*'), lambda match: f'<span style="padding-left: 25pt; color: rgb(75,75,75)">{match.group()}</span>'),
+        
+        # comment in its own line
+        (re.compile(r'(?<=\n)// [^\n]*'), lambda match: f'<span style="color: rgb(75,75,75)">{match.group()}</span>'),
+        
         ('\n\n\n\n', '\n<br><br>\n'),
         ('\n\n\n', '\n<br>\n'),
+        # (re.compile(r'<div class="box">[^(</div>)]*', re.DOTALL), lambda match: 'BEFORE ' + match.group() + 'AFTER'),
         (re.compile('\n'), '\n\n'),
         # (re.compile(r'(?<=\n)\n(?=[^\n])'), '\n<br>'),
         ], text)
