@@ -130,7 +130,11 @@ def from_file(input: Path, out: Path, css: str = None, keepmath=False):
     print(f'backed up to {input.with_suffix(".backup")}')
     
     pairs = get_pairs()
+    
     text = replace_values([
+        
+        (re.compile(r'(?<=<box>\n)[\w\W]*(?=</box>)', re.DOTALL),
+         lambda match: match.group().replace('\n', '<br>')),
         # inline comment:
         (re.compile(r'(?<!\n)// [^\n]*'), lambda match: f'<span style="padding-left: 25pt; color: rgb(75,75,75)">{match.group()}</span>'),
         
@@ -139,9 +143,10 @@ def from_file(input: Path, out: Path, css: str = None, keepmath=False):
         
         ('\n\n\n\n', '\n<br><br>\n'),
         ('\n\n\n', '\n<br>\n'),
-        # (re.compile(r'<div class="box">[^(</div>)]*', re.DOTALL), lambda match: 'BEFORE ' + match.group() + 'AFTER'),
+        ('<box>', '<div class="box">'),
+        ('</box>', '</div>'),
+        
         (re.compile('\n'), '\n\n'),
-        # (re.compile(r'(?<=\n)\n(?=[^\n])'), '\n<br>'),
         ], text)
     lines = text.splitlines()
     

@@ -29,21 +29,17 @@ Prove:
 
 // I'll now prove that [(A\B) u (A u B)] equiv (A u B), 
 // then get back to expanding the full statement 
-<div class="box">
+
+<box>
 Since (A\B) <= A \and A <= (A u B) =>
-
-
 (A\B) <= (A u B)
-
-
 Therefore
-
-
 (A\B) u (A u B) = (A u B)
-</div>
+</box>
+
 **(A u B) n [(A n -B) u -C]**
 ---
-We see that left-hand side equiv right-hand side, Therefore
+We see that left-hand side equiv right-hand side, therefore
 **(A\B) ∪ (B\C) = (A ∪ B) \ (B ∩ C)**
 /%math
 
