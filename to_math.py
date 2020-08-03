@@ -8,21 +8,26 @@ import click
 
 def get_pairs():
     old_new_pairs = [
-        (' and ', ' Λ '),
-        (' AND ', ' Λ '),
+        (' and ', ' ∧ '),
+        (' AND ', ' ∧ '),
+        ('\\and', 'and'),
         (' !in ', ' ∉ '),
         (' !IN ', ' ∉ '),
         (' in ', ' ∈ '),
+        ('\\in', 'in'),
         (' IN ', ' ∈ '),
         (' union ', ' ∪ '),
+        ('\\union', 'union'),
         (' UNION ', ' ∪ '),
         (' intersection ', ' ∩ '),
         (' intersect ', ' ∩ '),
         (' INTERSECTION ', ' ∩ '),
         (' INTERSECT ', ' ∩ '),
         ('not ', '¬ '),
+        ('\\not', 'not'),
         ('NOT ', '¬ '),
         (' or ', ' ∨ '),
+        ('\\or', 'or'),
         (' OR ', ' ∨ '),
         ('All ', '∀ '),
         ('ALL ', '∀ '),
@@ -31,6 +36,7 @@ def get_pairs():
         (' equiv ', ' ≡ '),
         (' EQUIV ', ' ≡ '),
         (' equivalent ', ' ≡ '),
+        (' \\equivalent ', ' equivalent '),
         (' EQUIVALENT ', ' ≡ '),
         (' <=> ', ' ⇔ '),
         (' <-> ', ' ↔ '),
@@ -49,12 +55,13 @@ def get_pairs():
         ('-', '¬'),
         ('~', '¬'),
         ('!=', '≠'),
-        ('\t', '    ')
+        ('//', '<span style="padding-left: 25pt; color: grey">//</span>'),
         ]
     return old_new_pairs
 
 
 def replace_values(old_new_pairs: list, text):
+    replacced = []
     replaced = text
     count = 0
     for old, new in old_new_pairs:

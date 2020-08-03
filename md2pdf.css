@@ -1,10 +1,20 @@
 * {
-	margin: 5pt;
+	margin: 3pt;
 	/* padding: 0; */
 }
+
 h1{
-	margin: 25pt 5pt;
+	margin-bottom: 25pt;
 }
 h2{
 	margin: 20pt 5pt 15pt 5pt;
+}
+h3{
+	margin: 15pt 5pt 15pt 5pt;
+}
+h4{
+	margin: 10pt 5pt 10pt 5pt;
+}
+hr{
+	margin: 15pt 0pt
 }
