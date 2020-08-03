@@ -22,7 +22,7 @@ Prove:
 #### Second: expand right-hand side (A ∪ B) \ (B ∩ C)
 (A ∪ B) ∩ not (B ∩ C)
 (A ∪ B) ∩ (¬B ∪ ¬C)
-(A n -B) u (A n -C) u (B n -B) u (B n -C)
+(A n -B) u (A n -C) u (B n -B) u (B n -C) // dist
 (A\B) u (A n -C) u (B n -C) // (B n -B) equiv 0
 (A\B) u [(A u B) n -C] // dist
 [(A\B) u (A u B)] n [(A n -B) u -C] // dist
