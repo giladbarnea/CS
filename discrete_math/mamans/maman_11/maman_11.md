@@ -71,14 +71,14 @@ C ∈ P(A) ∨ C ∈ P(B)
 A ∈ P(A)
 P(A) ⊆ P(A) ∪ P(B) // union definition
 A ∈ P(A) ∪ P(B)
-Given P(C) = P(A) ∪ P(B) ⇒ A ∈ P(C)
+Given P(C) = (P(A) ∪ P(B)) ⇒ A ∈ P(C)
 **A⊆C**
 
 
 B ∈ P(B)
 P(B) ⊆ P(A) ∪ P(B) // union definition
 B ∈ P(A) ∪ P(B)
-Given P(C) = P(A) ∪ P(B) ⇒ B ∈ P(C)
+Given P(C) = (P(A) ∪ P(B)) ⇒ B ∈ P(C)
 **B⊆C**
 ---
 Since C⊆A ∨ C⊆B and A⊆C and B⊆C,
