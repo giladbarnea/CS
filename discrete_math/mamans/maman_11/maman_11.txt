@@ -1,6 +1,0 @@
-Mama∩ 11
-2 bet
-
-Pro∨e: 
-if P(A) ∪ P(B) = P(C), the∩ (C=A) ∨ (C=B)
-
