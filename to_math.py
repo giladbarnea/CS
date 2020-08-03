@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 from md2pdf import md2pdf
 import click
+import re
 
 
 def get_pairs():
@@ -55,19 +56,23 @@ def get_pairs():
         ('-', '¬'),
         ('~', '¬'),
         ('!=', '≠'),
-        ('//', '<span style="padding-left: 25pt; color: grey">//</span>'),
+        
         ]
     return old_new_pairs
 
 
 def replace_values(old_new_pairs: list, text):
-    replacced = []
     replaced = text
-    count = 0
+    # count = 0
     for old, new in old_new_pairs:
-        count += replaced.count(old)
-        replaced = replaced.replace(old, new)
-    print(f'made {count} replacements')
+        if isinstance(old, re.Pattern):
+            # count += len(re.findall(old,replaced))
+            replaced = re.sub(old, new, replaced)
+        else:  # str
+            # count += replaced.count(old)
+            replaced = replaced.replace(old, new)
+    
+    # print(f'made {count} replacements')
     return replaced
 
 
@@ -104,14 +109,24 @@ to_math.py -h, --help
 
 def from_file(input: Path, out: Path, css: str = None, keepmath=False):
     with open(input) as f:
-        lines = f.readlines()
+        text = f.read()
     with open(input.with_suffix('.backup'), mode='w') as f:
-        f.writelines(lines)
+        f.write(text)
     print(f'backed up to {input.with_suffix(".backup")}')
     
     pairs = get_pairs()
     # make each newline a double newline
-    lines = list(map(lambda s: s + '\n' if s.endswith('\n') and s != '\n' else s, lines))
+    # breakpoint()
+    text = replace_values([
+        (re.compile(r'// [^\n]*'), lambda match: f'<span style="padding-left: 25pt; color: rgb(75,75,75)">{match.group()}</span>'),
+        ('\n\n\n\n', '\n<br><br>\n'),
+        ('\n\n\n', '\n<br>\n'),
+        (re.compile('\n'), '\n\n'),
+        # (re.compile(r'(?<=\n)\n(?=[^\n])'), '\n<br>'),
+        ], text)
+    lines = text.splitlines()
+    
+    # lines = list(map(lambda s: s + '\n' if s.endswith('\n') and s != '\n' else s, lines))
     # replaced = []
     # if input.suffix == '.md':
     #     for line in lines:
@@ -124,6 +139,8 @@ def from_file(input: Path, out: Path, css: str = None, keepmath=False):
     replaced = []
     is_math = False
     for line in lines:
+        # if not line.strip():
+        #     breakpoint()
         if is_math:
             if line.strip() == '/%math':
                 # can only happen toggled is_math=True
@@ -150,7 +167,7 @@ def from_file(input: Path, out: Path, css: str = None, keepmath=False):
         md2pdf(str(out), md_content='\n'.join(replaced), css_file_path=css)
     else:
         with open(out, mode='w') as f:
-            f.writelines(replaced)
+            f.write('\n'.join(replaced))
     print(f'wrote modified content of {input} into {out}')
 
 
