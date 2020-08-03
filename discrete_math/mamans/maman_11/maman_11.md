@@ -1,6 +1,6 @@
 # ממ"ן 11
 
-Note: I'll be using e.g. ¬(A ∪ B)
+**Note**: I'll be using e.g. ¬(A ∪ B)
 to represent the complement of (A ∪ B)
 (My editor doesn't support superscript or overline)
 
