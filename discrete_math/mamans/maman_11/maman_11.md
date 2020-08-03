@@ -1,9 +1,9 @@
 גלעד ברנע ת.ז. 203627310
 # ממ"ן 11
 
-**Note**: I'll be using e.g. _¬(A ∪ B)_
-to represent the _complement of (A ∪ B)_
-(My editor doesn't support superscript or overline)
+**Note**: Sometimes I'll be using e.g. ¬(A ∪ B)
+to represent the complement of (A ∪ B)
+(My script doesn't fully support superscript or overline)
 
 ## 2
 
@@ -12,22 +12,22 @@ Prove:
 %math
 (A\B) ∪ (B\C) = (A ∪ B) \ (B ∩ C)
 ---
-#### First: expand left-hand side
-(A ∩ ¬ B) ∪ (B ∩ ¬C)  // diff
-(A ∪ B) ∩ (A ∪ ¬C) ∩ (¬ B ∪ B) ∩ (¬B ∪ ¬C) // distributivity
-(A ∪ B) ∩ (A union ¬ C) ∩ (¬B ∪ ¬C) // (¬B ∪ B) equiv T
-**(A ∪ B) ∩ [(A ∩ ¬ B) ∪ ¬ C]** // dist.
+#### First: expand left-hand side (A\B) ∪ (B\C)
+(A ∩ ¬B) ∪ (B ∩ ¬C)  // diff
+(A ∪ B) ∩ (A ∪ ¬C) ∩ (¬B ∪ B) ∩ (¬B ∪ ¬C) // distributivity
+(A ∪ B) ∩ (A union ¬C) ∩ (¬B ∪ ¬C) // (¬B ∪ B) equiv T
+**(A ∪ B) ∩ [(A ∩ ¬B) ∪ ¬C]** // dist.
 
 
-#### Second: expand right-hand side
+#### Second: expand right-hand side (A ∪ B) \ (B ∩ C)
 (A ∪ B) ∩ not (B ∩ C)
 (A ∪ B) ∩ (¬B ∪ ¬C)
 (A n -B) u (A n -C) u (B n -B) u (B n -C)
 (A\B) u (A n -C) u (B n -C) // (B n -B) equiv 0
 (A\B) u [(A u B) n -C] // dist
-[(A\B) u (A u B)] n [(-A n -B) u -C] // dist
+[(A\B) u (A u B)] n [(A n -B) u -C] // dist
 
-// I'll now prove that [(A\-B) u (A u B)] equiv (A u B), 
+// I'll now prove that [(A\B) u (A u B)] equiv (A u B), 
 // then get back to expanding the full statement 
 <div class="box">
 Since (A\B) <= A \and A <= (A u B) =>
@@ -41,10 +41,12 @@ Therefore
 
 (A\B) u (A u B) = (A u B)
 </div>
-(A u B) n [(-A n -B) u -C]
-
-
+**(A u B) n [(A n -B) u -C]**
+---
+We see that left-hand side equiv right-hand side, Therefore
+**(A\B) ∪ (B\C) = (A ∪ B) \ (B ∩ C)**
 /%math
+
 
 ## ב
 Prove: 
