@@ -227,6 +227,6 @@ Expanding (B\A):
 
 (¬A ∩ B) <span style="padding-left: 25pt; color: rgb(75,75,75)">// comm.</span>
 
-<span style="text-decoration: overline">(A ∪ ¬B) <span style="padding-left: 25pt; color: rgb(75,75,75)">// DeMorgan</span></span>
+<span style="text-decoration: overline">(A ∪ ¬B)</span> <span style="padding-left: 25pt; color: rgb(75,75,75)">// DeMorgan</span>
 
 

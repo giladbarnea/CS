@@ -120,8 +120,20 @@ Prove: if (A < B), then (A u -B) != U
 <thin>
 Since A is a __proper__ subset of B, then (B\A) != 0.
 Expanding (B\A):
-(B n -A)
-(-A n B) // comm.
-not (A u -B) // DeMorgan
+(B\A) = 
+(B n -A) = 
+(-A n B) =  // comm.
+not (A u -B)  // DeMorgan
+Therefore not (A u -B) != 0
+<thin> 
+Since the complement of a given set X is the universal set (U) if \and only if X=0, it follows that the complement of a given set Y is __not__ U if \and only if Y!=0.
+In other words:
+(¬X = U) ⇔ (X=∅) equiv
+[(¬X = U) and (X=∅)] or [not (¬X = U) and not (X=∅)] 
+-(-X = U) equiv (-X != U) or (X = 0)
+<thin> 
+Solving for X = (A u -B):
+-(-(A u -B) = U) equiv (-(A u -B) != U) or ((A u -B) = 0)
+-(not (A ∪ ¬B) = U) equiv (not (A ∪ ¬B) != U) or ((A u -B) = 0)
 
 /%math

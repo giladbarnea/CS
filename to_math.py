@@ -5,6 +5,13 @@ from pathlib import Path
 from md2pdf import md2pdf
 import click
 import re
+from ipdb import set_trace, launch_ipdb_on_exception
+from functools import partial
+
+sys.breakpointhook = partial(set_trace, context=30)
+
+
+# sys.excepthook = lambda *args, **kwargs: print(args, kwargs) or sys.breakpointhook()
 
 
 def escape(pair: tuple):
@@ -15,19 +22,16 @@ def escape(pair: tuple):
 
 def get_pairs():
     old_new_pairs = [
-        (re.compile(r'(not )(\([\w\W]* [\w\W]* [\w\W]*[^)]*)', re.DOTALL),
-         lambda match: f'<span style="text-decoration: overline">{match.group(2)}</span>'),
+        # (re.compile(r'(not )(\([\w\W]* [\w\W]* [\w\W]*[^)]*)', re.DOTALL),
+        #  lambda match: f'<span style="text-decoration: overline">{match.group(2)}</span>'),
         (' and ', ' ∧ '),
         (' AND ', ' ∧ '),
-        # ('\\and', 'and'),
         (' !in ', ' ∉ '),
         (' !IN ', ' ∉ '),
         (' in ', ' ∈ '),
-        # ('\\in', 'in'),
         (' IN ', ' ∈ '),
         (' union ', ' ∪ '),
         (' uin ', ' ∪ '),
-        # ('\\union', 'union'),
         (' UNION ', ' ∪ '),
         (' UIN ', ' ∪ '),
         (' intersection ', ' ∩ '),
@@ -39,21 +43,16 @@ def get_pairs():
         (' not ', ' ¬ '),
         (' NOT ', ' ¬ '),
         (' or ', ' ∨ '),
-        # ('\\or', 'or'),
         (' OR ', ' ∨ '),
         ('All ', '∀ '),
         ('ALL ', '∀ '),
         ('Exists ', '∃ '),
         ('EXISTS ', '∃ '),
-        (' equiv ', ' ≡ '),
-        (re.compile(r'(?<!\*)\*(?!\*)'), '·'),
-        (' EQUIV ', ' ≡ '),
-        (' equivalent ', ' ≡ '),
-        # (' \\equivalent ', ' equivalent '),
-        (' EQUIVALENT ', ' ≡ '),
+        (' equiv', ' ≡ '),
+        (re.compile(r'(?<!\*)\*(?!\*)'), '·'),  # mult
+        (' EQUIV', ' ≡ '),
         (' <=> ', ' ⇔ '),
         (' <-> ', ' ↔ '),
-        # ('|', '∨'),
         (' v ', ' ∨ '),
         ('&', 'Λ'),
         ('0', '∅'),
@@ -61,19 +60,30 @@ def get_pairs():
         ('=>', '⇒'),
         ('!<=', '⊈'),
         ('<=', '⊆'),
-        
         ('!<', '⊄'),
         (re.compile(r'(?<!\\)<(?!(span|/|strike|br|div))'), '⊂'),
         (' u ', ' ∪ '),
         (' n ', ' ∩ '),
-        # (re.compile(r'(?<= -)[^-]*(?!- )'), lambda match: f'<strike>{match.group()}</strike>'),
         (re.compile(r'(?<![-\w])-(?![- ])'), '¬'),
         ('~', '¬'),
         ('!=', '≠'),
         
         ]
-    escaped = list(map(escape, old_new_pairs))
-    return old_new_pairs + escaped
+    keys = set()
+    symbols = set()
+    escaped = []  # order matters
+    for key, symbol in filter(lambda pair: isinstance(pair[0], str), old_new_pairs):
+        stripped_key = key.strip()
+        stripped_symbol = symbol.strip()
+        keys.add(stripped_key if len(stripped_key) == 1 else f'({stripped_key})')
+        symbols.add(stripped_symbol if len(stripped_symbol) == 1 else f'({stripped_symbol})')
+        escaped.append(('\\' + stripped_key, stripped_key))
+    allowed = re.escape(''.join(list(keys) + list(symbols)))
+    # breakpoint()
+    complement = (re.compile(fr'(not )(\([\w{allowed}]* [\w{allowed}]* [\w{allowed}]*)'),
+                  lambda match: f'<span style="text-decoration: overline">{match.group(2)}</span>')
+    # escaped = list(map(escape, old_new_pairs))
+    return [complement] + old_new_pairs + escaped
 
 
 def replace_values(old_new_pairs: list, text):
@@ -118,12 +128,14 @@ to_math.py -h, --help
         """)
 
 
-def from_file(input: Path, out: Path, css: str = None, keepmath=False):
-    with open(input) as f:
+def from_file(infile: Path, outfile: Path, css: str = None, keepmath=False):
+    if infile == outfile and input(f'infile and outfile are the same ({infile}), continue? y/n\t') != 'y':
+        sys.exit('aborting')
+    with open(infile) as f:
         text = f.read()
-    with open(input.with_suffix('.backup'), mode='w') as f:
+    with open(infile.with_suffix('.backup'), mode='w') as f:
         f.write(text)
-    print(f'backed up to {input.with_suffix(".backup")}')
+    print(f'backed up to {infile.with_suffix(".backup")}')
     
     pairs = get_pairs()
     
@@ -150,7 +162,7 @@ def from_file(input: Path, out: Path, css: str = None, keepmath=False):
     
     # lines = list(map(lambda s: s + '\n' if s.endswith('\n') and s != '\n' else s, lines))
     # replaced = []
-    # if input.suffix == '.md':
+    # if infile.suffix == '.md':
     #     for line in lines:
     #         if line == '\n':
     #             # do nothing for just line breaks
@@ -185,12 +197,12 @@ def from_file(input: Path, out: Path, css: str = None, keepmath=False):
         # not math, append as is
         replaced.append(line)
     
-    if out.suffix == '.pdf':
-        md2pdf(str(out), md_content='\n'.join(replaced), css_file_path=css)
+    if outfile.suffix == '.pdf':
+        md2pdf(str(outfile), md_content='\n'.join(replaced), css_file_path=css)
     else:
-        with open(out, mode='w') as f:
+        with open(outfile, mode='w') as f:
             f.write('\n'.join(replaced))
-    print(f'wrote modified content of {input} into {out}')
+    print(f'wrote modified content of {infile} into {outfile}')
 
 
 @click.command()
@@ -220,4 +232,5 @@ def main(file=None, help=False, out=None, css=None, keepmath=False):
 
 
 if __name__ == "__main__":
-    main()
+    with launch_ipdb_on_exception():
+        main()
