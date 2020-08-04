@@ -1,17 +1,18 @@
 גלעד ברנע ת.ז. 203627310
 # ממ"ן 11
 
-**Note**: Sometimes I'll be using e.g. ¬(A ∪ B)
-to represent the complement of (A ∪ B)
-(My script doesn't fully support superscript or overline)
+**Note**: Sometimes I'll be using e.g. ¬A to represent the complement of A
+(My editor doesn't fully support superscript or overline)
+
+<line>
 
 ## 2
 
-## א
+### א
 Prove:
 %math
 (A\B) ∪ (B\C) = (A ∪ B) \ (B ∩ C)
----
+<thin>
 #### First: expand left-hand side (A\B) ∪ (B\C)
 (A ∩ ¬B) ∪ (B ∩ ¬C)  // diff
 (A ∪ B) ∩ (A ∪ ¬C) ∩ (¬B ∪ B) ∩ (¬B ∪ ¬C) // distributivity
@@ -38,22 +39,21 @@ Therefore
 </box>
 
 **(A u B) n [(A n -B) u -C]**
----
+<thin>
 We see that left-hand side equiv right-hand side, therefore
 **(A\B) ∪ (B\C) = (A ∪ B) \ (B ∩ C)**
 /%math
-
-
-## ב
+<line>
+### ב
 Prove: 
 if P(A) ∨ P(B) = P(C), then (C=A) ∨ (C=B)
----
+<thin>
 
 I'll be proving:
 (C⊆A ∧ A⊆C) ∨ (C⊆B ∧ B⊆C)
 Since it's equivalent to
 (C=A) ∨ (C=B)
----
+<thin>
 
 #### First: proof that C⊆A ∨ C⊆B
 C ∈ P(C) // power set definition
@@ -76,9 +76,52 @@ P(B) ⊆ P(A) ∪ P(B) // union definition
 B ∈ P(A) ∪ P(B)
 Given P(C) = (P(A) ∪ P(B)) ⇒ B ∈ P(C)
 **B⊆C**
----
+<thin>
 Since C⊆A ∨ C⊆B and A⊆C and B⊆C,
 we conclude that: 
 C⊆A ∨ C⊆B ∧ A⊆C ∧ B⊆C
 Therefore
 **(C=A) ∨ (C=B)**
+<line>
+### ג
+Prove:
+%math
+if A,B are finite \and |P(A)| = 2*|P(A\B)|, then |A n B| = 1
+<thin>
+#### (1)
+A\B equiv A \ (A n B) // by definition
+
+#### (2)
+We know that for any two sets X,Y, if Y<=X then |X\Y| = |X| - |X n Y|
+Certainly (A n B) <= A, so
+|A \ (A n B)| = |A| - |A n B|.
+
+#### (3)
+Assuming |A n B| = 1, if follows that:
+|A| - |A n B| = |A| - 1, therefore using (1) \and (2):
+|A\B| = |A \ (A n B)| = |A| - |A n B| = |A| - 1, so
+|P(A\B)| = 2^|A\B| = 2^(|A| - 1)
+
+#### (4): Expanding 2*|P(A\B)|
+2*|P(A\B)| = 2*2^(|A| - 1) = 2^|A|
+
+#### (5)
+|P(A)| = 2^|A| // by definition
+
+#### (6)
+|P(A)| = 2*|P(A\B)|
+
+/%math
+---
+## 3
+### א
+%math
+Prove: if (A < B), then (A u -B) != U
+<thin>
+Since A is a __proper__ subset of B, then (B\A) != 0.
+Expanding (B\A):
+(B n -A)
+(-A n B) // comm.
+not (A u -B) // DeMorgan
+
+/%math

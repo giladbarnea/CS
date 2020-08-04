@@ -15,7 +15,7 @@ def escape(pair: tuple):
 
 def get_pairs():
     old_new_pairs = [
-        (re.compile(r'(not )(\([^ ]* [^ ]* [^ ]*.*\))', re.DOTALL),
+        (re.compile(r'(not )(\([\w\W]* [\w\W]* [\w\W]*[^)]*)', re.DOTALL),
          lambda match: f'<span style="text-decoration: overline">{match.group(2)}</span>'),
         (' and ', ' ∧ '),
         (' AND ', ' ∧ '),
@@ -36,9 +36,8 @@ def get_pairs():
         (' INTERSECTION ', ' ∩ '),
         (' INTERSECT ', ' ∩ '),
         (' ISCT ', ' ∩ '),
-        ('not ', '¬ '),
-        # ('\\not', 'not'),
-        ('NOT ', '¬ '),
+        (' not ', ' ¬ '),
+        (' NOT ', ' ¬ '),
         (' or ', ' ∨ '),
         # ('\\or', 'or'),
         (' OR ', ' ∨ '),
@@ -47,13 +46,14 @@ def get_pairs():
         ('Exists ', '∃ '),
         ('EXISTS ', '∃ '),
         (' equiv ', ' ≡ '),
+        (re.compile(r'(?<!\*)\*(?!\*)'), '·'),
         (' EQUIV ', ' ≡ '),
         (' equivalent ', ' ≡ '),
         # (' \\equivalent ', ' equivalent '),
         (' EQUIVALENT ', ' ≡ '),
         (' <=> ', ' ⇔ '),
         (' <-> ', ' ↔ '),
-        ('|', '∨'),
+        # ('|', '∨'),
         (' v ', ' ∨ '),
         ('&', 'Λ'),
         ('0', '∅'),
@@ -78,16 +78,12 @@ def get_pairs():
 
 def replace_values(old_new_pairs: list, text):
     replaced = text
-    # count = 0
     for old, new in old_new_pairs:
         if isinstance(old, re.Pattern):
-            # count += len(re.findall(old,replaced))
             replaced = re.sub(old, new, replaced)
         else:  # str
-            # count += replaced.count(old)
             replaced = replaced.replace(old, new)
     
-    # print(f'made {count} replacements')
     return replaced
 
 
@@ -145,6 +141,8 @@ def from_file(input: Path, out: Path, css: str = None, keepmath=False):
         ('\n\n\n', '\n<br>\n'),
         ('<box>', '<div class="box">'),
         ('</box>', '</div>'),
+        ('<thin>', '<div class="thin-line"></div>'),
+        ('<line>', '<div class="line"></div>'),
         
         (re.compile('\n'), '\n\n'),
         ], text)
