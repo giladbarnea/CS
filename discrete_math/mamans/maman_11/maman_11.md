@@ -129,7 +129,7 @@ Therefore not (A u -B) != 0
 Since the complement of a given set X is the universal set (U) if \and only if X=0, it follows that the complement of a given set Y is __not__ U if \and only if Y!=0.
 In other words:
 (¬X = U) ⇔ (X=∅) equiv
-[(¬X = U) and (X=∅)] or [not (¬X = U) and not (X=∅)] 
+[(¬X = U) and (X=∅)] or [-(¬X = U) and -(X=∅)] 
 -(-X = U) equiv (-X != U) or (X = 0)
 <thin> 
 Solving for X = (A u -B):
