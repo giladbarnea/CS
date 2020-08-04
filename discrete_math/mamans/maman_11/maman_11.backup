@@ -6,6 +6,18 @@
 
 <line>
 
+## 1
+א: לא נכון
+ב: נכון
+ג: לא נכון
+ד: נכון
+ה: לא נכון
+ו: לא נכון
+ז: נכון
+ח: לא נכון
+
+<line>
+
 ## 2
 
 ### א
@@ -13,14 +25,13 @@ Prove:
 %math
 (A\B) ∪ (B\C) = (A ∪ B) \ (B ∩ C)
 <thin>
-#### First: expand left-hand side (A\B) ∪ (B\C)
-(A ∩ ¬B) ∪ (B ∩ ¬C)  // diff
+#### First: expanding left-hand side (A\B) ∪ (B\C)
+(A ∩ ¬B) ∪ (B ∩ ¬C)  // difference definition
 (A ∪ B) ∩ (A ∪ ¬C) ∩ (¬B ∪ B) ∩ (¬B ∪ ¬C) // distributivity
 (A ∪ B) ∩ (A union ¬C) ∩ (¬B ∪ ¬C) // (¬B ∪ B) equiv T
 **(A ∪ B) ∩ [(A ∩ ¬B) ∪ ¬C]** // dist.
 
-
-#### Second: expand right-hand side (A ∪ B) \ (B ∩ C)
+#### Second: expanding right-hand side (A ∪ B) \ (B ∩ C)
 (A ∪ B) ∩ not (B ∩ C)
 (A ∪ B) ∩ (¬B ∪ ¬C)
 (A n -B) u (A n -C) u (B n -B) u (B n -C) // dist
@@ -61,7 +72,6 @@ P(C) = P(A) ∨ P(B) ⇒ C ∈ (P(A) ∨ P(B))
 C ∈ P(A) ∨ C ∈ P(B)
 **C⊆A ∨ C⊆B**
 
-
 #### Second: proof that A⊆C ∨ B⊆C
 
 A ∈ P(A)
@@ -70,7 +80,6 @@ A ∈ P(A) ∪ P(B)
 Given P(C) = (P(A) ∪ P(B)) ⇒ A ∈ P(C)
 **A⊆C**
 
-
 B ∈ P(B)
 P(B) ⊆ P(A) ∪ P(B) // union definition
 B ∈ P(A) ∪ P(B)
@@ -78,11 +87,9 @@ Given P(C) = (P(A) ∪ P(B)) ⇒ B ∈ P(C)
 **B⊆C**
 <thin>
 Since C⊆A ∨ C⊆B and A⊆C and B⊆C,
-we conclude that: 
-C⊆A ∨ C⊆B ∧ A⊆C ∧ B⊆C
-Therefore
+// More formally: (C⊆A ∨ C⊆B) ∧ (A⊆C ∧ B⊆C)
+it follows that: 
 **(C=A) ∨ (C=B)**
-<line>
 ### ג
 Prove:
 %math
@@ -108,8 +115,8 @@ Assuming |A n B| = 1, if follows that:
 #### (5)
 |P(A)| = 2^|A| // by definition
 
-#### (6)
-|P(A)| = 2*|P(A\B)|
+#### (6): Putting it all together
+__|P(A)| = 2*|P(A\B)|__
 
 /%math
 ---
@@ -120,29 +127,32 @@ Assuming |A n B| = 1, if follows that:
 Prove: if (A < B), then (A u -B) != U
 <thin>
 Since A is a __proper__ subset of B, then (B\A) != 0.
-Expanding (B\A):
-(B\A) = 
-(B n -A) = 
-(-A n B) =  // comm.
-not (A u -B)  // DeMorgan
+Expanding (B\A) = (B n -A) = (-A n B) = not (A u -B)  // DeMorgan
 Therefore not (A u -B) ≠ ∅
 <thin> 
 Since the complement of a given set X is the universal set (U) if \and only if X=0, it follows that the complement of a given set Y is __not__ U if \and only if Y!=0.
 Because not (A u -B) ≠ ∅, then the complement of not (A u -B) != U, 
-therefore (A u -B) != U.  
+therefore __(A u -B) != U__. 
 /%math
 <line>
 
 ###ב
 %math
-Prove: if (-A sd B) = (-B sd C), then A=C
+Prove: if (-A sd B) = (-B sd C), then A=C.
 <thin>
 We know that (-A sd B) = (-B sd A), because:
-(-A n -B) u (B n A) = (-B n -A) u (A n B) // symm diff definition
+(-A sd B) = (-A n -B) u (A n ¬¬B) = 
+(-A n -B) u (B n A) // double negation 
+Similarly, 
+(-B sd A) = (-B n -A) u (¬¬B n A) = 
+(-A n -B) u (B n A) // double negation, comm.
 <thin>
 It's given that (-A sd B) = (-B sd C), so
 (-B sd A) = (-B sd C) // replaced (-A sd B) with (-B sd A)
 <thin>
-Since for any sets X, Y, Z; if (X sd Y) = (X sd Z), then X = Z; if follows that
-A=C 
+Since for any sets X, Y, Z:
+(X sd Y) = (X sd Z) => X = Z
+It follows that
+(-B sd A) = (-B sd C) => A = C
+Therefore __A = C__.
 /%math
