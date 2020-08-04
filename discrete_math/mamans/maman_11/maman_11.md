@@ -141,7 +141,7 @@ We know that (-A sd B) = (-B sd A), because:
 (-A n -B) u (B n A) = (-B n -A) u (A n B) // symm diff definition
 <thin>
 It's given that (-A sd B) = (-B sd C), so
-(-B sd A) = (-B sd C) // (-B sd A) = (-A sd B)
+(-B sd A) = (-B sd C) // replaced (-A sd B) with (-B sd A)
 <thin>
 Since for any sets X, Y, Z; if (X sd Y) = (X sd Z), then X = Z; if follows that
 A=C 
