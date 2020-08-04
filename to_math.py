@@ -48,7 +48,8 @@ def get_pairs():
         ('ALL ', '∀ '),
         ('Exists ', '∃ '),
         ('EXISTS ', '∃ '),
-        (' equiv', ' ≡ '),
+        (' sd ', ' Δ '),
+        (re.compile(r' equiv ?\b'), ' ≡ '),
         (re.compile(r'(?<!\*)\*(?!\*)'), '·'),  # mult
         (' EQUIV', ' ≡ '),
         (' <=> ', ' ⇔ '),

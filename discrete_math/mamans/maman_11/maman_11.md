@@ -115,6 +115,7 @@ Assuming |A n B| = 1, if follows that:
 ---
 ## 3
 ### א
+
 %math
 Prove: if (A < B), then (A u -B) != U
 <thin>
@@ -124,16 +125,24 @@ Expanding (B\A):
 (B n -A) = 
 (-A n B) =  // comm.
 not (A u -B)  // DeMorgan
-Therefore not (A u -B) != 0
+Therefore not (A u -B) ≠ ∅
 <thin> 
 Since the complement of a given set X is the universal set (U) if \and only if X=0, it follows that the complement of a given set Y is __not__ U if \and only if Y!=0.
-In other words:
-(¬X = U) ⇔ (X=∅) equiv
-[(¬X = U) and (X=∅)] or [-(¬X = U) and -(X=∅)] 
--(-X = U) equiv (-X != U) or (X = 0)
-<thin> 
-Solving for X = (A u -B):
--(-(A u -B) = U) equiv (-(A u -B) != U) or ((A u -B) = 0)
--(not (A ∪ ¬B) = U) equiv (not (A ∪ ¬B) != U) or ((A u -B) = 0)
+Because not (A u -B) ≠ ∅, then the complement of not (A u -B) != U, 
+therefore (A u -B) != U.  
+/%math
+<line>
 
+###ב
+%math
+Prove: if (-A sd B) = (-B sd C), then A=C
+<thin>
+We know that (-A sd B) = (-B sd A), because:
+(-A n -B) u (B n A) = (-B n -A) u (A n B) // symm diff definition
+<thin>
+It's given that (-A sd B) = (-B sd C), so
+(-B sd A) = (-B sd C) // (-B sd A) = (-A sd B)
+<thin>
+Since for any sets X, Y, Z; if (X sd Y) = (X sd Z), then X = Z; if follows that
+A=C 
 /%math
