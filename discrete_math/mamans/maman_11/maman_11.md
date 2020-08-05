@@ -1,8 +1,13 @@
 גלעד ברנע ת.ז. 203627310
 # ממ"ן 11
 
-**Note**: Sometimes I'll be using e.g. ¬A to represent the complement of A
-(My editor doesn't fully support superscript or overline)
+היי,
+אני ממש מצטער על ההגשה המאוחרת.
+זה לא הולך להיות הרגל, קרה משהו ספציפי שגרר את זה. 
+מקווה שזה לא מאוחר מידי
+
+
+שוב מתנצל, ותודה!
 
 <line>
 
@@ -90,6 +95,7 @@ Since C⊆A ∨ C⊆B and A⊆C and B⊆C,
 // More formally: (C⊆A ∨ C⊆B) ∧ (A⊆C ∧ B⊆C)
 it follows that: 
 **(C=A) ∨ (C=B)**
+<line>
 ### ג
 Prove:
 %math
