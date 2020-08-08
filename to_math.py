@@ -2,6 +2,7 @@
 
 import sys
 from pathlib import Path
+from typing import Union, Tuple, List
 from md2pdf import md2pdf
 import click
 import re
@@ -14,47 +15,29 @@ sys.breakpointhook = partial(set_trace, context=30)
 # sys.excepthook = lambda *args, **kwargs: print(args, kwargs) or sys.breakpointhook()
 
 
-def escape(pair: tuple):
-    if isinstance(pair[0], str):
-        return '\\' + pair[0].strip(), pair[0].strip()
-    return pair
-
-
-def get_pairs():
+def _get_pairs() -> List[Tuple]:
+    # https://www.wikiwand.com/en/Mathematical_operators_and_symbols_in_Unicode
     old_new_pairs = [
-        # (re.compile(r'(not )(\([\w\W]* [\w\W]* [\w\W]*[^)]*)', re.DOTALL),
-        #  lambda match: f'<span style="text-decoration: overline">{match.group(2)}</span>'),
+        # case insensitive pairs first
         (' and ', ' ∧ '),
-        (' AND ', ' ∧ '),
         (' !in ', ' ∉ '),
-        (' !IN ', ' ∉ '),
         (' in ', ' ∈ '),
-        (' IN ', ' ∈ '),
         (' union ', ' ∪ '),
         (' uin ', ' ∪ '),
-        (' UNION ', ' ∪ '),
-        (' UIN ', ' ∪ '),
         (' intersection ', ' ∩ '),
         (' intersect ', ' ∩ '),
         (' isct ', ' ∩ '),
-        (' INTERSECTION ', ' ∩ '),
-        (' INTERSECT ', ' ∩ '),
-        (' ISCT ', ' ∩ '),
         (' not ', ' ¬ '),
-        (' NOT ', ' ¬ '),
         (' or ', ' ∨ '),
-        (' OR ', ' ∨ '),
-        ('All ', '∀ '),
-        ('ALL ', '∀ '),
-        ('Exists ', '∃ '),
-        ('EXISTS ', '∃ '),
-        (' sd ', ' Δ '),
+        ('all ', '∀ '),
+        ('exists ', '∃ '),
+        (re.compile(' (sd|sdiff) '), ' Δ '),
         (re.compile(r' equiv ?\b'), ' ≡ '),
         (re.compile(r'(?<!\*)\*(?!\*)'), '·'),  # mult
         (' EQUIV', ' ≡ '),
         (' <=> ', ' ⇔ '),
         (' <-> ', ' ↔ '),
-        (' v ', ' ∨ '),
+        
         ('&', 'Λ'),
         ('0', '∅'),
         ('->', '→'),
@@ -63,28 +46,60 @@ def get_pairs():
         ('<=', '⊆'),
         ('!<', '⊄'),
         (re.compile(r'(?<!\\)<(?!(span|/|strike|br|div))'), '⊂'),
-        (' u ', ' ∪ '),
-        (' n ', ' ∩ '),
+        
         (re.compile(r'(?<![-\w])-(?![- ])'), '¬'),
+        (re.compile(r'(?<=[A-Z]) ?(x|cp) ?(?=[A-Z])'), '×'),  # cartesian prod
         ('~', '¬'),
         ('!=', '≠'),
+        ('!=', '≠'),
+        (' inf ', '∞'),
+        (' sqr ', '√'),
+        (re.compile(r'(?<= )(powerset|pset)(?=( |\())'), '𝓟'),
+        # (re.compile(r'<(?=\w)'), '⟨'),
+        # (re.compile(r'(?<=\w)>'), '⟩'),
         
         ]
+    # add uppercase form
+    old_new_pairs += [(key, symbol) if isinstance(key, re.Pattern) else (key.upper(), symbol) for key, symbol in old_new_pairs]
+    
+    # case sensitive pairs todo: consider doing like ×
+    old_new_pairs += [(' u ', ' ∪ '),
+                      (' n ', ' ∩ '),
+                      (' v ', ' ∨ '), ]
     keys = set()
     symbols = set()
     escaped = []  # order matters
-    for key, symbol in filter(lambda pair: isinstance(pair[0], str), old_new_pairs):
-        stripped_key = key.strip()
+    # for key, symbol in filter(lambda pair: isinstance(pair[0], str), old_new_pairs):
+    for key, symbol in old_new_pairs:
+        # populate `escaped` list with keys of pairs that are strings,
+        # because hopefully regex pairs are specific enough to not need a way to escape
+        # `escaped` list becomes part of returned pairs
+        # `symbols` and `keys` sets are joined into `allowed` str for `complement` pair
+        
+        try:
+            stripped_key = key.strip()
+        except AttributeError as e:
+            pass  # re.Pattern
+        else:
+            # "u" → "u", but "sd" → "(sd)". NOTE: () aren't literal, they're interpreted by reg
+            keys.add(stripped_key if len(stripped_key) == 1 else f'({stripped_key})')
+            escaped.append(('\\' + stripped_key, stripped_key))
+        
         stripped_symbol = symbol.strip()
-        keys.add(stripped_key if len(stripped_key) == 1 else f'({stripped_key})')
         symbols.add(stripped_symbol if len(stripped_symbol) == 1 else f'({stripped_symbol})')
-        escaped.append(('\\' + stripped_key, stripped_key))
-    allowed = re.escape(''.join(list(keys) + list(symbols)))
-    # breakpoint()
-    complement = (re.compile(fr'(not )(\([\w{allowed}]* [\w{allowed}]* [\w{allowed}]*)'),
+    
+    allowed: str = re.escape(''.join(keys.union(symbols)))
+    
+    binary_rel = rf'[\w{allowed}]+ [\w{allowed}]+ [\w{allowed}]+'
+    # i.e. "not (A or B)", "not (A ∪ B)", "not (~A ∪ ∅)"
+    # whitespace is not optional to prevent false positives
+    complement = (re.compile(fr'(not )(\({binary_rel}\))'),
                   lambda match: f'<span style="text-decoration: overline">{match.group(2)}</span>')
-    # escaped = list(map(escape, old_new_pairs))
+    
     return [complement] + old_new_pairs + escaped
+
+
+CHAR_MATH_PAIRS = _get_pairs()
 
 
 def replace_values(old_new_pairs: list, text):
@@ -100,7 +115,7 @@ def replace_values(old_new_pairs: list, text):
 
 def replace_and_copy(text: str):
     from pyperclip import copy
-    replaced = replace_values(get_pairs(), text)
+    replaced = replace_values(CHAR_MATH_PAIRS, text)
     copy(replaced)
     print(f'copied {len(replaced)} chars successfully')
     return replaced
@@ -125,7 +140,7 @@ to_math.py path/to/file.md [--out=<OUT> [--css=<STYLE.CSS>]] [--keepmath]
 to_math.py -h, --help
     this message
 
-{newline.join(map(repr, get_pairs()))}
+{newline.join(map(repr, CHAR_MATH_PAIRS))}
         """)
 
 
@@ -137,8 +152,6 @@ def from_file(infile: Path, outfile: Path, css: str = None, keepmath=False):
     with open(infile.with_suffix('.backup'), mode='w') as f:
         f.write(text)
     print(f'backed up to {infile.with_suffix(".backup")}')
-    
-    pairs = get_pairs()
     
     text = replace_values([
         
@@ -185,7 +198,7 @@ def from_file(infile: Path, outfile: Path, css: str = None, keepmath=False):
                 continue
             
             # it's math
-            replaced.append(replace_values(pairs, line))
+            replaced.append(replace_values(CHAR_MATH_PAIRS, line))
             continue
         
         # is_math = False
