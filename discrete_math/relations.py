@@ -27,14 +27,33 @@ def relate_sqr(v, rel:Callable[[int,int],bool], quiet=True):
                     print(f'<x,y> = <{x},{y}> (z: {z})')
     return r2
 
-def is_symm(v, rel:Callable[[int,int],bool]):
+def is_symmetric(v, rel:Callable[[int,int],bool]):
+    """A relation is symmetric if for every pair <a,b> in R, also <b,a> in R
+    >>> symmetric = [universal_rel, empty_rel, eq, ne]
+    >>> all(is_symmetric(randset(300), _) for _ in symmetric)
+    True
+    
+    >>> not_symmetric = [lt, le]
+    >>> any(is_symmetric(randset(300), _) for _ in not_symmetric)
+    False
+    
+    """
     relation = relate(v,rel)
     for x,y in cartesian_prod(v):
         if rel(y,x) and (x,y) not in relation:
             return False
     return True
 
-def is_anti_symm(v, rel:Callable[[int,int],bool]):
+def is_anti_symmetric(v, rel:Callable[[int,int],bool]):
+    """A relation is anti symmetric if for every pair <a,b> in R, <b,a> is not in R
+    >>> anti_symmetric = [lt, empty_rel]
+    >>> all(is_anti_symmetric(randset(300), _) for _ in anti_symmetric)
+    True
+    
+    >>> not_anti_symmetric = [lambda a,b:b<a**2]
+    >>> any(is_anti_symmetric(randset(300), _) for _ in not_anti_symmetric)
+    False
+    """
     relation = relate(v,rel)
     for x,y in cartesian_prod(v):
         if rel(y,x) and (x,y) in relation:
@@ -42,14 +61,32 @@ def is_anti_symm(v, rel:Callable[[int,int],bool]):
     return True
 
 def is_reflexive(v, rel:Callable[[int,int],bool]):
-    for x,y in cartesian_prod(v):
-        if not rel(x,x) or not rel(y,y):
+    """A relation is reflexive if every x in v satisfies rel(x,x)
+    >>> reflexive = [universal_rel, identity_rel, le]
+    >>> all(is_reflexive(randset(300), _) for _ in reflexive)
+    True
+    >>> not_reflexive = [ne, lt, empty_rel]
+    >>> any(is_reflexive(randset(300), _) for _ in not_reflexive)
+    False
+    
+    """
+    for x in v:
+        if not rel(x,x):
             return False
     return True
 
 def is_anti_reflexive(v, rel:Callable[[int,int],bool]):
-    for x,y in cartesian_prod(v):
-        if rel(x,x) or rel(y,y):
+    """A relation is anti reflexive if no x in v satisfies rel(x,x)
+    >>> anti_reflexive = [ne, lt, empty_rel]
+    >>> all(is_anti_reflexive(randset(300), _) for _ in anti_reflexive)
+    True
+    >>> not_anti_reflexive = [eq, le]
+    >>> any(is_anti_reflexive(randset(300), _) for _ in not_anti_reflexive)
+    False
+    
+    """
+    for x in v:
+        if rel(x,x):
             return False
     return True
 
