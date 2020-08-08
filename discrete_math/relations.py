@@ -2,6 +2,7 @@ from itertools import product as prod
 from typing import Callable
 from operator import eq, le, lt, ge, gt, ne
 from functools import partial
+from random import randint
 cartesian_prod = lambda v:prod(v,v)
 universal_rel = lambda a,b:True
 empty_rel = lambda a,b:False
