@@ -54,17 +54,20 @@ def relate_sqr(v, rel, quiet=True):
     """
     r2 = set()
     if callable(rel):
-        satisfies = rel
+        for x, y in cartesian_prod(v):
+            for z in v:
+                if rel(x, z) and rel(z, y):
+                    r2.add((x, y))
+                    if not quiet:
+                        print(f'<x={x}, y={y}> (z={z})')
     else:
-        satisfies = lambda a,b:(a,b) in rel
+        for x1, z1 in rel:
+            for z2, y2 in rel:
+                if z2 == z1:
+                    r2.add((x1,y2))
+                    if not quiet:
+                        print(f'<x={x1}, y={y2}> (z={z1})')
     
-    for x, y in cartesian_prod(v):
-        for z in v:
-            if satisfies(x, z) and satisfies(z, y):
-                r2.add((x, y))
-                if not quiet:
-                    print(f'<x={x}, y={y}> (z={z})')
-    if not callable(rel):
         try:
             known_rels = dict(
                         universal_rel=universal_rel,
