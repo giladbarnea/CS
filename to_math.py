@@ -30,8 +30,8 @@ def _get_pairs() -> List[Tuple]:
         (' isct ', ' ∩ '),
         (' not ', ' ¬ '),
         (' or ', ' ∨ '),
-        ('all ', '∀ '),
-        ('exists ', '∃ '),
+        ('All ', '∀ '),
+        ('Exists', '∃'),
         (re.compile(' (sd|sdiff) '), ' Δ '),
         (re.compile(r' equiv ?\b'), ' ≡ '),
         (re.compile(r'(?<!\*)\*(?!\*)'), '·'),  # mult
@@ -61,7 +61,7 @@ def _get_pairs() -> List[Tuple]:
         (' inf ', '∞'),
         (' sqr ', '√'),
         (re.compile(r'(?<= )(powerset|pset|P)(?= )?(?=(\())'), '𝓟'),
-        # (re.compile(r'<(?=\w)'), '⟨'),
+        (re.compile(r'<( ?\w ?, ?\w ?)>'), lambda match: f'⟨{match.groups()[0]}⟩'),
         # (re.compile(r'(?<=\w)>'), '⟩'),
         
         (re.compile(r'(?<=[A-Z\W])(?<= )?(u)(?= )?(?=[A-Z\W])'), ' ∪ '),
@@ -71,16 +71,17 @@ def _get_pairs() -> List[Tuple]:
         
         ]
     # add uppercase form
-    old_new_pairs += [(key, symbol) if isinstance(key, re.Pattern) else (key.upper(), symbol) for key, symbol in old_new_pairs]
+    # old_new_pairs += [(key, symbol) if isinstance(key, re.Pattern) else (key.upper(), symbol) for key, symbol in old_new_pairs]
     
-    # case sensitive pairs todo: consider doing like ×
-    old_new_pairs += [
-        
-        ]
+    # # case sensitive pairs todo: consider doing like ×
+    # old_new_pairs += [
+    #
+    #     ]
     keys = set()
     symbols = set()
     escaped = []  # order matters
     # for key, symbol in filter(lambda pair: isinstance(pair[0], str), old_new_pairs):
+    WORD_RE = re.compile(r'[a-zA-Z]+')
     for key, symbol in old_new_pairs:
         # populate `escaped` list with keys of pairs that are strings,
         # because hopefully regex pairs are specific enough to not need a way to escape
@@ -93,7 +94,7 @@ def _get_pairs() -> List[Tuple]:
             pass  # re.Pattern
         else:
             # "u" → "u", but "sd" → "(sd)". NOTE: () aren't literal, they're interpreted by reg
-            keys.add(stripped_key if len(stripped_key) == 1 else f'({stripped_key})')
+            keys.add(stripped_key if len(stripped_key) == 1 or WORD_RE.fullmatch(stripped_key) else f'({stripped_key})')
             escaped.append(('\\' + stripped_key, stripped_key))
         
         try:
@@ -101,7 +102,7 @@ def _get_pairs() -> List[Tuple]:
         except AttributeError as e:
             pass
         else:
-            symbols.add(stripped_symbol if len(stripped_symbol) == 1 else f'({stripped_symbol})')
+            symbols.add(stripped_symbol if len(stripped_symbol) == 1 or WORD_RE.fullmatch(stripped_symbol) else f'({stripped_symbol})')
     
     allowed: str = re.escape(''.join(keys.union(symbols)))
     
@@ -110,7 +111,7 @@ def _get_pairs() -> List[Tuple]:
     # i.e. "not (A or B)", "not (A ∪ B)", "not (~A ∪ ∅)"
     # whitespace is not optional to prevent false positives
     complement = (re.compile(fr'(not )(\({binary_rel}\))'),
-                  lambda match: f'<oline>{match.group(2)}</oline>')
+                  lambda match: f'<over>{match.group(2)}</over>')
     
     return [complement] + old_new_pairs + escaped
 
@@ -197,6 +198,7 @@ def from_file(infile: Path, outfile: Path, css: str = None, keepmath=False, math
             ('</box>', '</div>'),
             ('<thin>', '<div class="thin-line"></div>'),
             ('<line>', '<div class="line"></div>'),
+            (re.compile(r'(?<=[𝑹RA])2\b'), '<sup>2</sup>'),
             
             # exclude if last char in line is pipe == markdown table
             # this needs to be located after all other '\n' modifications

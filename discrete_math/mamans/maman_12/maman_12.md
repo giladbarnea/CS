@@ -20,22 +20,22 @@ Therefore:
 (AΔB⊆D ∧ BΔC⊆D) ≡ (AΔB ∪ BΔC) ⊆ D // (1)
 </box>
 <line>
-I'll prove that AΔC ⊆ (AΔB ∪ BΔC).
+I'll prove that AΔC ⊆ (AΔB ∪ BΔC), then it would follow by transience that AΔC⊆C
 <thin>
 Expanding (AΔB ∪ BΔC):
-(<oline>B</oline>∩A) ∪ (<oline>B</oline>∩C) ∪ (B∩<oline>A</oline>) ∪ (B∩<oline>C</oline>)
-[<oline>B</oline>n(AuC)] ∪ [Bn(<oline>A</oline>u<oline>C</oline>)]
-__(AΔB ∪ BΔC) ≡ [<oline>B</oline>n(AuC)] ∪ [Bn(<oline>A</oline>u<oline>C</oline>)]__ // (2)
+(<over>B</over>∩A) ∪ (<over>B</over>∩C) ∪ (B∩<over>A</over>) ∪ (B∩<over>C</over>)
+[<over>B</over>n(AuC)] ∪ [Bn(<over>A</over>u<over>C</over>)]
+__(AΔB ∪ BΔC) ≡ [<over>B</over>n(AuC)] ∪ [Bn(<over>A</over>u<over>C</over>)]__ // (2)
 
 
 Expanding AΔC:
-(An<oline>C</oline>) u (<oline>A</oline>nC)
-(A∪C) n (<oline>A</oline>u<oline>C</oline>)
-__AΔC ≡ (A∪C) n (<oline>A</oline>u<oline>C</oline>)__ // (3)
+(An<over>C</over>) u (<over>A</over>nC)
+(A∪C) n (<over>A</over>u<over>C</over>)
+__AΔC ≡ (A∪C) n (<over>A</over>u<over>C</over>)__ // (3)
 
 <thin>
 Define: 
-P = B; Q = (AuC); R = (<oline>A</oline>u<oline>C</oline>)
+P = B; Q = (AuC); R = (<over>A</over>u<over>C</over>)
 So proving Q∧R → (¬P∨Q ∨ P∧R),
 will prove that AΔC ⊆ (AΔB ∪ BΔC)
 <thin>
@@ -53,9 +53,9 @@ __Q∧R → (¬P∨Q ∨ P∧R) ≡ 𝚻__ // (4)
 <thin>
 P, Q \and R are placeholders (defined above), so I'll use their "real" values:
 Q∧R → (¬P∨Q ∨ P∧R) ≡
-(A∪C)∩(<oline>A</oline>u<oline>C</oline>) → [<oline>B</oline>n(AuC)] ∪ [Bn(<oline>A</oline>u<oline>C</oline>)]
+(A∪C)∩(<over>A</over>u<over>C</over>) → [<over>B</over>n(AuC)] ∪ [Bn(<over>A</over>u<over>C</over>)]
 // Using (3):
-AΔC ⊆ [<oline>B</oline>n(AuC)] ∪ [Bn(<oline>A</oline>u<oline>C</oline>)]
+AΔC ⊆ [<over>B</over>n(AuC)] ∪ [Bn(<over>A</over>u<over>C</over>)]
 // Using (2):
 __AΔC ⊆ (AΔB ∪ BΔC)__ // (5)
 <thin>

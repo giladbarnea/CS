@@ -1,7 +1,7 @@
 * {
     margin: 3pt;
-    font-family: "monospace";
-    letter-spacing: 0.3pt;
+    /* font-family: "monospace"; */
+    letter-spacing: 0.5pt;
     /* padding: 0; */
 }
 
@@ -35,7 +35,7 @@ hr {
     margin: 15pt 0
 }
 
-oline {
+over {
     text-decoration: overline;
 }
 
