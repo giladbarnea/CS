@@ -6,10 +6,11 @@ from typing import Union, Tuple, List
 from md2pdf import md2pdf
 import click
 import re
-from ipdb import set_trace, launch_ipdb_on_exception
+# from ipdb import set_trace, launch_ipdb_on_exception
 from functools import partial
 
-sys.breakpointhook = partial(set_trace, context=30)
+
+# sys.breakpointhook = partial(set_trace, context=30)
 
 
 # sys.excepthook = lambda *args, **kwargs: print(args, kwargs) or sys.breakpointhook()
@@ -40,7 +41,8 @@ def _get_pairs() -> List[Tuple]:
         (' iff ', ' ⟺ '),
         
         ('&', '∧'),
-        ('0', '∅'),
+        (re.compile(r'(?<!\d)0(?<!\d)'), '∅'),
+        ('==>', '⟹'),
         ('->', '→'),  # ⟶?
         ('=>', '⇒'),
         ('!<=', '⊈'),
@@ -51,14 +53,14 @@ def _get_pairs() -> List[Tuple]:
         (re.compile(r'(?<!\\)<(?!([a-z]|/))'), '⊂'),
         
         (re.compile(r'(?<![-\w])-(?![- ])'), '¬'),
-        (re.compile(r'(?<=[A-Z\W])(?<= )?(x|cp)(?= )?(?=[A-Z\W])'), '×'),  # cartesian prod
+        (re.compile(r'(?<=[A-Z)])(?<= )?(x|cp)(?= )?(?=[A-Z(])'), '×'),  # cartesian prod
         (re.compile(r'(?<=[A-Z])(?<= )?(-)(?= )?(?=[A-Z])'), '−'),  # minus
         ('~', '¬'),
         ('!=', '≠'),
         ('!=', '≠'),
         (' inf ', '∞'),
         (' sqr ', '√'),
-        (re.compile(r'(?<= )(powerset|pset|P)(?=([ (]))'), '𝓟'),
+        (re.compile(r'(?<= )(powerset|pset|P)(?= )?(?=(\())'), '𝓟'),
         # (re.compile(r'<(?=\w)'), '⟨'),
         # (re.compile(r'(?<=\w)>'), '⟩'),
         
@@ -191,10 +193,10 @@ def from_file(infile: Path, outfile: Path, css: str = None, keepmath=False, math
             ('\n\n\n', '\n<br>\n'),
             
             # uncomment if css box {} doesn't work and needs to be converted to div.box
-            # ('<box>', '<div class="box">'),
-            # ('</box>', '</div>'),
-            # ('<thin>', '<div class="thin-line"></div>'),
-            # ('<line>', '<div class="line"></div>'),
+            ('<box>', '<div class="box">'),
+            ('</box>', '</div>'),
+            ('<thin>', '<div class="thin-line"></div>'),
+            ('<line>', '<div class="line"></div>'),
             
             # exclude if last char in line is pipe == markdown table
             # this needs to be located after all other '\n' modifications

@@ -1,0 +1,59 @@
+Prove: 
+
+AΔB⊆D ∧ BΔC⊆D → AΔC⊆D
+
+<div class="line"></div>
+
+Since (X→Z) ∧ (Y→Z) ≡ (X∨Y)→Z, also:
+
+(AΔB⊆D ∧ BΔC⊆D) ≡ (AΔB ∪ BΔC) ⊆ D. Proof:
+
+<div class="box">
+
+(X→Z) ∧ (Y→Z)<br>Z∨¬X ∧ Z∨¬Y<br>Z∨¬(X∨Y)<br>(X∨Y) → Z<br><br>AΔB⊆D ∧ BΔC⊆D<br>(x∈(AΔB) → x∈D) ∧ (x∈(BΔC) → x∈D)<br>x∈(AΔB ∪ BΔC) → x∈D<br>(AΔB ∪ BΔC) ⊆ D<br></div>
+
+<div class="line"></div>
+
+I'll prove that AΔC ⊆ (AΔB ∪ BΔC).
+
+<div class="thin-line"></div>
+
+Expanding (AΔB ∪ BΔC):
+
+(<oline>B</oline>∩A) ∪ (<oline>B</oline>∩C) ∪ (B∩<oline>A</oline>) ∪ (B∩<oline>C</oline>)
+
+[<oline>B</oline>∩(A ∪ C)] ∪ [B∩(<oline>A</oline> ∪ <oline>C</oline>)]
+
+__(AΔB ∪ BΔC) ≡  [<oline>B</oline>∩(A ∪ C)] ∪ [B∩(<oline>A</oline> ∪ <oline>C</oline>)]__
+
+<br>
+
+Expanding AΔC:
+
+(A∩<oline>C</oline>)  ∪  (<oline>A</oline>∩C)
+
+(A∪C) ∩ (<oline>A</oline> ∪ <oline>C</oline>)
+
+__AΔC ≡  (A∪C) ∩ (<oline>A</oline> ∪ <oline>C</oline>)__
+
+
+
+<div class="thin-line"></div>
+
+Define: 
+
+P = B; Q = (A ∪ C); R = (<oline>A</oline> ∪ <oline>C</oline>)
+
+So proving Q∧R → (¬P∨Q ∨ P∧R),
+
+will prove that AΔC ⊆ (AΔB ∪ BΔC)
+
+<div class="thin-line"></div>
+
+Expanding Q∧R → (¬P∨Q ∨ P∧R):
+
+<br>
+
+|    |    |
+| -- | -- |
+|hello |  world  |

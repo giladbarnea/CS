@@ -132,3 +132,4 @@ dmypy.json
 *.mkv
 *~lock*
 .idea
+.wa_appid
