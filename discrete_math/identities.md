@@ -1,4 +1,5 @@
-<link href="style.css" rel="stylesheet"></link>
+<link href="markdown.css" rel="stylesheet"></link>
+
 |       |          |           |           |         |          |                        |                                     |     |
 | ----- | -------- | --------- | --------- | ------- | -------- | ---------------------- | ----------------------------------- | --- |
 | P∨Q   | ¬(¬P∧¬Q) | (P∧¬Q)∨Q  | P∨(¬P∧Q)  | ¬P→Q    |          | <oline>(¬A∪¬B)</oline> |

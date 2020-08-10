@@ -1,0 +1,66 @@
+* {
+    margin: 3pt;
+    font-family: "monospace";
+    letter-spacing: 0.3pt;
+    /* padding: 0; */
+}
+
+div.box, box {
+    border-width: 1px;
+    background-color: rgb(235, 235, 235);
+    width: 80%;
+    margin-top: 5pt;
+    margin-bottom: 5pt;
+    padding: 5pt;
+}
+
+h1 {
+    margin-bottom: 25pt;
+}
+
+h2 {
+    margin: 20pt 5pt 5pt 5pt;
+}
+
+h3 {
+    margin: 10pt 5pt 10pt 5pt;
+    font-size: x-large;
+}
+
+h4 {
+    margin: 10pt 5pt 10pt 5pt;
+}
+
+hr {
+    margin: 15pt 0
+}
+
+oline {
+    text-decoration: overline;
+}
+
+div.thin-line, thin-line {
+    background-color: rgb(200, 200, 200);
+    width: 80%;
+    height: 1px;
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+
+}
+
+div.line, line {
+    background-color: rgb(100, 100, 100);
+    width: 80%;
+    height: 1px;
+    margin-top: 20pt;
+    margin-bottom: 20pt;
+}
+
+grey {
+    color: rgb(75, 75, 75)
+}
+
+comment {
+    padding-left: 25pt;
+    color: rgb(75, 75, 75)
+}
