@@ -37,18 +37,22 @@ def _get_pairs() -> List[Tuple]:
         (' EQUIV', ' ≡ '),
         (' <=> ', ' ⇔ '),
         (' <-> ', ' ↔ '),
+        (' iff ', ' ⟺ '),
         
-        ('&', 'Λ'),
+        ('&', '∧'),
         ('0', '∅'),
-        ('->', '→'),
+        ('->', '→'),  # ⟶?
         ('=>', '⇒'),
         ('!<=', '⊈'),
         ('<=', '⊆'),
         ('!<', '⊄'),
-        (re.compile(r'(?<!\\)<(?!(span|/|strike|br|div))'), '⊂'),
+        
+        # ignore opening / closing tags
+        (re.compile(r'(?<!\\)<(?!([a-z]|/))'), '⊂'),
         
         (re.compile(r'(?<![-\w])-(?![- ])'), '¬'),
-        (re.compile(r'(?<=[A-Z]) ?(x|cp) ?(?=[A-Z])'), '×'),  # cartesian prod
+        (re.compile(r'(?<=[A-Z\W])(?<= )?(x|cp)(?= )?(?=[A-Z\W])'), '×'),  # cartesian prod
+        (re.compile(r'(?<=[A-Z])(?<= )?(-)(?= )?(?=[A-Z])'), '−'),  # minus
         ('~', '¬'),
         ('!=', '≠'),
         ('!=', '≠'),
@@ -58,14 +62,19 @@ def _get_pairs() -> List[Tuple]:
         # (re.compile(r'<(?=\w)'), '⟨'),
         # (re.compile(r'(?<=\w)>'), '⟩'),
         
+        (re.compile(r'(?<=[A-Z\W])(?<= )?(u)(?= )?(?=[A-Z\W])'), ' ∪ '),
+        (re.compile(r'(?<=[A-Z\W])(?<= )?(n)(?= )?(?=[A-Z\W])'), '∩'),
+        
+        (re.compile(r'(?<=[A-Z\W])(?<= )?(v)(?= )?(?=[A-Z\W])'), '∨'),
+        
         ]
     # add uppercase form
     old_new_pairs += [(key, symbol) if isinstance(key, re.Pattern) else (key.upper(), symbol) for key, symbol in old_new_pairs]
     
     # case sensitive pairs todo: consider doing like ×
-    old_new_pairs += [(' u ', ' ∪ '),
-                      (' n ', ' ∩ '),
-                      (' v ', ' ∨ '), ]
+    old_new_pairs += [
+        
+        ]
     keys = set()
     symbols = set()
     escaped = []  # order matters
@@ -85,21 +94,33 @@ def _get_pairs() -> List[Tuple]:
             keys.add(stripped_key if len(stripped_key) == 1 else f'({stripped_key})')
             escaped.append(('\\' + stripped_key, stripped_key))
         
-        stripped_symbol = symbol.strip()
-        symbols.add(stripped_symbol if len(stripped_symbol) == 1 else f'({stripped_symbol})')
+        try:
+            stripped_symbol = symbol.strip()
+        except AttributeError as e:
+            pass
+        else:
+            symbols.add(stripped_symbol if len(stripped_symbol) == 1 else f'({stripped_symbol})')
     
     allowed: str = re.escape(''.join(keys.union(symbols)))
     
-    binary_rel = rf'[\w{allowed}]+ [\w{allowed}]+ [\w{allowed}]+'
+    # minus in the middle for A - B
+    binary_rel = rf'[\w{allowed}]+ [\w{allowed}-]+ [\w{allowed}]+'
     # i.e. "not (A or B)", "not (A ∪ B)", "not (~A ∪ ∅)"
     # whitespace is not optional to prevent false positives
     complement = (re.compile(fr'(not )(\({binary_rel}\))'),
-                  lambda match: f'<span style="text-decoration: overline">{match.group(2)}</span>')
+                  lambda match: f'<oline>{match.group(2)}</oline>')
     
     return [complement] + old_new_pairs + escaped
 
 
 CHAR_MATH_PAIRS = _get_pairs()
+for arg in sys.argv[1:]:
+    if arg == '-y':
+        NO_CONFIRM = True
+        sys.argv.remove(arg)
+        break
+else:
+    NO_CONFIRM = False
 
 
 def replace_values(old_new_pairs: list, text):
@@ -128,14 +149,15 @@ to_math.py
     clipboard in/out. also prints result
 
 
-to_math.py path/to/file.md [--out=<OUT> [--css=<STYLE.CSS>]] [--keepmath]
+to_math.py path/to/file.md [--out=<OUT> [--css=<STYLE.CSS>]] [--keepmath] [--math-everywhere] [-y]
     backs up file to .backup, writes modified contents into <OUT> (or just prints if <OUT> is omitted)
     always prints result unless <OUT> is an actual file
-    if --keepmath, then %math /%math tags are not removed from result.
     
-    --out=path/to/outfile.pdf
-    --out=clipboard
-
+    if --keepmath, then %math /%math tags are not removed from result.
+    if --math-everywhere, then everything is treated as if inside %math /%math tags.
+    if -y, don't confirm when in and out files are the same.
+    
+    --out=path/to/outfile.pdf [--css=path/to/style.css]
 
 to_math.py -h, --help
     this message
@@ -144,8 +166,8 @@ to_math.py -h, --help
         """)
 
 
-def from_file(infile: Path, outfile: Path, css: str = None, keepmath=False):
-    if infile == outfile and input(f'infile and outfile are the same ({infile}), continue? y/n\t') != 'y':
+def from_file(infile: Path, outfile: Path, css: str = None, keepmath=False, math_everywhere=True):
+    if infile == outfile and not NO_CONFIRM and input(f'infile and outfile are the same ({infile}), continue? y/n\t') != 'y':
         sys.exit('aborting')
     with open(infile) as f:
         text = f.read()
@@ -153,25 +175,31 @@ def from_file(infile: Path, outfile: Path, css: str = None, keepmath=False):
         f.write(text)
     print(f'backed up to {infile.with_suffix(".backup")}')
     
-    text = replace_values([
-        
-        (re.compile(r'(?<=<box>\n)[\w\W]*(?=</box>)', re.DOTALL),
-         lambda match: match.group().replace('\n', '<br>')),
-        # inline comment:
-        (re.compile(r'(?<!\n)// [^\n]*'), lambda match: f'<span style="padding-left: 25pt; color: rgb(75,75,75)">{match.group()}</span>'),
-        
-        # comment in its own line
-        (re.compile(r'(?<=\n)// [^\n]*'), lambda match: f'<span style="color: rgb(75,75,75)">{match.group()}</span>'),
-        
-        ('\n\n\n\n', '\n<br><br>\n'),
-        ('\n\n\n', '\n<br>\n'),
-        ('<box>', '<div class="box">'),
-        ('</box>', '</div>'),
-        ('<thin>', '<div class="thin-line"></div>'),
-        ('<line>', '<div class="line"></div>'),
-        
-        (re.compile('\n'), '\n\n'),
-        ], text)
+    if infile.suffix == '.md':
+        text = replace_values([
+            
+            (re.compile(r'(?<=<box>\n)[\w\W]*(?=</box>)', re.DOTALL),
+             lambda match: match.group().replace('\n', '<br>')),
+            
+            # inline comment:
+            (re.compile(r'(?<!\n)// [^\n]*'), lambda match: f'<comment>{match.group()}</comment>'),
+            
+            # comment in its own line
+            (re.compile(r'(?<=\n)// [^\n]*'), lambda match: f'<grey>{match.group()}</grey>'),
+            
+            ('\n\n\n\n', '\n<br><br>\n'),
+            ('\n\n\n', '\n<br>\n'),
+            
+            # uncomment if css box {} doesn't work and needs to be converted to div.box
+            # ('<box>', '<div class="box">'),
+            # ('</box>', '</div>'),
+            # ('<thin>', '<div class="thin-line"></div>'),
+            # ('<line>', '<div class="line"></div>'),
+            
+            # exclude if last char in line is pipe == markdown table
+            # this needs to be located after all other '\n' modifications
+            (re.compile(r'(?<!\|)\n'), '\n\n'),
+            ], text)
     lines = text.splitlines()
     
     # lines = list(map(lambda s: s + '\n' if s.endswith('\n') and s != '\n' else s, lines))
@@ -185,14 +213,17 @@ def from_file(infile: Path, outfile: Path, css: str = None, keepmath=False):
     #             replaced.append(line + '\n')
     
     replaced = []
-    is_math = False
+    
+    # we want is_math = False if not math_everywhere, otherwise we want is_math = True all the time 
+    is_math = math_everywhere
     for line in lines:
         # if not line.strip():
         #     breakpoint()
         if is_math:
             if line.strip() == '/%math':
                 # can only happen toggled is_math=True
-                is_math = False
+                # we want is_math = False if not math_everywhere, otherwise we want is_math = True all the time 
+                is_math = math_everywhere
                 if keepmath:
                     replaced.append(line)
                 continue
@@ -225,7 +256,8 @@ def from_file(infile: Path, outfile: Path, css: str = None, keepmath=False):
 @click.option('-o', '--out', required=False)
 @click.option('--css', required=False)
 @click.option('--keepmath', is_flag=True, required=False)
-def main(file=None, help=False, out=None, css=None, keepmath=False):
+@click.option('--math-everywhere', is_flag=True, required=False)
+def main(file=None, help=False, out=None, css=None, keepmath=False, math_everywhere=False):
     if help is True:
         printhelp()
         return
@@ -236,7 +268,7 @@ def main(file=None, help=False, out=None, css=None, keepmath=False):
                 out = file
             else:
                 out = Path(out)
-            from_file(file, out, css, keepmath)
+            from_file(file, out, css, keepmath, math_everywhere)
             return
         else:
             sys.exit(f'{file} is not a file, aborting')
@@ -246,5 +278,5 @@ def main(file=None, help=False, out=None, css=None, keepmath=False):
 
 
 if __name__ == "__main__":
-    with launch_ipdb_on_exception():
-        main()
+    main()
+    # with launch_ipdb_on_exception():

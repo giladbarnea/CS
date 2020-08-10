@@ -61,6 +61,7 @@ def relate_sqr(v, rel, quiet=True):
                     if not quiet:
                         print(f'<x={x}, y={y}> (z={z})')
     else:
+        # p111 / q15
         for x1, z1 in rel:
             for z2, y2 in rel:
                 if z2 == z1:

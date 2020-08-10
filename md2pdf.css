@@ -3,7 +3,7 @@
     /* padding: 0; */
 }
 
-div.box {
+div.box, box {
     border-width: 1px;
     background-color: rgb(235, 235, 235);
     width: 80%;
@@ -33,7 +33,11 @@ hr {
     margin: 15pt 0
 }
 
-div.thin-line {
+oline {
+    text-decoration: overline;
+}
+
+div.thin-line, thin-line {
     background-color: rgb(200, 200, 200);
     width: 80%;
     height: 1px;
@@ -42,10 +46,19 @@ div.thin-line {
 
 }
 
-div.line {
+div.line, line {
     background-color: rgb(100, 100, 100);
     width: 80%;
     height: 1px;
     margin-top: 20pt;
     margin-bottom: 20pt;
+}
+
+grey {
+    color: rgb(75, 75, 75)
+}
+
+comment {
+    padding-left: 25pt;
+    color: rgb(75, 75, 75)
 }
