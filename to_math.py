@@ -58,7 +58,7 @@ def _get_pairs() -> List[Tuple]:
         ('!=', '≠'),
         (' inf ', '∞'),
         (' sqr ', '√'),
-        (re.compile(r'(?<= )(powerset|pset)(?=( |\())'), '𝓟'),
+        (re.compile(r'(?<= )(powerset|pset|P)(?=([ (]))'), '𝓟'),
         # (re.compile(r'<(?=\w)'), '⟨'),
         # (re.compile(r'(?<=\w)>'), '⟩'),
         

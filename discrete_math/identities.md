@@ -1,3 +1,4 @@
+<link href="style.css" rel="stylesheet"></link>
 |       |          |           |           |         |          |                        |                                     |     |
 | ----- | -------- | --------- | --------- | ------- | -------- | ---------------------- | ----------------------------------- | --- |
 | P∨Q   | ¬(¬P∧¬Q) | (P∧¬Q)∨Q  | P∨(¬P∧Q)  | ¬P→Q    |          | <oline>(¬A∪¬B)</oline> |
@@ -7,4 +8,4 @@
 | P∧Q   | ¬(¬P∨¬Q) | (P∨¬Q)∧Q  | (¬P∨Q)∧P  | ¬(P→¬Q) |          | <oline>(¬A∪¬B)</oline> |                                     |
 | P∧¬Q  | ¬(¬P∨Q)  | (P∨Q)∧¬Q  | (¬P∨¬Q)∧P | ¬(P→Q)  |          | (A∩<oline>B</oline>)   |                                     |
 | ¬P∧Q  | ¬(P∨¬Q)  | (¬P∨¬Q)∧Q | (P∨Q)∧¬P  | ¬(Q→P)  | ¬(¬P→¬Q) | (B−A)                  |                                     |
-| ¬P∧¬Q | ¬(P∨Q)   | (¬P∨Q)∧¬Q | (P∨¬Q)∧¬P | ¬(¬P→Q) |          | <oline>(A ∪ B)</oline>               | (<oline>A</oline>∩<oline>B</oline>) |
+| ¬P∧¬Q | ¬(P∨Q)   | (¬P∨Q)∧¬Q | (P∨¬Q)∧¬P | ¬(¬P→Q) |          | <oline>(A ∪ B)</oline> | (<oline>A</oline>∩<oline>B</oline>) |
