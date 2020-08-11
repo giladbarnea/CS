@@ -13,7 +13,7 @@ examples
 - (a=−b)2 = 𝗜ℝ
 - ⟨a,b⟩ ∈ 𝑹2 ⟺ ⟨a,c⟩,⟨c,b⟩ ∈ 𝑹
 
-#### Reflexivity: 𝑹:=relation(A) is reflexive if ∀a∈A(⟨a,a⟩∈𝑹)
+#### Reflexivity: 𝑹:=relation(A) is reflexive if ∀a ∈ A(⟨a,a⟩ ∈ 𝑹)
 𝑹 is reflexive if every item in A satisfies ⟨a,a⟩∈𝑹.
 A = { -1, 0, 1 }. Is the eq oblique contained \in 𝑹?
 properties
@@ -30,3 +30,5 @@ counter examples
 - ≠ (which is 𝗨A − 𝗜A)
 - <, >, ∅
 - a=−b (forward oblique)
+
+#### Anti-Reflexivity: 𝑹:=relation(A) is anti-reflexive if Exists a ∈ A(⟨a,a⟩ ∈ 𝑹)
