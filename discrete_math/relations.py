@@ -1,6 +1,6 @@
 from itertools import product as prod
 from typing import Callable, Union
-from operator import eq, le, lt, ge, gt, ne  # equal, lower-equal, lower-than, greater-equal, greater-than, not-equal
+from operator import le, lt, ge, gt, ne  # equal, lower-equal, lower-than, greater-equal, greater-than, not-equal
 from random import randint
 import inspect
 
@@ -40,8 +40,9 @@ def relate(v, rel: R, quiet=True):
     return relation
 
 
-def relate_sqr(v, rel, quiet=True):
+def relate_sqr(v, rel, quiet=True, alt=False):
     """Computes the squared relation.
+    a𝑹2c: {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ R ∧ ⟨b,c⟩ ∈ R)}
     
     >>> r2 = relate_sqr(randset(30), opposite_rel)
     >>> r = relate(randset(30), identity_rel)
@@ -54,20 +55,24 @@ def relate_sqr(v, rel, quiet=True):
     """
     r2 = set()
     if callable(rel):
-        for x, y in cartesian_prod(v):
-            for z in v:
-                if rel(x, z) and rel(z, y):
-                    r2.add((x, y))
-                    if not quiet:
-                        print(f'<x={x}, y={y}> (z={z})')
+        if not alt:
+            for a, c in cartesian_prod(v):
+                for b in v:
+                    if rel(a, b) and rel(b, c):
+                        r2.add((a, c))
+                        if not quiet:
+                            print(f'<a={a}, c={c}> (b={b})')
+        else:
+            return relate_sqr(v, relate(v,rel), quiet=quiet, alt=False)
+            
     else:
         # p111 / q15
-        for x1, z1 in rel:
-            for z2, y2 in rel:
-                if z2 == z1:
-                    r2.add((x1,y2))
+        for a, b in rel:
+            for b_, c in rel:
+                if b_ == b:
+                    r2.add((a,c))
                     if not quiet:
-                        print(f'<x={x1}, y={y2}> (z={z1})')
+                        print(f'<a={a}, c={c}> (b={b})')
     
         try:
             known_rels = dict(
@@ -85,13 +90,13 @@ def relate_sqr(v, rel, quiet=True):
 def is_symmetric(v, rel: R,quiet=True):
     """A relation is symmetric if for every pair <a,b> in R, also <b,a> in R
     In other words: rel(a,b) is True and rel(b,a) is True
-    >>> symmetric = [universal_rel, empty_rel, eq, ne]
+    >>> symmetric = [universal_rel, empty_rel, identity_rel, opposite_rel, ne]
     >>> all(is_symmetric(randset(100), _) for _ in symmetric)
     |R|: ...
     |R|: ...
     True
     
-    >>> not_symmetric = [lt, le]
+    >>> not_symmetric = [lt, le, gt, ge]
     >>> any(is_symmetric(randset(100), _) for _ in not_symmetric)
     |R|: ...
     |R|: ...
@@ -114,13 +119,13 @@ def is_symmetric(v, rel: R,quiet=True):
 def is_anti_symmetric(v, rel: R,quiet=True):
     """A relation is anti symmetric if for every pair <a,b> in R, <b,a> is not in R
     In other words: rel(a,b) is True but rel(b,a) is False
-    >>> anti_symmetric = [lt, empty_rel]
+    >>> anti_symmetric = [lt, gt, empty_rel]
     >>> all(is_anti_symmetric(randset(100), _) for _ in anti_symmetric)
     |R|: ...
     |R|: ...
     True
     
-    >>> not_anti_symmetric = [lambda a,b:b<a**2]
+    >>> not_anti_symmetric = [universal_rel, identity_rel, opposite_rel, ne, le, ge, lambda a,b:b<a**2]
     >>> any(is_anti_symmetric(randset(100), _) for _ in not_anti_symmetric)
     |R|: ...
     False
@@ -140,11 +145,11 @@ def is_anti_symmetric(v, rel: R,quiet=True):
 
 def is_reflexive(v, rel: R,quiet=True):
     """A relation is reflexive if every x in v satisfies rel(x,x)
-    >>> reflexive = [universal_rel, identity_rel, le]
+    >>> reflexive = [universal_rel, identity_rel, le, ge]
     >>> all(is_reflexive(randset(100), _) for _ in reflexive)
     ...
     True
-    >>> not_reflexive = [ne, lt, empty_rel]
+    >>> not_reflexive = [ne, lt, gt, empty_rel, opposite_rel]
     >>> any(is_reflexive(randset(100), _) for _ in not_reflexive)
     ...
     False
@@ -162,11 +167,11 @@ def is_reflexive(v, rel: R,quiet=True):
 
 def is_anti_reflexive(v, rel: R,quiet=True):
     """A relation is anti reflexive if no x in v satisfies rel(x,x)
-    >>> anti_reflexive = [ne, lt, empty_rel]
+    >>> anti_reflexive = [ne, lt, gt, empty_rel]
     >>> all(is_anti_reflexive(randset(100), _) for _ in anti_reflexive)
     ...
     True
-    >>> not_anti_reflexive = [eq, le]
+    >>> not_anti_reflexive = [universal_rel, identity_rel, opposite_rel, le, ge]
     >>> any(is_anti_reflexive(randset(100), _) for _ in not_anti_reflexive)
     ...
     False
@@ -199,7 +204,16 @@ def is_universal_relation(v, rel: R,quiet=True):
 
 
 def randset(length, start=None, stop=None) -> set:
-    """Example: randset(10) # returns a set of length 10 containing random numbers ranging from -10 to 10
+    """
+    `start` is inclusive, `stop` is exclusive.
+    >>> randset(10) == {-4, -3, -2, -1, 0, 1, 2, 3, 4}
+    True
+
+    >>> randset(5, 1, 4)
+    {1, 2, 3}
+    
+    >>> 15 <= sum(randset(5, 1, 7)) <= 20
+    True
     """
     if start is None and stop is None:
         if length % 2 == 0:
@@ -210,7 +224,8 @@ def randset(length, start=None, stop=None) -> set:
         tmp = set(range(start,stop))
         return tmp
     tmp = set()
-    while (tmp_len := len(tmp)) < length and tmp_len < stop - start:
+    stop -= 1 # randint stop is inclusive
+    while (tmp_len := len(tmp)) < length and tmp_len < stop - start + 1:
         tmp.add(randint(start, stop))
     return tmp
 

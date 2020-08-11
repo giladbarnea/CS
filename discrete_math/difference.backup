@@ -1,0 +1,2 @@
+C − (A∩B) = (C − A)∪(C − B) = (C∩<over>A</over>)u(C∩<over>B</over>) = C ∩ not (A ∩ B) = C ∩ (<over>A</over>∩<over>B</over>)
+C - (A∩B) = (C - A)∪(C - B) = (C∩<over>A</over>)u(C∩<over>B</over>) = C ∩ not (A ∩ B) = C ∩ (<over>A</over>∩<over>B</over>)
