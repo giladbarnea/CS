@@ -13,7 +13,7 @@ examples
 - ⟨a,b⟩ ∈ 𝑹<sup>2</sup> ⟺ ⟨a,c⟩,⟨c,b⟩ ∈ 𝑹
 
 
-#### Empty ∅<sub>A</sub>: 𝑹:=relation(A×B) = ∅
+#### Empty ∅<sub>A</sub>: 𝑹:=rel(A×B) = ∅
 
 No pair ∈ A×B satisfies ⟨a,b⟩ ∈ 𝑹
 
@@ -33,10 +33,12 @@ properties
 - 𝑹·𝗜<sub>A</sub> = 𝑹
 
 
-#### Reflexivity: 𝑹:=relation(A) is reflexive if ∀a ∈ A(⟨a,a⟩ ∈ 𝑹)  
+#### Reflexivity: 𝑹:=rel(A) is reflexive if ∀a ∈ A(⟨a,a⟩ ∈ 𝑹)  
 𝑹 is reflexive if every a in A satisfies ⟨a,a⟩∈𝑹. In other words:   
 𝗜<sub>A</sub> ⊆ 𝑹  
-A = { −1, ∅, 1 }. Is ⋱ contained in 𝑹?
+A = { −1, 0, 1 }. Is ⋱ contained in 𝑹?
+
+𝑹 = lambda a,b: a⊙b; `all(R(x,x) for x in A)`?
 
 properties  
 - ⟺ 𝑹<sup>−1</sup> is reflexive
@@ -47,7 +49,7 @@ properties
 
 examples
 - 𝗨<sub>A</sub>: ∀a ∈ A(⟨a,a⟩ ∈ A×A = 𝗨<sub>A</sub>)
-- 𝗜<sub>A</sub>: ∀a ∈ A(⟨a,a⟩ ∈ {⟨−1, −1⟩, ⟨∅, ∅⟩, ⟨1, 1⟩})
+- 𝗜<sub>A</sub>: ∀a ∈ A(⟨a,a⟩ ∈ {⟨−1, −1⟩, ⟨0, 0⟩, ⟨1, 1⟩})
 - ≤, ≥ <comment>// both contain ⋱</comment>
 
 counter examples
@@ -56,7 +58,7 @@ counter examples
 - a=−b ⋰
 
 
-#### Anti-Reflexivity: 𝑹:=relation(A) is anti-reflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)  
+#### Anti-Reflexivity: 𝑹:=rel(A) is anti-reflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)  
 𝑹 is reflexive if every a in A satisfies ⟨a,a⟩ ∉ 𝑹. In other words:
 
 𝗜<sub>A</sub> ∩ 𝑹 = ∅ <comment>// just 𝗜<sub>A</sub> ⊈ 𝑹 isn't enough; 𝗜<sub>A</sub> = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩ ∈ 𝑹 so isn't anti-reflexive</comment>
@@ -68,10 +70,12 @@ counter examples
 - 𝗨<sub>A</sub>, 𝗜<sub>A</sub>, a=−b ⋰, ≤, ≥
 
 
-#### Symmetry: 𝑹:=relation(A) is symmetric iff 𝑹 = 𝑹<sup>−1</sup>  
+#### Symmetry: 𝑹:=rel(A) is symmetric iff 𝑹 = 𝑹<sup>−1</sup>  
 𝑹 is symmetric if every ⟨x,y⟩ in 𝑹 satisfies ⟨y,x⟩ ∈ 𝑹 <comment>// assuming both x and y exist in A</comment>
 
-∀x∀y((x,y) ∈ 𝑹 → (y,x) ∈ 𝑹)
+∀x∀y(⟨x,y⟩∈𝑹 → ⟨y,x⟩∈𝑹)
+
+𝑹 = lambda a,b: a⊙b; `all(rel(y,x) for x,y in R)`?
 
 
 
@@ -87,7 +91,7 @@ counter examples
 - ≤, ≥, <, >
 
 
-#### Anti-Symmetry: 𝑹:=relation(A) is anti-symmetric iff 𝑹 ∩ 𝑹<sup>−1</sup> = ∅
+#### Anti-Symmetry: 𝑹:=rel(A) is anti-symmetric iff 𝑹 ∩ 𝑹<sup>−1</sup> = ∅
 
 𝑹 is anti-symmetric if every ⟨x,y⟩ in 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹
 
@@ -170,7 +174,7 @@ counter examples
 #### Equivalance: 𝑹 over A is equivalence iff R is reflexive, symmetric and transitive
 
 examples
-- 𝗨<sub>A</sub>, 𝗜<sub>A</sub>
+- 𝗨<sub>A</sub>, 𝗜<sub>A</sub>, equality
 - "Has the same absolute value" on the set of real numbers
 - if A=∅ then ∅<sub>A</sub> is symmetric, transitive and reflexive
 
@@ -179,6 +183,41 @@ examples
 counter examples
 - ≥ <comment>// reflexive and transitive but not symmetric</comment>
 - if A≠∅ then ∅<sub>A</sub> is symmetric and transitive, but not reflexive
+
+
+#### Connexivity: 𝑹 over A is connexive iff ∀(x,y) ∈ A ( ⟨x,y⟩∈𝑹 ⋁ ⟨y,x⟩∈𝑹 ⋁ x = y)
+
+properties
+- 𝑹 cannot be symmetric, except for 𝗨<sub>A</sub>
+
+
+#### Total Order: antireflexive, transitive, and connex
+
+examples
+- \< over ℝ
+
+counter examples
+- if A≠∅ then 𝗜<sub>A</sub> isn't total order because for all a∈A: a=a
+
+
+#### Partial Order: ≤ is a partial order iff it's antireflexive and transitive
+
+examples
+- ⊂ over 𝓟(A)
+
+
+
+???  
+for all a, b, and c:
+- a ≤ a <comment>// reflex</comment>
+- if a ≤ b and b ≤ a, then a = b <comment>// antisymm</comment>
+- if a ≤ b and b ≤ c, then a ≤ c <comment>// trans  </comment>
+
+
+
+examples
+- equality  
+???
 
 
 #### Partition of A is a set of non-empty, non-overlapping subsets of A whose union = A
