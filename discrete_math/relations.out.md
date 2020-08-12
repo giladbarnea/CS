@@ -1,4 +1,3 @@
-%ignore and
 #### 𝑹: {⟨x,y⟩ for ⟨x,y⟩ ∈ A<sup>2</sup> if x𝑹y}   
 
 #### 𝑻·𝑹: {⟨a,c⟩ | ∃b ∈ B (⟨a,b⟩ ∈ 𝑻 ∧ ⟨b,c⟩ ∈ 𝑹)}   
@@ -7,18 +6,20 @@
 #### 𝑹<sup>2</sup>: a𝑹<sup>2</sup>c ⟺ {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ 𝑹 ∧ ⟨b,c⟩ ∈ 𝑹)}  
 an ordered pair ⟨a,c⟩∈𝑹<sup>2</sup> means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹  
 ![](./relations1.gif)  
-properties  
-- whw
+
 
 examples
 - (a=−b)<sup>2</sup> = 𝗜<sub>ℝ</sub>
 - ⟨a,b⟩ ∈ 𝑹<sup>2</sup> ⟺ ⟨a,c⟩,⟨c,b⟩ ∈ 𝑹
 
 
-#### Empty ∅<sub>A</sub>
+#### Empty ∅<sub>A</sub>: 𝑹:=relation(A×B) = ∅
+
+No pair ∈ A×B satisfies ⟨a,b⟩ ∈ 𝑹
 
 properties  
 - 𝑺·∅<sub>A</sub> = ∅
+- symmetric and anti-symmetric ?
 
 
 
@@ -40,6 +41,7 @@ A = { −1, ∅, 1 }. Is ⋱ contained in 𝑹?
 properties  
 - ⟺ 𝑹<sup>−1</sup> is reflexive
 - → 𝑹 ⊆ 𝑹<sup>2</sup> (and 𝑹<sup>2</sup> is reflexive)
+- → 𝑹⊆𝑹<sup>2</sup>
 - if 𝑺⊆𝑹 then 𝑺 is reflexive
 - if 𝑺 is reflexive then both 𝑹∪𝑺 and 𝑹∩𝑺 are reflexive
 
@@ -75,6 +77,7 @@ counter examples
 
 properties
 - if 𝑺 is symmetric then both 𝑹∪𝑺 and 𝑹∩𝑺 are reflexive
+- if 𝑺 is symmetric then 𝑹\𝑺 is symmetric
 
 examples
 - ∅<sub>A</sub> <comment>// can't point at ⟨x,y⟩ and say ⟨y,x⟩ is not in ∅<sup>−1</sup></comment>
@@ -98,6 +101,7 @@ properties
 - → 𝑹 is anti-reflexive
 - → 𝑹<sup>−1</sup> is anti-symmetric
 - if 𝑺⊆𝑹 then 𝑺 is anti-symmetric
+- if 𝑺∪𝑻 is anti-symmetric then both 𝑺 and 𝑻 are anti-symmetric
 - → 𝑹∩𝑺 is anti-symmetric
 
 
@@ -132,15 +136,21 @@ examples
 
 #### Transitivity: 𝑹<sup>2</sup> ⊆ 𝑹
 
+∀x∀y∀z((𝑹(x,y) ∧ 𝑹(y,z)) → 𝑹(x,z))
+
 Every (x,y,z) ∈ A that satisfy ⟨x,y⟩ ∈ 𝑹 and ⟨y,z⟩ ∈ 𝑹 also satisfy ⟨x,z⟩ ∈ 𝑹
 
 If you see an x that leads to y that leads to z, then expect x to lead to z <comment>// this is why 𝑹<sup>2</sup> ⊆ 𝑹</comment>
 
 
 
+properties
+- if 𝑻 is symmetric and anti-symmetric then it's also transitive
+
 examples
 - A={1,2,3}; 𝑹 = {⟨__1__,2⟩, ⟨2,__3__⟩, __⟨1,3⟩__} ⇒ 𝑹<sup>2</sup> = {⟨1,3⟩} ⊆ 𝑹
 - A={1,2,3}; 𝑻 = {⟨1,2⟩} ⇒ 𝑻<sup>2</sup> = ∅ ⊆ 𝑻
+- 𝑾 = {⟨1,1⟩} ⇒ 𝑾<sup>2</sup> = {⟨1,1⟩} ⊆ 𝑾
 - 𝗜<sub>A</sub>
 - ∅<sub>A</sub>
 - 𝗨<sub>A</sub> <comment>// if ⟨a,b⟩ ∈ A<sup>2</sup> and ⟨b,a⟩ ∈ A<sup>2</sup> then ⟨a,c⟩ ∈ A<sup>2</sup></comment>
@@ -150,4 +160,51 @@ examples
 
 
 counter examples
-- 𝑷={⟨1,2⟩, ⟨2,1⟩} ⇒ 𝑷<sup>2</sup> = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑷 <comment>// iow: 1 leads to 2 leads to 1, but ⟨1,1⟩ ∉ 𝑷</comment>
+- 𝑷={⟨1,2⟩, ⟨2,1⟩} ⇒ 𝑷<sup>2</sup> = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑷 <comment>// iow: 1 leads to 2 leads to 1, but ⟨1,1⟩ ⊈ 𝑷</comment>
+- ∃x∃y∃z(𝑹(x,y) ∧ 𝑹(y,z) ∧ ¬𝑹(x,z))
+
+
+------
+
+
+#### Equivalance: 𝑹 over A is equivalence iff R is reflexive, symmetric and transitive
+
+examples
+- 𝗨<sub>A</sub>, 𝗜<sub>A</sub>
+- "Has the same absolute value" on the set of real numbers
+- if A=∅ then ∅<sub>A</sub> is symmetric, transitive and reflexive
+
+
+
+counter examples
+- ≥ <comment>// reflexive and transitive but not symmetric</comment>
+- if A≠∅ then ∅<sub>A</sub> is symmetric and transitive, but not reflexive
+
+
+#### Partition of A is a set of non-empty, non-overlapping subsets of A whose union = A
+
+properties
+- every a∈A is in exactly one block
+- no block contains ∅
+- union of blocks = A
+- intersection of any two blocks = ∅
+- → A is finite ⇒ rank of P is |X| − |P| ?
+
+
+
+examples
+- {A} is partition of A <comment>// trivial</comment>
+- ∅'s only partition is ∅
+- {1,2,3} has five partitions: {{1},{2},{3}}, {{1, 2}, {3}}, {{1, 3},{2}}, {{1},{2, 3}}, {{1, 2, 3}}
+
+
+
+counter examples:
+- not partitions of {1,2,3}: 
+
+  - {{}, {1,3}, {2}} <comment>// contains ∅</comment>
+
+  - {{1, 2}, {2, 3}} <comment>// 2 exists ∈ more than one block</comment>
+
+  - {{1}, {2}} <comment>// no block contains 3</comment>
+

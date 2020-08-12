@@ -1,5 +1,5 @@
 * {
-    margin: 3pt;
+    margin: 3pt 0 0 0;
     font-family: "DejaVu Sans Mono", monospace;
     letter-spacing: 0.5pt;
     line-height: 15pt;
@@ -29,7 +29,7 @@ h3 {
 }
 
 h4 {
-    margin: 10pt 5pt 10pt 5pt;
+    margin: 10pt 5pt 5pt 0;
 }
 
 hr {
@@ -64,4 +64,13 @@ grey {
 comment {
     padding-left: 25pt;
     color: rgb(70, 70, 70)
+}
+
+sub, sup {
+    margin: 0 0 0 1pt;
+}
+
+ul {
+    margin: 0;
+    padding: 0
 }
