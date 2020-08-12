@@ -78,7 +78,7 @@ def inverse(rel: Prod):
 
 def relate_sqr(rel: Union[R, Prod], v=None, quiet=True, alt=False):
     """Computes the squared relation.
-    a𝑹2c: {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ R ∧ ⟨b,c⟩ ∈ R)}
+    ⟨a,c⟩ ∈ 𝑹×𝑹: {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ 𝑹 ∧ ⟨b,c⟩ ∈ 𝑹)}
     
     >>> V = randset(30)
     >>> opposite_of_opposite = relate_sqr(opposite_rel, V)
