@@ -58,10 +58,10 @@ div.line, line {
 }
 
 grey {
-    color: rgb(75, 75, 75)
+    color: rgb(70, 70, 70)
 }
 
 comment {
     padding-left: 25pt;
-    color: rgb(75, 75, 75)
+    color: rgb(70, 70, 70)
 }
