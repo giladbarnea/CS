@@ -134,3 +134,6 @@ dmypy.json
 .idea
 .wa_appid
 *.vscode
+*.run
+*click
+*sys

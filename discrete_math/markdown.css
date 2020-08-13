@@ -3,8 +3,14 @@
     font-family: "DejaVu Sans Mono", monospace;
     letter-spacing: 0.5pt;
     line-height: 15pt;
-    /* padding: 0; */
+    /*padding: 0;*/
 }
+
+
+body > :first-child {
+    margin-top: 0;
+}
+
 
 div.box, box {
     border-width: 1px;
@@ -30,7 +36,10 @@ h3 {
 
 h4 {
     margin: 10pt 5pt 5pt 0;
+    font-size: large;
 }
+
+
 
 hr {
     margin: 15pt 0
@@ -58,12 +67,13 @@ div.line, line {
 }
 
 grey {
-    color: rgb(70, 70, 70)
+    color: rgb(110, 110, 110)
 }
 
 comment {
-    padding-left: 25pt;
-    color: rgb(70, 70, 70)
+    margin-left: 25pt;
+    color: rgb(110, 110, 110);
+    background: rgb(252, 252, 252);
 }
 
 sub, sup {

@@ -133,3 +133,6 @@ dmypy.json
 *~lock*
 .idea
 .wa_appid
+*.vscode
+*.run
+*click
