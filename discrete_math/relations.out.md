@@ -1,4 +1,4 @@
-#### 𝑹: {⟨x,y⟩ for ⟨x,y⟩ ∈ A<sup>2</sup> if x𝑹<sub>y</sub>}   
+#### 𝑹: {⟨x,y⟩ for ⟨x,y⟩ ∈ A<sup>2</sup> if x𝑹y}   
 
 #### 𝑻·𝑹: {⟨a,c⟩ | ∃b ∈ B (⟨a,b⟩ ∈ 𝑻 ∧ ⟨b,c⟩ ∈ 𝑹)}   
 ![](./relations2.gif)  
@@ -6,7 +6,6 @@
 #### 𝑹<sup>2</sup>: a𝑹<sup>2</sup>c ⟺ {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ 𝑹 ∧ ⟨b,c⟩ ∈ 𝑹)}  
 an ordered pair ⟨a,c⟩∈𝑹<sup>2</sup> means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹  
 ![](./relations1.gif)  
-
 
 _Examples_
 - (a=−b)<sup>2</sup> = 𝑰<sub>ℝ</sub>
@@ -19,8 +18,7 @@ No pair ∈ A×B satisfies ⟨a,b⟩ ∈ 𝑹
 
 _Properties_  
 - 𝑺·∅<sub>A</sub> = ∅
-- symmetric and anti-symmetric ?
-
+- symmetric and anti−symmetric ?
 
 
 _Examples_
@@ -48,20 +46,20 @@ _Properties_
 - if 𝑺 is reflexive then both 𝑹∪𝑺 and 𝑹∩𝑺 are reflexive
 
 _Examples_
-- 𝑼<sub>A</sub>: ∀a ∈ A(⟨a,a⟩ ∈ A×A = 𝑼<sub>A</sub>)
+- 𝑼<sub>A</sub>: ∀a ∈ A(⟨a,a⟩ ∈ A×A = 𝑼A)
 - 𝑰<sub>A</sub>: ∀a ∈ A(⟨a,a⟩ ∈ {⟨−1, −1⟩, ⟨0, 0⟩, ⟨1, 1⟩})
 - ≤, ≥ <comment>both contain ⋱</comment>
 
 _Counter Examples_
-- ≠ (which is 𝑼<sub>A</sub> − 𝑰<sub>A</sub>)
+- ≠ (which is 𝑼<sub>A</sub> − 𝑰A)
 - <, >, ∅<sub>A</sub>
 - a=−b ⋰
 
 
-#### Anti-Reflexivity: 𝑹:=rel(A) is anti-reflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)  
+#### Anti-Reflexivity: 𝑹:=rel(A) is anti−reflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)  
 𝑹 is reflexive if every a in A satisfies ⟨a,a⟩ ∉ 𝑹. In other words:
 
-𝑰<sub>A</sub> ∩ 𝑹 = ∅ <comment>just 𝑰<sub>A</sub> ⊈ 𝑹 isn't enough; 𝑰<sub>A</sub> = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩ ∈ 𝑹 so isn't anti-reflexive</comment>
+𝑰<sub>A</sub> ∩ 𝑹 = ∅ <comment>just 𝑰<sub>A</sub> ⊈ 𝑹 isn't enough; 𝑰<sub>A</sub> = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩ ∈ 𝑹 so isn't anti−reflexive</comment>
 
 _Examples_
 - ≠, <, >, ∅<sub>A</sub>
@@ -78,7 +76,6 @@ _Counter Examples_
 𝑹 = lambda a,b: a⊙b; `all(rel(y,x) for x,y in R)`?
 
 
-
 _Properties_
 - if 𝑺 is symmetric then both 𝑹∪𝑺 and 𝑹∩𝑺 are reflexive
 - if 𝑺 is symmetric then 𝑹\𝑺 is symmetric
@@ -91,29 +88,26 @@ _Counter Examples_
 - ≤, ≥, <, >
 
 
-#### Anti-Symmetry: 𝑹:=rel(A) is anti-symmetric iff 𝑹 ∩ 𝑹<sup>−1</sup> = ∅
+#### Anti-Symmetry: 𝑹:=rel(A) is anti−symmetric iff 𝑹 ∩ 𝑹<sup>−1</sup> = ∅
 
-𝑹 is anti-symmetric if every ⟨x,y⟩ in 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹
+𝑹 is anti−symmetric if every ⟨x,y⟩ in 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹
 
 ∀x∀y((x,y) ∈ 𝑹 → (y,x) ∉ 𝑹)
 
 𝑹 ∩ 𝑹<sup>−1</sup> = ∅ means there can't be a ⟨x,x⟩
 
 
-
 _Properties_
-- → 𝑹 is anti-reflexive
-- → 𝑹<sup>−1</sup> is anti-symmetric
-- if 𝑺⊆𝑹 then 𝑺 is anti-symmetric
-- if 𝑺∪𝑻 is anti-symmetric then both 𝑺 and 𝑻 are anti-symmetric
-- → 𝑹∩𝑺 is anti-symmetric
-
+- → 𝑹 is anti−reflexive
+- → 𝑹<sup>−1</sup> is anti−symmetric
+- if 𝑺⊆𝑹 then 𝑺 is anti−symmetric
+- if 𝑺∪𝑻 is anti−symmetric then both 𝑺 and 𝑻 are anti−symmetric
+- → 𝑹∩𝑺 is anti−symmetric
 
 
 _Examples_
 - <, >, ∅<sub>A</sub>
 - b﹥a<sup>2</sup>
-
 
 
 counter Examples  
@@ -129,9 +123,7 @@ if both ⟨x,y⟩ ∈ 𝑹 and ⟨y,x⟩ ∈ 𝑹 it's only because they're equa
 for x,y ∈ A: if x≠y and ⟨x,y⟩ ∈ 𝑹 then must ⟨y,x⟩ ∉ 𝑹
 
 
-
 A<sub>S</sub> vs WA<sub>S</sub>: A<sub>S</sub> requires every pair's opposite to not be in 𝑹, whereas WA<sub>S</sub> requires the same only for pairs that x=y
-
 
 
 _Examples_
@@ -147,9 +139,8 @@ Every (x,y,z)∈A that satisfy ⟨x,y⟩∈𝑹 and ⟨y,z⟩∈𝑹 also satisf
 If you see an x that leads to y that leads to z, then expect x to lead to z <comment>this is why 𝑹<sup>2</sup> ⊆ 𝑹</comment>
 
 
-
 _Properties_
-- if 𝑻 is symmetric and anti-symmetric then it's also transitive
+- if 𝑻 is symmetric and anti−symmetric then it's also transitive
 
 _Examples_
 - A={1,2,3}; 𝑹 = {⟨__1__,2⟩, ⟨2,__3__⟩, __⟨1,3⟩__} ⇒ 𝑹<sup>2</sup> = {⟨1,3⟩} ⊆ 𝑹
@@ -162,7 +153,6 @@ _Examples_
 - <, ≤
 
 
-
 _Counter Examples_
 - 𝑷={⟨1,2⟩, ⟨2,1⟩} ⇒ 𝑷<sup>2</sup> = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑷 <comment>iow: 1 leads to 2 leads to 1, but ⟨1,1⟩ ⊈ 𝑷</comment>
 - ∃x∃y∃z(𝑹(x,y) ∧ 𝑹(y,z) ∧ ¬𝑹(x,z))
@@ -171,13 +161,12 @@ _Counter Examples_
 ------
 
 
-#### Equivalance: 𝑹 over A is equivalence iff R is reflexive, symmetric and transitive
+#### Equivalance: 𝑹 over A is equivalence iff 𝑹 is reflexive, symmetric and transitive
 
 _Examples_
 - 𝑼<sub>A</sub>, 𝑰<sub>A</sub>, equality
 - "Has the same absolute value" on the set of real numbers
 - if A=∅ then ∅<sub>A</sub> is symmetric, transitive and reflexive
-
 
 
 _Counter Examples_
@@ -206,7 +195,6 @@ _Examples_
 - ⊂ over 𝓟(A)
 
 
-
 ???  
 for all a, b, and c:
 - a ≤ a <comment>reflex</comment>
@@ -214,13 +202,12 @@ for all a, b, and c:
 - if a ≤ b and b ≤ c, then a ≤ c <comment>trans  </comment>
 
 
-
 _Examples_
 - equality  
 ???
 
 
-#### Partition of A is a set of non-empty, non-overlapping subsets of A whose union = A
+#### Partition of A is a set of non−empty, non−overlapping subsets of A whose union = A
 
 _Properties_
 - every a∈A is in exactly one block
@@ -230,20 +217,41 @@ _Properties_
 - → A is finite ⇒ rank of P is |X| − |P| ?
 
 
-
 _Examples_
 - {A} is partition of A <comment>trivial</comment>
 - ∅'s only partition is ∅
 - {1,2,3} has five partitions: {{1},{2},{3}}, {{1, 2}, {3}}, {{1, 3},{2}}, {{1},{2, 3}}, {{1, 2, 3}}
 
 
-
-counter Examples:
+_Counter Examples_
 - not partitions of {1,2,3}: 
-
   - {{}, {1,3}, {2}} <comment>contains ∅</comment>
-
-  - {{1, 2}, {2, 3}} <comment>2 exists ∈ more than one block</comment>
-
+  - {{1, 2}, {2, 3}} <comment>2 exists in more than one block</comment>
   - {{1}, {2}} <comment>no block contains 3</comment>
 
+
+---
+
+
+#### Equivalence Class: {x∈𝑺 | x≡a} where a∈𝑺
+
+Given ≡<sub>𝑺</sub> is the equivalence relation on 𝑺, the equivalence class of an element a in 𝑺 is the set {x∈𝑺 | x≡a} of elements which are equivalent to a
+
+⟦a⟧ is the equivalence class of a
+
+⟦a⟧ = {b|a≡b} = {b|⟨a,b⟩ ∈ ≡<sub>𝑺</sub>} <comment>all elements in 𝑺 that are equivalent to a</comment>
+
+_Properties_
+- equivalence class of 𝑺 is subset of 𝑺
+
+
+_Examples_
+- 𝑿 = all cars; relation ≡<sub>𝑿</sub> = "has the same color as"; one particular equivlance class consists of all green cars
+- Relation ≡<sub>ℤ</sub> is ⟨a,b⟩∈≡<sub>ℤ</sub> ⟺ (a − b)%2==0 ⟹ two equivalence classes: even numbers and odd numbers
+- 𝑺 = {1,2,3,4,5}
+  - ≡<sub>𝑺</sub> = {⟨1,__1__⟩, ⟨1,__2__⟩, ⟨1,__3__⟩, ⟨2,2⟩, ⟨3,3⟩, ⟨4,4⟩, ⟨5,5⟩, ⟨2,1⟩, ⟨2,3⟩, ⟨3,2⟩, ⟨3,1⟩}  
+  - ⟦1⟧ = __{1, 2, 3}__ <comment>everything that 1 is related to</comment>
+  - ⟦2⟧ = {2, 1, 3}
+  - ⟦3⟧ = {3, 2, 1} <comment>note that ⟦1⟧ ≡ ⟦2⟧ ≡ ⟦3⟧ </comment>
+  - ⟦4⟧ = {4}
+  - ⟦5⟧ = {5}

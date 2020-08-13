@@ -16,7 +16,7 @@ _Examples_
 No pair ∈ A×B satisfies ⟨a,b⟩ ∈ 𝑹
 _Properties_  
 - 𝑺·∅A = ∅
-- symmetric and anti-symmetric ?
+- symmetric and anti−symmetric ?
 
 _Examples_
 - {⟨x,y⟩ ∈ ℕ2 | x+y﹤x}
@@ -45,9 +45,9 @@ _Counter Examples_
 - <, >, ∅A
 - a=−b ⋰
 
-#### Anti-Reflexivity: 𝑹:=rel(A) is anti-reflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)  
+#### Anti-Reflexivity: 𝑹:=rel(A) is anti−reflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)  
 𝑹 is reflexive if every a \in A satisfies ⟨a,a⟩ ∉ 𝑹. In other words:
-𝑰A ∩ 𝑹 = ∅ // just 𝑰A ⊈ 𝑹 isn't enough; 𝑰A = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩ ∈ 𝑹 so isn't anti-reflexive
+𝑰A ∩ 𝑹 = ∅ // just 𝑰A ⊈ 𝑹 isn't enough; 𝑰A = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩ ∈ 𝑹 so isn't anti−reflexive
 _Examples_
 - ≠, <, >, ∅A
 _Counter Examples_
@@ -67,17 +67,17 @@ _Examples_
 _Counter Examples_
 - ≤, ≥, <, >
 
-#### Anti-Symmetry: 𝑹:=rel(A) is anti-symmetric iff 𝑹 ∩ 𝑹−1 = ∅
-𝑹 is anti-symmetric if every ⟨x,y⟩ \in 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹
+#### Anti-Symmetry: 𝑹:=rel(A) is anti−symmetric iff 𝑹 ∩ 𝑹−1 = ∅
+𝑹 is anti−symmetric if every ⟨x,y⟩ \in 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹
 ∀x∀y((x,y) ∈ 𝑹 → (y,x) ∉ 𝑹)
 𝑹 ∩ 𝑹−1 = ∅ means there can't be a ⟨x,x⟩
 
 _Properties_
-- → 𝑹 is anti-reflexive
-- → 𝑹−1 is anti-symmetric
-- if 𝑺⊆𝑹 then 𝑺 is anti-symmetric
-- if 𝑺∪𝑻 is anti-symmetric then both 𝑺 and 𝑻 are anti-symmetric
-- → 𝑹∩𝑺 is anti-symmetric
+- → 𝑹 is anti−reflexive
+- → 𝑹−1 is anti−symmetric
+- if 𝑺⊆𝑹 then 𝑺 is anti−symmetric
+- if 𝑺∪𝑻 is anti−symmetric then both 𝑺 and 𝑻 are anti−symmetric
+- → 𝑹∩𝑺 is anti−symmetric
 
 _Examples_
 - <, >, ∅A
@@ -103,7 +103,7 @@ Every (x,y,z)∈A that satisfy ⟨x,y⟩∈𝑹 and ⟨y,z⟩∈𝑹 also satisf
 If you see an x that leads to y that leads to z, then expect x to lead to z // this is why 𝑹2 ⊆ 𝑹
 
 _Properties_
-- if 𝑻 is symmetric and anti-symmetric then it's also transitive
+- if 𝑻 is symmetric and anti−symmetric then it's also transitive
 _Examples_
 - A={1,2,3}; 𝑹 = {⟨__1__,2⟩, ⟨2,__3__⟩, __⟨1,3⟩__} ⇒ 𝑹2 = {⟨1,3⟩} ⊆ 𝑹
 - A={1,2,3}; 𝑻 = {⟨1,2⟩} ⇒ 𝑻2 = ∅ ⊆ 𝑻
@@ -120,7 +120,7 @@ _Counter Examples_
 
 ------
 
-#### Equivalance: 𝑹 over A is equivalence iff R is reflexive, symmetric and transitive
+#### Equivalance: 𝑹 over A is equivalence iff 𝑹 is reflexive, symmetric and transitive
 _Examples_
 - 𝑼A, 𝑰A, equality
 - "Has the same absolute value" on the set of real numbers
@@ -154,7 +154,7 @@ _Examples_
 - equality  
 ???
 
-#### Partition of A is a set of non-empty, non-overlapping subsets of A whose \union = A
+#### Partition of A is a set of non−empty, non−overlapping subsets of A whose \union = A
 _Properties_
 - every a∈A is \in exactly one block
 - no block contains ∅
@@ -167,8 +167,28 @@ _Examples_
 - ∅'s only partition is ∅
 - {1,2,3} has five partitions: {{1},{2},{3}}, {{1, 2}, {3}}, {{1, 3},{2}}, {{1},{2, 3}}, {{1, 2, 3}}
 
-counter Examples:
+_Counter Examples_
 - \not partitions of {1,2,3}: 
   - {{}, {1,3}, {2}} // contains ∅
-  - {{1, 2}, {2, 3}} // 2 exists ∈ more than one block
+  - {{1, 2}, {2, 3}} // 2 exists \in more than one block
   - {{1}, {2}} // no block contains 3
+
+---
+
+#### Equivalence Class: {x∈𝑺 | x≡a} where a∈𝑺
+Given ≡𝑺 is the equivalence relation on 𝑺, the equivalence class of an element a \in 𝑺 is the set {x∈𝑺 | x≡a} of elements which are equivalent to a
+⟦a⟧ is the equivalence class of a
+⟦a⟧ = {b|a≡b} = {b|⟨a,b⟩ ∈ ≡𝑺} // all elements \in 𝑺 that are equivalent to a
+_Properties_
+- equivalence class of 𝑺 is subset of 𝑺
+
+_Examples_
+- 𝑿 = all cars; relation ≡𝑿 = "has the same color as"; one particular equivlance class consists of all green cars
+- Relation ≡ℤ is ⟨a,b⟩∈≡ℤ ⟺ (a − b)%2==\0 ⟹ two equivalence classes: even numbers and odd numbers
+- 𝑺 = {1,2,3,4,5}
+  - ≡𝑺 = {⟨1,__1__⟩, ⟨1,__2__⟩, ⟨1,__3__⟩, ⟨2,2⟩, ⟨3,3⟩, ⟨4,4⟩, ⟨5,5⟩, ⟨2,1⟩, ⟨2,3⟩, ⟨3,2⟩, ⟨3,1⟩}  
+  - ⟦1⟧ = __{1, 2, 3}__ // everything that 1 is related to
+  - ⟦2⟧ = {2, 1, 3}
+  - ⟦3⟧ = {3, 2, 1} // note that ⟦1⟧ ≡ ⟦2⟧ ≡ ⟦3⟧ 
+  - ⟦4⟧ = {4}
+  - ⟦5⟧ = {5}
