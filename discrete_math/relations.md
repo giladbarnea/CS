@@ -120,7 +120,7 @@ _Counter Examples_
 
 ------
 
-#### Equivalance: 𝑹 over A is equivalence iff R is reflexive, symmetric and transitive
+#### Equivalance: 𝑹 over A is equivalence iff 𝑹 is reflexive, symmetric and transitive
 _Examples_
 - 𝑼A, 𝑰A, equality
 - "Has the same absolute value" on the set of real numbers
