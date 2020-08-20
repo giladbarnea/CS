@@ -4,13 +4,11 @@
 ### א 
 
 
-
 Prove:   
 AΔB⊆D ∧ BΔC⊆D → AΔC⊆D
 
 
 ---
-
 
 
 Since (X→Z) ∧ (Y→Z) ≡ (X∨Y)→Z, also:  
@@ -24,12 +22,10 @@ Since (X→Z) ∧ (Y→Z) ≡ (X∨Y)→Z, also:
 ---
 
 
-
 I'll prove that AΔC ⊆ (AΔB ∪ BΔC), then it wo∪ld follow by transience that AΔC⊆C
 
 
 ---
-
 
 
 Expanding (AΔB ∪ BΔC):  
@@ -49,7 +45,6 @@ __AΔC ≡ (A∪C) ∩ (<over>A</over>∪<over>C</over>)__ <comment>(3)  </comme
 ---
 
 
-
 Define:   
 P = B; Q = (A∪C); R = (<over>A</over>∪<over>C</over>)  
   
@@ -57,7 +52,6 @@ So proving Q∧R → (¬P∨Q ∨ P∧R),
 will prove that AΔC ⊆ (AΔB ∪ BΔC)  
 
 ---
-
 
 
 Proving Q∧R → (¬P∨Q ∨ P∧R) is always tr∪e:  
@@ -76,7 +70,6 @@ __Q∧R → (¬P∨Q ∨ P∧R) ≡ 𝚻__ <comment>(4)  </comment>
 ---
 
 
-
 P, Q and R are placeholders (defined above), so I'll ∪se their "real" val∪es:  
 Q∧R → (¬P∨Q ∨ P∧R) ≡  
   
@@ -90,7 +83,6 @@ __AΔC ⊆ (AΔB ∪ BΔC)__ <comment>(5)  </comment>
 
 
 ---
-
 
 
 Since it's given that:  
@@ -109,8 +101,8 @@ __AΔB⊆D ∧ BΔC⊆D → AΔC⊆D__
 ---
 ### ב
 
- 
 
+M: 𝓟({1,2,3})  
 𝑹: ⟨A,B⟩∈𝑹 ⟺ AΔB⊆{1,2}  
 𝑺: ⟨A,B⟩∈𝑺 ⟺ AΔ{1,2} ⊂ BΔ{1,2}
 
@@ -129,3 +121,22 @@ Therefore AΔB ≡ BΔA ⟹ __AΔB⊆{1,2} → BΔA⊆{1,2}__
 
 Transitive: if 𝑹 is transitive then AΔB⊆{1,2} ∧ BΔC⊆{1,2} → AΔC⊆{1,2}.  
 We proved in 2א that __AΔB⊆D ∧ BΔC⊆D → AΔC⊆D__
+
+
+---
+
+The equivalence classes of 𝑹:
+
+⟦∅⟧ is the set containing all elements in M such that {m∈M | ⟨m,0⟩∈𝑹}}.  
+Remembering that for any X, the following is true: XΔ∅ = X;  
+Therefore, using the definition of 𝑹: 
+
+__⟦∅⟧__ = {m∈M | mΔ∅ ⊆ {1,2}} = {m∈M | m ⊆ {1,2}} = __{∅, {1}, {2}, {1,2}}__
+
+ 
+
+We are left with four subsets: {3}, {1,3}, {2,3}, {1,2,3}.  
+Because {3} is a subset of each of them, let's figure out it's equivalence class.  
+⟦3⟧ = {m∈M | mΔ{3} ⊆ {1,2}}  
+Because symmetric difference leaves out everything besides the intersection, m has to contain {3} if we need mΔ{3}⊆{1,2} to be true, so:  
+{3} ⊆ m  

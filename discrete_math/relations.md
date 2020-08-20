@@ -134,6 +134,8 @@ _Counter Examples_
 _Properties_
 - 𝑹 cannot be symmetric, except for 𝑼A
 
+------
+
 #### Total Order: antireflexive, transitive, and connex
 _Examples_
 - \< over ℝ
@@ -176,11 +178,15 @@ _Counter Examples_
 ---
 
 #### Equivalence Class: {x∈𝑺 | x≡a} where a∈𝑺
-Given ≡𝑺 is the equivalence relation on 𝑺, the equivalence class of an element a \in 𝑺 is the set {x∈𝑺 | x≡a} of elements which are equivalent to a
-⟦a⟧ is the equivalence class of a
-⟦a⟧ = {b|a≡b} = {b|⟨a,b⟩ ∈ ≡𝑺} // all elements \in 𝑺 that are equivalent to a
+Given 𝑹 is an equivalence relation on 𝑺, the equivalence class of an element a \in 𝑺 is the set {x∈𝑺 | ⟨x,a⟩∈𝑹}
+⟦a⟧ = {b|a𝑹b} = {b|⟨a,b⟩ ∈ 𝑹} // all elements \in 𝑺 that when paired with a, exist \in 𝑹
+In other words: going over 𝑹, the elements \in ⟦a⟧ are all the elements that a is paired with     
+
 _Properties_
-- equivalence class of 𝑺 is subset of 𝑺
+- ⋃ of all equivalence classes = 𝑺 ?
+- a ∈ ⟦a⟧ // every element exists \in its equivalence class
+- the items \in each equivalence class of 𝑺 exist only \in their equivalence class ?
+- every possible pair of eq. classes is zar ? 
 
 _Examples_
 - 𝑿 = all cars; relation ≡𝑿 = "has the same color as"; one particular equivlance class consists of all green cars

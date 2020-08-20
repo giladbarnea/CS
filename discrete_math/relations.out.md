@@ -235,14 +235,17 @@ _Counter Examples_
 
 #### Equivalence Class: {x∈𝑺 | x≡a} where a∈𝑺
 
-Given ≡<sub>𝑺</sub> is the equivalence relation on 𝑺, the equivalence class of an element a in 𝑺 is the set {x∈𝑺 | x≡a} of elements which are equivalent to a
+Given 𝑹 is an equivalence relation on 𝑺, the equivalence class of an element a in 𝑺 is the set {x∈𝑺 | ⟨x,a⟩∈𝑹}
 
-⟦a⟧ is the equivalence class of a
+⟦a⟧ = {b|a𝑹b} = {b|⟨a,b⟩ ∈ 𝑹} <comment>all elements in 𝑺 that when paired with a, exist in 𝑹</comment>
 
-⟦a⟧ = {b|a≡b} = {b|⟨a,b⟩ ∈ ≡<sub>𝑺</sub>} <comment>all elements in 𝑺 that are equivalent to a</comment>
+In other words: going over 𝑹, the elements in ⟦a⟧ are all the elements that a is paired with     
 
-_Properties_
-- equivalence class of 𝑺 is subset of 𝑺
+_Properties_  
+- ⋃ of all equivalence classes = 𝑺 ?
+- a ∈ ⟦a⟧ <comment>every element exists in its equivalence class</comment>
+- the items in each equivalence class of 𝑺 exist only in their equivalence class ?
+- every possible pair of eq. classes is zar ? 
 
 
 _Examples_
