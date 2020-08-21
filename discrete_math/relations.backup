@@ -1,6 +1,6 @@
 %ignore and <
 
-#### 𝑹: {⟨x,y⟩ for ⟨x,y⟩ ∈ A2 if x𝑹y}   
+#### 𝑹: {⟨x,y⟩ for ⟨x,y⟩ ∈ A2 if x𝑹y}
 
 #### 𝑻·𝑹: {⟨a,c⟩ | ∃b ∈ B (⟨a,b⟩ ∈ 𝑻 ∧ ⟨b,c⟩ ∈ 𝑹)}   
 ![](../Documents/CompSci/discrete_math/relations2.gif)
@@ -11,14 +11,13 @@ an ordered pair ⟨a,c⟩∈𝑹2 means there's a "middle" b∈B that satisfies 
 
 
 _Examples_
-
 - (a=−b)2 = 𝑰ℝ
 - ⟨a,b⟩ ∈ 𝑹2 ⟺ ⟨a,c⟩,⟨c,b⟩ ∈ 𝑹  
 
 #### Empty ∅A
-> 𝑹:=rel(A×B) = ∅
+> 𝑹:=rel(A×B) = ∅  
+> No pair \in A×B satisfies ⟨a,b⟩ ∈ 𝑹
 
-No pair ∈ A×B satisfies ⟨a,b⟩ ∈ 𝑹
 _Properties_
 - 𝑺·∅A = ∅
 - anti−symmetric
@@ -33,10 +32,10 @@ _Properties_
 - 𝑹·𝑰A = 𝑹
 
 #### Reflexivity
-> 𝑹:=rel(A) is reflexive if ∀a ∈ A(⟨a,a⟩ ∈ 𝑹)
-  
-𝑹 is reflexive if every a \in A satisfies ⟨a,a⟩∈𝑹. In other words:  
-𝑰A ⊆ 𝑹  
+> 𝑹:=rel(A) is reflexive if ∀a ∈ A(⟨a,a⟩ ∈ 𝑹)  
+> 𝑹 is reflexive if every a \in A satisfies ⟨a,a⟩∈𝑹. In other words:  
+> 𝑰A ⊆ 𝑹
+
 A = { −1, 0, 1 }. Is ⋱ contained \in 𝑹?
 𝑹 = lambda a,b: a⊙b; `all(R(x,x) for x \in A)`?
 
@@ -56,21 +55,21 @@ _Counter Examples_
 - a=−b ⋰
 
 #### Antireflexivity
-> 𝑹:=rel(A) is antireflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)
+> 𝑹:=rel(A) is antireflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)  
+> 𝑹 is antireflexive if every a \in A satisfies ⟨a,a⟩ ∉ 𝑹. In other words:  
+> 𝑰A ∩ 𝑹 = ∅ // just 𝑰A ⊈ 𝑹 isn't enough; 𝑰A = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩ ∈ 𝑹 so isn't antireflexive
 
-𝑹 is reflexive if every a \in A satisfies ⟨a,a⟩ ∉ 𝑹. In other words:
-𝑰A ∩ 𝑹 = ∅ // just 𝑰A ⊈ 𝑹 isn't enough; 𝑰A = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩ ∈ 𝑹 so isn't antireflexive
 _Examples_
 - ≠, <, >, ∅A
+
 _Counter Examples_
 - 𝑼A, 𝑰A, a=−b ⋰, ≤, ≥
 
 #### Symmetry
-> 𝑹:=rel(A) is symmetric iff 𝑹 = 𝑹−1
-  
-𝑹 is symmetric if every ⟨x,y⟩ \in 𝑹 satisfies ⟨y,x⟩ ∈ 𝑹 // assuming both x and y exist \in A
-∀x∀y(⟨x,y⟩∈𝑹 → ⟨y,x⟩∈𝑹)
-𝑹 = lambda a,b: a⊙b; `all(rel(y,x) for x,y \in R)`?
+> 𝑹:=rel(A) is symmetric iff 𝑹 = 𝑹−1  
+> 𝑹 is symmetric if every ⟨x,y⟩ \in 𝑹 satisfies ⟨y,x⟩ ∈ 𝑹  
+> ∀x∀y(⟨x,y⟩∈𝑹 → ⟨y,x⟩∈𝑹)  
+> 𝑹 = lambda a,b: a⊙b; `all(rel(y,x) for x,y \in R)`?
 
 _Properties_
 - if 𝑺 is symmetric then both 𝑹∪𝑺 and 𝑹∩𝑺 are reflexive
@@ -82,11 +81,9 @@ _Counter Examples_
 - ≤, ≥, <, >
 
 #### Antisymmetry
-> 𝑹:=rel(A) is antisymmetric iff 𝑹 ∩ 𝑹−1 = ∅
-
-𝑹 is antisymmetric if every ⟨x,y⟩ \in 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹
-∀x∀y((x,y) ∈ 𝑹 → (y,x) ∉ 𝑹)
-𝑹 ∩ 𝑹−1 = ∅ means there can't be a ⟨x,x⟩
+> 𝑹:=rel(A) is antisymmetric iff 𝑹 ∩ 𝑹−1 = ∅  // 𝑹 ∩ 𝑹−1 = ∅ means there can't be a ⟨x,x⟩  
+> 𝑹 is antisymmetric if every ⟨x,y⟩ \in 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹  
+> ∀x∀y((x,y) ∈ 𝑹 → (y,x) ∉ 𝑹)
 
 _Properties_
 - → 𝑹 is antireflexive
@@ -100,16 +97,15 @@ _Examples_
 - <, >, ∅A
 - b﹥a**2
 
-_Counter Examples_  
+_Counter Examples_
 - ≠, ≤, ≥, 𝑼A, 𝑰A, a=−b ⋰, ≠
 - b﹤a**2 // ⟨3,4⟩ and ⟨4,3⟩ are symmetric
 
 #### Weak Antisymmetry
 > 𝑹 ∩ 𝑹−1 ⊆ 𝑰A  
-
-∀x∀y(⟨x,y⟩ ∈ 𝑹 ∧ ⟨y,x⟩ ∈ 𝑹 → x=y)
-if both ⟨x,y⟩ ∈ 𝑹 and ⟨y,x⟩ ∈ 𝑹 it's only because they're equal
-for x,y ∈ A: if x≠y and ⟨x,y⟩ ∈ 𝑹 then must ⟨y,x⟩ ∉ 𝑹
+> ∀x∀y(⟨x,y⟩ ∈ 𝑹 ∧ ⟨y,x⟩ ∈ 𝑹 → x=y)  
+> if both ⟨x,y⟩ ∈ 𝑹 and ⟨y,x⟩ ∈ 𝑹 it's only because they're equal  
+> for x,y ∈ A: if x≠y and ⟨x,y⟩ ∈ 𝑹 then must ⟨y,x⟩ ∉ 𝑹
 
 AS vs WAS: AS requires every pair's opposite to \not be \in 𝑹, whereas WAS requires the same only for pairs that x=y
 
@@ -117,11 +113,10 @@ _Examples_
 - 𝑰A
 
 #### Transitivity
-> 𝑹2 ⊆ 𝑹
-
-∀x∀y∀z((𝑹(x,y) ∧ 𝑹(y,z)) → 𝑹(x,z))
-Every (x,y,z)∈A that satisfy ⟨x,y⟩∈𝑹 and ⟨y,z⟩∈𝑹 also satisfy ⟨x,z⟩∈𝑹
-If you see an x that leads to y that leads to z, then expect x to lead to z // this is why 𝑹2 ⊆ 𝑹
+> 𝑹2 ⊆ 𝑹  
+> ∀x∀y∀z((𝑹(x,y) ∧ 𝑹(y,z)) → 𝑹(x,z))  
+> Every (x,y,z)∈A that satisfy ⟨x,y⟩∈𝑹 and ⟨y,z⟩∈𝑹 also satisfy ⟨x,z⟩∈𝑹  
+> If you see an x that leads to y that leads to z, then expect x to lead to z // this is why 𝑹2 ⊆ 𝑹
 
 _Properties_
 - if 𝑻 is symmetric and antisymmetric then it's also transitive
@@ -221,9 +216,9 @@ _Counter Examples_
 ---
 
 #### Equivalence Class: {x∈𝑺 | x≡a} where a∈𝑺
-Given 𝑹 is an equivalence relation on 𝑺, the equivalence class of an element a \in 𝑺 is the set {x∈𝑺 | ⟨x,a⟩∈𝑹}
-⟦a⟧ = {b|a𝑹b} = {b|⟨a,b⟩ ∈ 𝑹} // all elements \in 𝑺 that when paired with a, exist \in 𝑹
-In other words: going over 𝑹, the elements \in ⟦a⟧ are all the elements that a is paired with     
+> Given 𝑹 is an equivalence relation on 𝑺, the equivalence class of an element a \in 𝑺 is the set {x∈𝑺 | ⟨x,a⟩∈𝑹}  
+> ⟦a⟧ = {b|a𝑹b} = {b|⟨a,b⟩ ∈ 𝑹} // all elements \in 𝑺 that when paired with a, exist \in 𝑹  
+> In other words: going over 𝑹, the elements \in ⟦a⟧ are all the elements that a is paired with
 
 _Properties_
 - ⋃ of all equivalence classes = 𝑺 ?

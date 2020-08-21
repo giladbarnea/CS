@@ -73,7 +73,7 @@ div.thin-line, thin-line {
 
 span.grey, grey {
     color: rgb(110, 110, 110);
-    background: rgb(252, 252, 252);
+    background: rgb(245, 245, 245);
 
     /*dark*/
     /*background: #111;*/
@@ -83,9 +83,9 @@ span.grey, grey {
 
 span.comment, comment {
     margin-left: 25px;
-    padding-left: 25px;
+    /*padding-left: 25px;*/
     color: rgb(110, 110, 110);
-    background: rgb(252, 252, 252);
+    background: rgb(245, 245, 245);
 
     /*dark*/
     /*background: #111;*/
