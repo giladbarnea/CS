@@ -117,4 +117,4 @@ We are left with four subsets: {3}, {1,3}, {2,3}, {1,2,3}.
 Because {3} is a subset of each of them, let's figure out it's equivalence class.  
 ⟦3⟧ = {m∈M | mΔ{3} ⊆ {1,2}}  
 Because symmetric difference leaves out everything besides the intersection, m has to contain {3} if we need mΔ{3}⊆{1,2} to be true, so:  
-{3} <= m  
+{3} ⊆ m  

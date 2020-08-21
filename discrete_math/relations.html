@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <link href="markdown.css" type="text/css" rel="stylesheet" />
+      </head>
+
+    <body>
+<h4>𝑹: {⟨x,y⟩ for ⟨x,y⟩ ∈ A<sup>2</sup> if x𝑹y}</h4>
+<h4>𝑻·𝑹: {⟨a,c⟩ | ∃b ∈ B (⟨a,b⟩ ∈ 𝑻 ∧ ⟨b,c⟩ ∈ 𝑹)}</h4>
+<p><img alt="" src="../Documents/CompSci/discrete_math/relations2.gif" /></p>
+<h4>𝑹<sup>2</sup>: a𝑹<sup>2</sup>c ⟺ {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ 𝑹 ∧ ⟨b,c⟩ ∈ 𝑹)}</h4>
+<p>an ordered pair ⟨a,c⟩∈𝑹<sup>2</sup> means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹<br />
+<img alt="" src="./relations1.gif" /><br />
+<br></p>
+<p><em>Examples</em></p>
+<ul>
+<li>
+<p>(a=−b)<sup>2</sup> = 𝑰<sub>ℝ</sub></p>
+</li>
+<li>
+<p>⟨a,b⟩ ∈ 𝑹<sup>2</sup> ⟺ ⟨a,c⟩,⟨c,b⟩ ∈ 𝑹  </p>
+</li>
+</ul>
+<h4>Empty ∅<sub>A</sub></h4>
+<blockquote>
+<p>𝑹:=rel(A×B) = ∅</p>
+</blockquote>
+<p>No pair ∈ A×B satisfies ⟨a,b⟩ ∈ 𝑹</p>
+<p><em>Properties</em></p>
+<ul>
+<li>
+<p>𝑺·∅<sub>A</sub> = ∅</p>
+</li>
+<li>
+<p>anti−symmetric</p>
+</li>
+<li>
+<p>symmetric ?</p>
+</li>
+</ul>
+<p><em>Examples</em></p>
+<ul>
+<li>{⟨x,y⟩ ∈ ℕ<sup>2</sup> | x+y﹤x}</li>
+</ul>
+<p><br></p>
+<h4>Identity 𝑰<sub>A</sub></h4>
+<p><em>Properties</em></p>
+<ul>
+<li>𝑹·𝑰<sub>A</sub> = 𝑹</li>
+</ul>
+<h4>Reflexivity</h4>
+<blockquote>
+<p>𝑹:=rel(A) is reflexive if ∀a ∈ A(⟨a,a⟩ ∈ 𝑹)</p>
+</blockquote>
+<p>𝑹 is reflexive if every a in A satisfies ⟨a,a⟩∈𝑹. In other words:<br />
+𝑰<sub>A</sub> ⊆ 𝑹<br />
+A = { −1, 0, 1 }. Is ⋱ contained in 𝑹?</p>
+<p>𝑹 = lambda a,b: a⊙b; <code>all(R(x,x) for x in A)</code>?</p>
+<p><em>Properties</em></p>
+<ul>
+<li>
+<p>⟺ 𝑹<sup>−1</sup> is reflexive</p>
+</li>
+<li>
+<p>→ 𝑹 ⊆ 𝑹<sup>2</sup> (and 𝑹<sup>2</sup> is reflexive)</p>
+</li>
+<li>
+<p>→ 𝑹⊆𝑹<sup>2</sup></p>
+</li>
+<li>
+<p>if 𝑺⊆𝑹 then 𝑺 is reflexive</p>
+</li>
+<li>
+<p>if 𝑺 is reflexive then both 𝑹∪𝑺 and 𝑹∩𝑺 are reflexive</p>
+</li>
+</ul>
+<p><em>Examples</em></p>
+<ul>
+<li>
+<p>𝑼<sub>A</sub>: ∀a ∈ A(⟨a,a⟩ ∈ A×A = 𝑼A)</p>
+</li>
+<li>
+<p>𝑰<sub>A</sub>: ∀a ∈ A(⟨a,a⟩ ∈ {⟨−1, −1⟩, ⟨0, 0⟩, ⟨1, 1⟩})</p>
+</li>
+<li>
+<p>≤, ≥ <span class="comment">both contain ⋱</span></p>
+</li>
+</ul>
+<p><em>Counter Examples</em></p>
+<ul>
+<li>
+<p>≠ (which is 𝑼<sub>A</sub> − 𝑰A)</p>
+</li>
+<li>
+<p>&lt;, &gt;, ∅<sub>A</sub></p>
+</li>
+<li>
+<p>a=−b ⋰</p>
+</li>
+</ul>
+<h4>Antireflexivity</h4>
+<blockquote>
+<p>𝑹:=rel(A) is antireflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)</p>
+</blockquote>
+<p>𝑹 is reflexive if every a in A satisfies ⟨a,a⟩ ∉ 𝑹. In other words:</p>
+<p>𝑰<sub>A</sub> ∩ 𝑹 = ∅ <span class="comment">just 𝑰<sub>A</sub> ⊈ 𝑹 isn't enough; 𝑰<sub>A</sub> = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩ ∈ 𝑹 so isn't antireflexive</span></p>
+<p><em>Examples</em></p>
+<ul>
+<li>≠, &lt;, &gt;, ∅<sub>A</sub></li>
+</ul>
+<p><em>Counter Examples</em></p>
+<ul>
+<li>𝑼<sub>A</sub>, 𝑰<sub>A</sub>, a=−b ⋰, ≤, ≥</li>
+</ul>
+<h4>Symmetry</h4>
+<blockquote>
+<p>𝑹:=rel(A) is symmetric iff 𝑹 = 𝑹<sup>−1</sup></p>
+</blockquote>
+<p>𝑹 is symmetric if every ⟨x,y⟩ in 𝑹 satisfies ⟨y,x⟩ ∈ 𝑹 <span class="comment">assuming both x and y exist in A</span></p>
+<p>∀x∀y(⟨x,y⟩∈𝑹 → ⟨y,x⟩∈𝑹)</p>
+<p>𝑹 = lambda a,b: a⊙b; <code>all(rel(y,x) for x,y in R)</code>?</p>
+<p><em>Properties</em></p>
+<ul>
+<li>
+<p>if 𝑺 is symmetric then both 𝑹∪𝑺 and 𝑹∩𝑺 are reflexive</p>
+</li>
+<li>
+<p>if 𝑺 is symmetric then 𝑹\𝑺 is symmetric</p>
+</li>
+</ul>
+<p><em>Examples</em></p>
+<ul>
+<li>
+<p>∅<sub>A</sub> <span class="comment">can't point at ⟨x,y⟩ and say ⟨y,x⟩ is not in ∅<sup>−1</sup></span></p>
+</li>
+<li>
+<p>𝑼<sub>A</sub>, 𝑰<sub>A</sub>, a=−b ⋰, ≠</p>
+</li>
+</ul>
+<p><em>Counter Examples</em></p>
+<ul>
+<li>≤, ≥, &lt;, &gt;</li>
+</ul>
+<h4>Antisymmetry</h4>
+<blockquote>
+<p>𝑹:=rel(A) is antisymmetric iff 𝑹 ∩ 𝑹<sup>−1</sup> = ∅</p>
+</blockquote>
+<p>𝑹 is antisymmetric if every ⟨x,y⟩ in 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹</p>
+<p>∀x∀y((x,y) ∈ 𝑹 → (y,x) ∉ 𝑹)</p>
+<p>𝑹 ∩ 𝑹<sup>−1</sup> = ∅ means there can't be a ⟨x,x⟩</p>
+<p><em>Properties</em></p>
+<ul>
+<li>
+<p>→ 𝑹 is antireflexive</p>
+</li>
+<li>
+<p>→ 𝑹<sup>−1</sup> is antisymmetric</p>
+</li>
+<li>
+<p>if 𝑺⊆𝑹 then 𝑺 is antisymmetric</p>
+</li>
+<li>
+<p>if 𝑺∪𝑻 is antisymmetric then both 𝑺 and 𝑻 are antisymmetric</p>
+</li>
+<li>
+<p>→ 𝑹∩𝑺 is antisymmetric</p>
+</li>
+<li>
+<p><a href="https://proofwiki.org/wiki/Antireflexive_and_Transitive_Relation_is_Asymmetric">if 𝑹 is antireflexive and transitive then it's asymmetric and antisymmetric</a></p>
+</li>
+</ul>
+<p><em>Examples</em></p>
+<ul>
+<li>
+<p>&lt;, &gt;, ∅<sub>A</sub></p>
+</li>
+<li>
+<p>b﹥a<sup>2</sup></p>
+</li>
+</ul>
+<p><em>Counter Examples</em><br />
+- ≠, ≤, ≥, 𝑼<sub>A</sub>, 𝑰<sub>A</sub>, a=−b ⋰, ≠</p>
+<ul>
+<li>b﹤a<sup>2</sup> <span class="comment">⟨3,4⟩ and ⟨4,3⟩ are symmetric</span></li>
+</ul>
+<h4>Weak Antisymmetry</h4>
+<blockquote>
+<p>𝑹 ∩ 𝑹<sup>−1</sup> ⊆ 𝑰<sub>A</sub>  </p>
+</blockquote>
+<p>∀x∀y(⟨x,y⟩ ∈ 𝑹 ∧ ⟨y,x⟩ ∈ 𝑹 → x=y)</p>
+<p>if both ⟨x,y⟩ ∈ 𝑹 and ⟨y,x⟩ ∈ 𝑹 it's only because they're equal</p>
+<p>for x,y ∈ A: if x≠y and ⟨x,y⟩ ∈ 𝑹 then must ⟨y,x⟩ ∉ 𝑹</p>
+<p>A<sub>S</sub> vs WA<sub>S</sub>: A<sub>S</sub> requires every pair's opposite to not be in 𝑹, whereas WA<sub>S</sub> requires the same only for pairs that x=y</p>
+<p><em>Examples</em></p>
+<ul>
+<li>𝑰<sub>A</sub></li>
+</ul>
+<h4>Transitivity</h4>
+<blockquote>
+<p>𝑹<sup>2</sup> ⊆ 𝑹</p>
+</blockquote>
+<p>∀x∀y∀z((𝑹(x,y) ∧ 𝑹(y,z)) → 𝑹(x,z))</p>
+<p>Every (x,y,z)∈A that satisfy ⟨x,y⟩∈𝑹 and ⟨y,z⟩∈𝑹 also satisfy ⟨x,z⟩∈𝑹</p>
+<p>If you see an x that leads to y that leads to z, then expect x to lead to z <span class="comment">this is why 𝑹<sup>2</sup> ⊆ 𝑹</span></p>
+<p><em>Properties</em></p>
+<ul>
+<li>if 𝑻 is symmetric and antisymmetric then it's also transitive</li>
+</ul>
+<p><em>Examples</em></p>
+<ul>
+<li>
+<p>A={1,2,3}; 𝑹 = {⟨<strong>1</strong>,2⟩, ⟨2,<strong>3</strong>⟩, <strong>⟨1,3⟩</strong>} ⇒ 𝑹<sup>2</sup> = {⟨1,3⟩} ⊆ 𝑹</p>
+</li>
+<li>
+<p>A={1,2,3}; 𝑻 = {⟨1,2⟩} ⇒ 𝑻<sup>2</sup> = ∅ ⊆ 𝑻</p>
+</li>
+<li>
+<p>𝑾 = {⟨1,1⟩} ⇒ 𝑾<sup>2</sup> = {⟨1,1⟩} ⊆ 𝑾</p>
+</li>
+<li>
+<p>𝑰<sub>A</sub></p>
+</li>
+<li>
+<p>∅<sub>A</sub></p>
+</li>
+<li>
+<p>𝑼<sub>A</sub> <span class="comment">if ⟨a,b⟩ ∈ A<sup>2</sup> and ⟨b,a⟩ ∈ A<sup>2</sup> then ⟨a,c⟩ ∈ A<sup>2</sup></span></p>
+</li>
+<li>
+<p>if |A|﹥1 then ≠ is trans</p>
+</li>
+<li>
+<p>&lt;, ≤</p>
+</li>
+</ul>
+<p><em>Counter Examples</em></p>
+<ul>
+<li>
+<p>𝑷={⟨1,2⟩, ⟨2,1⟩} ⇒ 𝑷<sup>2</sup> = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑷 <span class="comment">iow: 1 leads to 2 leads to 1, but ⟨1,1⟩ ⊈ 𝑷</span></p>
+</li>
+<li>
+<p>∃x∃y∃z(𝑹(x,y) ∧ 𝑹(y,z) ∧ ¬𝑹(x,z))</p>
+</li>
+</ul>
+<hr />
+<h4>Equivalance</h4>
+<blockquote>
+<p>𝑹 over A is equivalence iff 𝑹 is reflexive, symmetric and transitive</p>
+</blockquote>
+<p><em>Examples</em></p>
+<ul>
+<li>
+<p>𝑼<sub>A</sub>, 𝑰<sub>A</sub>, equality</p>
+</li>
+<li>
+<p>"Has the same absolute value" on the set of real numbers</p>
+</li>
+<li>
+<p>if A=∅ then ∅<sub>A</sub> is symmetric, transitive and reflexive</p>
+</li>
+</ul>
+<p><em>Counter Examples</em></p>
+<ul>
+<li>
+<p>≥ <span class="comment">reflexive and transitive but not symmetric</span></p>
+</li>
+<li>
+<p>if A≠∅ then ∅<sub>A</sub> is symmetric and transitive, but not reflexive</p>
+</li>
+</ul>
+<h4>Connexivity</h4>
+<p><span class="grey">lesson 7 00:06:00</span></p>
+<blockquote>
+<p>𝑹 over A is connexive iff ∀(x,y)∈A (x≠y → ⟨x,y⟩∈𝑹 ⋁ ⟨y,x⟩∈𝑹)</p>
+</blockquote>
+<p><em>Examples</em></p>
+<ul>
+<li>Any two numbers ℕ</li>
+</ul>
+<hr />
+<h3>Order</h3>
+<hr />
+<p><span class="grey">lesson 7 00:00:00</span></p>
+<p><br></p>
+<h4>Partial Order</h4>
+<blockquote>
+<p>𝑹 over A (≤) is a partial order iff it's <a href="#antireflexivity">antireflexive</a> and <a href="#transitivity">transitive</a></p>
+</blockquote>
+<p><em>Properties</em></p>
+<ul>
+<li><a href="#antisymmetry">Antisymmetric</a> <span class="comment">because antireflexive and transitive</span></li>
+</ul>
+<p><em>Examples</em></p>
+<ul>
+<li>⊂ over 𝓟(A)</li>
+</ul>
+<p>???<br />
+for all a, b, and c:<br />
+- a ≤ a <span class="comment">reflex  </span></p>
+<ul>
+<li>
+<p>if a ≤ b and b ≤ a, then a = b <span class="comment">antisymm  </span></p>
+</li>
+<li>
+<p>if a ≤ b and b ≤ c, then a ≤ c <span class="comment">trans  </span></p>
+</li>
+</ul>
+<p><em>Examples</em></p>
+<ul>
+<li>equality<br />
+???</li>
+</ul>
+<h4>Total Order</h4>
+<blockquote>
+<p>Partial order and <a href="#connexivity">connexive</a> (aka "linearly ordered")<br />
+∀(x,y)∈A (x≠y → ⟨x,y⟩∈𝑹 ⊻ ⟨y,x⟩∈𝑹) <span class="comment">note the xor. verify</span></p>
+</blockquote>
+<p><em>Examples</em></p>
+<ul>
+<li>&lt; over ℕ <span class="comment">also over ℝ?</span></li>
+</ul>
+<p><em>Counter Examples</em></p>
+<ul>
+<li>if A≠∅ then 𝑰<sub>A</sub> isn't total order because for all a∈A: a=a</li>
+</ul>
+<hr />
+<h3>Partitions</h3>
+<hr />
+<h4>Partition of A is a set of non-empty, non-overlapping subsets of A whose union = A</h4>
+<p><em>Properties</em></p>
+<ul>
+<li>
+<p>every a∈A is in exactly one block</p>
+</li>
+<li>
+<p>no block contains ∅</p>
+</li>
+<li>
+<p>union of blocks = A</p>
+</li>
+<li>
+<p>intersection of any two blocks = ∅</p>
+</li>
+<li>
+<p>→ A is finite ⇒ rank of P is |X| − |P| ?</p>
+</li>
+</ul>
+<p><em>Examples</em></p>
+<ul>
+<li>
+<p>{A} is partition of A <span class="comment">trivial</span></p>
+</li>
+<li>
+<p>∅'s only partition is ∅</p>
+</li>
+<li>
+<p>{1,2,3} has five partitions: {{1},{2},{3}}, {{1, 2}, {3}}, {{1, 3},{2}}, {{1},{2, 3}}, {{1, 2, 3}}</p>
+</li>
+</ul>
+<p><em>Counter Examples</em></p>
+<ul>
+<li>not partitions of {1,2,3}: </li>
+<li>{{}, {1,3}, {2}} <span class="comment">contains ∅</span></li>
+<li>{{1, 2}, {2, 3}} <span class="comment">2 exists in more than one block</span></li>
+<li>{{1}, {2}} <span class="comment">no block contains 3</span></li>
+</ul>
+<hr />
+<h4>Equivalence Class: {x∈𝑺 | x≡a} where a∈𝑺</h4>
+<p>Given 𝑹 is an equivalence relation on 𝑺, the equivalence class of an element a in 𝑺 is the set {x∈𝑺 | ⟨x,a⟩∈𝑹}</p>
+<p>⟦a⟧ = {b|a𝑹b} = {b|⟨a,b⟩ ∈ 𝑹} <span class="comment">all elements in 𝑺 that when paired with a, exist in 𝑹</span></p>
+<p>In other words: going over 𝑹, the elements in ⟦a⟧ are all the elements that a is paired with     </p>
+<p><em>Properties</em></p>
+<ul>
+<li>
+<p>⋃ of all equivalence classes = 𝑺 ?</p>
+</li>
+<li>
+<p>a ∈ ⟦a⟧ <span class="comment">every element exists in its equivalence class</span></p>
+</li>
+<li>
+<p>the items in each equivalence class of 𝑺 exist only in their equivalence class ?</p>
+</li>
+<li>
+<p>every possible pair of eq. classes is zar ? </p>
+</li>
+</ul>
+<p><em>Examples</em></p>
+<ul>
+<li>
+<p>𝑿 = all cars; relation ≡<sub>𝑿</sub> = "has the same color as"; one particular equivlance class consists of all green cars</p>
+</li>
+<li>
+<p>Relation ≡<sub>ℤ</sub> is ⟨a,b⟩∈≡<sub>ℤ</sub> ⟺ (a − b)%2==0 ⟹ two equivalence classes: even numbers and odd numbers</p>
+</li>
+<li>
+<p>𝑺 = {1,2,3,4,5}</p>
+</li>
+<li>≡<sub>𝑺</sub> = {⟨1,<strong>1</strong>⟩, ⟨1,<strong>2</strong>⟩, ⟨1,<strong>3</strong>⟩, ⟨2,2⟩, ⟨3,3⟩, ⟨4,4⟩, ⟨5,5⟩, ⟨2,1⟩, ⟨2,3⟩, ⟨3,2⟩, ⟨3,1⟩}  </li>
+<li>⟦1⟧ = <strong>{1, 2, 3}</strong> <span class="comment">everything that 1 is related to</span></li>
+<li>⟦2⟧ = {2, 1, 3}</li>
+<li>⟦3⟧ = {3, 2, 1} <span class="comment">note that ⟦1⟧ ≡ ⟦2⟧ ≡ ⟦3⟧ </span></li>
+<li>⟦4⟧ = {4}</li>
+<li>⟦5⟧ = {5}</li>
+</ul>
+
+    </body>
+
+    </html>
+    

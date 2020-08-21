@@ -1,14 +1,19 @@
 * {
-    margin: 3pt 0 0 0;
+    /*margin: 3pt 0 0 0;*/
     font-family: "DejaVu Sans Mono", monospace;
     letter-spacing: 0.5pt;
     line-height: 15pt;
+
     /*padding: 0;*/
 }
 
+html {
+    margin: 0 10pt
+}
 
 body > :first-child {
     margin-top: 0;
+
 }
 
 
@@ -31,21 +36,20 @@ h2 {
 
 h3 {
     margin: 10pt 5pt 10pt 5pt;
-    font-size: x-large;
+    font-size: 18pt;
 }
 
 h4 {
-    margin: 10pt 5pt 5pt 0;
-    font-size: large;
+    margin: 15pt 5pt 5pt 0;
+    font-size: 14pt;
 }
-
 
 
 hr {
     margin: 15pt 0
 }
 
-over {
+span.over, over {
     text-decoration: overline;
 }
 
@@ -58,29 +62,88 @@ div.thin-line, thin-line {
 
 }
 
-div.line, line {
+/*div.line, line {
     background-color: rgb(100, 100, 100);
     width: 80%;
     height: 1px;
     margin-top: 20pt;
     margin-bottom: 20pt;
-}
+}*/
 
-grey {
-    color: rgb(110, 110, 110)
-}
 
-comment {
-    margin-left: 25pt;
+span.grey, grey {
     color: rgb(110, 110, 110);
     background: rgb(252, 252, 252);
+
+    /*dark*/
+    /*background: #111;*/
+
+
 }
+
+span.comment, comment {
+    margin-left: 25px;
+    padding-left: 25px;
+    color: rgb(110, 110, 110);
+    background: rgb(252, 252, 252);
+
+    /*dark*/
+    /*background: #111;*/
+}
+
 
 sub, sup {
     margin: 0 0 0 1pt;
 }
 
+
 ul {
-    margin: 0;
-    padding: 0
+    margin-top: 0pt;
+}
+
+li > p {
+    margin-block-start: 5pt
+}
+
+/*blockquote {
+    color: rgb(110, 110, 110);
+    font-size: 13pt;
+    font-family: "FreeSerif";
+
+}*/
+
+/* Github Markdown blockquote */
+blockquote {
+    margin: 0 0 16px;
+    padding: 0 1em;
+    /*color: #6a737d;*/
+    background: rgb(252, 252, 252);
+
+    color: black;
+    /*border-left: .25em solid #dfe2e5;*/
+    border-left: .25em solid #b3c0c8;
+}
+
+blockquote > * {
+    letter-spacing: 1pt;
+    font-family: "Roboto Mono Light for Powerline";
+}
+
+blockquote > :first-child {
+    margin-top: 0;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0;
+}
+
+p {
+    margin-block-end: 5pt;
+}
+
+em {
+    font-family: "DejaVu Serif";
+    font-size: 12pt;
+    font-style: normal;
+    margin-bottom: 0;
 }
