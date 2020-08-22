@@ -219,13 +219,13 @@ If you see an x that leads to y that leads to z, then expect x to lead to z <spa
 <p><em>Examples</em></p>
 <ul>
 <li>
-<p>A={1,2,3}; 𝑹 = {⟨<strong>1</strong>,2⟩, ⟨2,<strong>3</strong>⟩, <strong>⟨1,3⟩</strong>} ⇒ 𝑹<sup>2</sup> = {⟨1,3⟩} ⊆ 𝑹</p>
+<p>A={1,2,3}; 𝑹 = {⟨<strong>1</strong>,2⟩, ⟨2,<strong>3</strong>⟩, <strong>⟨1,3⟩</strong>} ⟹ 𝑹<sup>2</sup> = {⟨1,3⟩} ⊆ 𝑹</p>
 </li>
 <li>
-<p>A={1,2,3}; 𝑻 = {⟨1,2⟩} ⇒ 𝑻<sup>2</sup> = ∅ ⊆ 𝑻</p>
+<p>A={1,2,3}; 𝑻 = {⟨1,2⟩} ⟹ 𝑻<sup>2</sup> = ∅ ⊆ 𝑻</p>
 </li>
 <li>
-<p>𝑾 = {⟨1,1⟩} ⇒ 𝑾<sup>2</sup> = {⟨1,1⟩} ⊆ 𝑾</p>
+<p>𝑾 = {⟨1,1⟩} ⟹ 𝑾<sup>2</sup> = {⟨1,1⟩} ⊆ 𝑾</p>
 </li>
 <li>
 <p>𝑰<sub>A</sub></p>
@@ -242,7 +242,11 @@ If you see an x that leads to y that leads to z, then expect x to lead to z <spa
 <li>
 <p>&lt;, ≤</p>
 </li>
+<li>
+<p>𝑻 = (⟨2,1⟩, ⟨2,3⟩) ⟹ 𝑻<sup>2</sup> = ∅⊆𝑻</p>
+</li>
 </ul>
+<p><br></p>
 <p><em>Counter Examples</em></p>
 <ul>
 <li>
@@ -337,7 +341,7 @@ for all a, b, and c:<br />
 <li>if A≠∅ then 𝑰<sub>A</sub> isn't total order because for all a∈A: a=a</li>
 </ul>
 <p><br></p>
-<h3>Minimal / Maximal Element (איבר מינימלי)</h3>
+<h3>Minimal / Maximal Element (איבר מינימלי / מקסימלי)</h3>
 <blockquote>
 <p>Element a in partially ordered set A is a minimal element if there's no other element x∈A that x≺a<br />
 (𝑷, ≤) is partially ordered set ⟹</p>
@@ -346,18 +350,19 @@ for all a, b, and c:<br />
 <li>{ y∈𝑷 | ∀x∈𝑷, x≤y} → y is greatest element</li>
 </ul>
 </blockquote>
-<p><span class="grey">lesson 7 00:36</span></p>
+<p><span class="grey">lesson 7 00:36:00</span></p>
 <p><em>Properties</em></p>
 <ul>
 <li>
-<p>minimal / maximal elements don't necessarily exist <span class="comment">e.g. no hands stickman graph</span></p>
+<p>a partially ordered, <strong>finite</strong> set has at least one min element and one max element <span class="comment">p. 110</span></p>
 </li>
 <li>
-<p>minimal and maximal are unique if exist</p>
+<p>a partially ordered, <strong>infinite</strong> set <strong>may</strong> have min / max elements</p>
 </li>
 </ul>
 <p><em>Examples</em></p>
 <p><img alt="" src="./relations_hesse.gif" /></p>
+<p><img alt="" src="./relations_hesse2.gif" /></p>
 <hr />
 <h3>Partitions</h3>
 <hr />

@@ -122,15 +122,18 @@ _Examples_
 
 _Properties_
 - if 𝑻 is symmetric and antisymmetric then it's also transitive
+
 _Examples_
-- A={1,2,3}; 𝑹 = {⟨__1__,2⟩, ⟨2,__3__⟩, __⟨1,3⟩__} ⇒ 𝑹2 = {⟨1,3⟩} ⊆ 𝑹
-- A={1,2,3}; 𝑻 = {⟨1,2⟩} ⇒ 𝑻2 = ∅ ⊆ 𝑻
-- 𝑾 = {⟨1,1⟩} ⇒ 𝑾2 = {⟨1,1⟩} ⊆ 𝑾
+- A={1,2,3}; 𝑹 = {⟨__1__,2⟩, ⟨2,__3__⟩, __⟨1,3⟩__} ⟹ 𝑹2 = {⟨1,3⟩} ⊆ 𝑹
+- A={1,2,3}; 𝑻 = {⟨1,2⟩} ⟹ 𝑻2 = ∅ ⊆ 𝑻
+- 𝑾 = {⟨1,1⟩} ⟹ 𝑾2 = {⟨1,1⟩} ⊆ 𝑾
 - 𝑰A
 - ∅A
 - 𝑼A // if ⟨a,b⟩ ∈ A2 and ⟨b,a⟩ ∈ A2 then ⟨a,c⟩ ∈ A2
 - if |A|﹥1 then ≠ is trans
 - <, ≤
+- 𝑻 = (⟨2,1⟩, ⟨2,3⟩) ⟹ 𝑻**2 = ∅⊆𝑻
+
 
 _Counter Examples_
 - 𝑷={⟨1,2⟩, ⟨2,1⟩} ⇒ 𝑷2 = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑷 // iow: 1 leads to 2 leads to 1, but ⟨1,1⟩ ⊈ 𝑷
@@ -197,19 +200,20 @@ _Counter Examples_
 - if A≠∅ then 𝑰A isn't total order because for all a∈A: a=a
 
 
-### Minimal / Maximal Element (איבר מינימלי)
+### Minimal / Maximal Element (איבר מינימלי / מקסימלי)
 > Element a in partially ordered set A is a minimal element if there's no other element x∈A that x≺a  
 > (𝑷, ≤) is partially ordered set ⟹
 > - { y∈𝑷 | ∀x∈𝑷, y≤x} → y is least element // x is all the elements in 𝑷  
 > - { y∈𝑷 | ∀x∈𝑷, x≤y} → y is greatest element
-// lesson 7 00:36
+// lesson 7 00:36:00
 
 _Properties_
-- minimal / maximal elements don't necessarily exist // e.g. no hands stickman graph
-- minimal and maximal are unique if exist
+- a partially ordered, __finite__ set has at least one min element and one max element // p. 110
+- a partially ordered, __infinite__ set __may__ have min / max elements
 
 _Examples_
 ![](./relations_hesse.gif)
+![](./relations_hesse2.gif)
 ---
 ### Partitions
 ---
