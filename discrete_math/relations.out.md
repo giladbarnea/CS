@@ -7,7 +7,8 @@
 
 
 #### 𝑹<sup>2</sup>: a𝑹<sup>2</sup>c ⟺ {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ 𝑹 ∧ ⟨b,c⟩ ∈ 𝑹)}  
-an ordered pair ⟨a,c⟩∈𝑹<sup>2</sup> means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹  
+> an ordered pair ⟨a,c⟩∈𝑹<sup>2</sup> means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹  
+
 ![](./relations1.gif)  
 <br>
 
@@ -89,7 +90,7 @@ _Counter Examples_
 
 > 𝑹:=rel(A) is antireflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)  
 > 𝑹 is antireflexive if every a in A satisfies ⟨a,a⟩ ∉ 𝑹. In other words:  
-> 𝑰<sub>A</sub> ∩ 𝑹 = ∅ <span class="comment">just 𝑰<sub>A</sub> ⊈ 𝑹 isn't enough; 𝑰<sub>A</sub> = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩ ∈ 𝑹 so isn't antireflexive</span>
+> 𝑰<sub>A</sub> ∩ 𝑹 = ∅ <span class="comment">just 𝑰<sub>A</sub> ⊈ 𝑹 isn't enough; 𝑰<sub>A</sub> = {⟨1,1⟩, ⟨2,2⟩}⊈𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩∈𝑹 so isn't antireflexive</span>
 
 
 _Examples_
@@ -147,6 +148,8 @@ _Properties_
 - → 𝑹∩𝑺 is antisymmetric
 
 - [if 𝑹 is antireflexive and transitive then it's asymmetric and antisymmetric](https://proofwiki.org/wiki/Antireflexive_and_Transitive_Relation_is_Asymmetric)
+
+- No set is a ⊂ of itself, so ⊂ is antisymmetric <span class="comment">lesson 7 00:27:40</span>
 
 
 _Examples_
@@ -273,7 +276,7 @@ _Properties_
 
 _Examples_
 
-- ⊂ over 𝓟(A)
+- ⊂ over 𝓟(ℕ) <span class="comment">A∈𝓟(ℕ) is antisym because A⊄A, and trans because A⊂B⊂C ⇒ A⊂C</span>
 
 
 ???  

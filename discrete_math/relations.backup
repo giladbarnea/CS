@@ -1,4 +1,4 @@
-%ignore and <
+%ignore and union <
 
 #### 𝑹: {⟨x,y⟩ for ⟨x,y⟩ ∈ A2 if x𝑹y}
 
@@ -6,7 +6,8 @@
 ![](../Documents/CompSci/discrete_math/relations2.gif)
 
 #### 𝑹2: a𝑹2c ⟺ {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ 𝑹 ∧ ⟨b,c⟩ ∈ 𝑹)}  
-an ordered pair ⟨a,c⟩∈𝑹2 means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹  
+> an ordered pair ⟨a,c⟩∈𝑹2 means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹  
+
 ![](./relations1.gif)  
 
 
@@ -16,7 +17,7 @@ _Examples_
 
 #### Empty ∅A
 > 𝑹:=rel(A×B) = ∅  
-> No pair \in A×B satisfies ⟨a,b⟩ ∈ 𝑹
+> No pair in A×B satisfies ⟨a,b⟩ ∈ 𝑹
 
 _Properties_
 - 𝑺·∅A = ∅
@@ -33,11 +34,11 @@ _Properties_
 
 #### Reflexivity
 > 𝑹:=rel(A) is reflexive if ∀a ∈ A(⟨a,a⟩ ∈ 𝑹)  
-> 𝑹 is reflexive if every a \in A satisfies ⟨a,a⟩∈𝑹. In other words:  
+> 𝑹 is reflexive if every a in A satisfies ⟨a,a⟩∈𝑹. In other words:  
 > 𝑰A ⊆ 𝑹
 
-A = { −1, 0, 1 }. Is ⋱ contained \in 𝑹?
-𝑹 = lambda a,b: a⊙b; `all(R(x,x) for x \in A)`?
+A = { −1, 0, 1 }. Is ⋱ contained in 𝑹?
+𝑹 = lambda a,b: a⊙b; `all(R(x,x) for x in A)`?
 
 _Properties_
 - ⟺ 𝑹−1 is reflexive
@@ -56,8 +57,8 @@ _Counter Examples_
 
 #### Antireflexivity
 > 𝑹:=rel(A) is antireflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)  
-> 𝑹 is antireflexive if every a \in A satisfies ⟨a,a⟩ ∉ 𝑹. In other words:  
-> 𝑰A ∩ 𝑹 = ∅ // just 𝑰A ⊈ 𝑹 isn't enough; 𝑰A = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩ ∈ 𝑹 so isn't antireflexive
+> 𝑹 is antireflexive if every a in A satisfies ⟨a,a⟩ ∉ 𝑹. In other words:  
+> 𝑰A ∩ 𝑹 = ∅ // just 𝑰A ⊈ 𝑹 isn't enough; 𝑰A = {⟨1,1⟩, ⟨2,2⟩}⊈𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩∈𝑹 so isn't antireflexive
 
 _Examples_
 - ≠, <, >, ∅A
@@ -67,22 +68,22 @@ _Counter Examples_
 
 #### Symmetry
 > 𝑹:=rel(A) is symmetric iff 𝑹 = 𝑹−1  
-> 𝑹 is symmetric if every ⟨x,y⟩ \in 𝑹 satisfies ⟨y,x⟩ ∈ 𝑹  
+> 𝑹 is symmetric if every ⟨x,y⟩ in 𝑹 satisfies ⟨y,x⟩ ∈ 𝑹  
 > ∀x∀y(⟨x,y⟩∈𝑹 → ⟨y,x⟩∈𝑹)  
-> 𝑹 = lambda a,b: a⊙b; `all(rel(y,x) for x,y \in R)`?
+> 𝑹 = lambda a,b: a⊙b; `all(rel(y,x) for x,y in R)`?
 
 _Properties_
 - if 𝑺 is symmetric then both 𝑹∪𝑺 and 𝑹∩𝑺 are reflexive
 - if 𝑺 is symmetric then 𝑹\𝑺 is symmetric
 _Examples_
-- ∅A // can't point at ⟨x,y⟩ and say ⟨y,x⟩ is \not \in ∅−1
+- ∅A // can't point at ⟨x,y⟩ and say ⟨y,x⟩ is \not in ∅−1
 - 𝑼A, 𝑰A, a=−b ⋰, ≠
 _Counter Examples_
 - ≤, ≥, <, >
 
 #### Antisymmetry
 > 𝑹:=rel(A) is antisymmetric iff 𝑹 ∩ 𝑹−1 = ∅  // 𝑹 ∩ 𝑹−1 = ∅ means there can't be a ⟨x,x⟩  
-> 𝑹 is antisymmetric if every ⟨x,y⟩ \in 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹  
+> 𝑹 is antisymmetric if every ⟨x,y⟩ in 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹  
 > ∀x∀y((x,y) ∈ 𝑹 → (y,x) ∉ 𝑹)
 
 _Properties_
@@ -92,6 +93,7 @@ _Properties_
 - if 𝑺∪𝑻 is antisymmetric then both 𝑺 and 𝑻 are antisymmetric
 - → 𝑹∩𝑺 is antisymmetric
 - [if 𝑹 is antireflexive and transitive then it's asymmetric and antisymmetric](https://proofwiki.org/wiki/Antireflexive_and_Transitive_Relation_is_Asymmetric)
+- No set is a ⊂ of itself, so ⊂ is antisymmetric // lesson 7 00:27:40
 
 _Examples_
 - <, >, ∅A
@@ -107,7 +109,7 @@ _Counter Examples_
 > if both ⟨x,y⟩ ∈ 𝑹 and ⟨y,x⟩ ∈ 𝑹 it's only because they're equal  
 > for x,y ∈ A: if x≠y and ⟨x,y⟩ ∈ 𝑹 then must ⟨y,x⟩ ∉ 𝑹
 
-AS vs WAS: AS requires every pair's opposite to \not be \in 𝑹, whereas WAS requires the same only for pairs that x=y
+AS vs WAS: AS requires every pair's opposite to \not be in 𝑹, whereas WAS requires the same only for pairs that x=y
 
 _Examples_
 - 𝑰A
@@ -156,19 +158,20 @@ _Examples_
 - Any two numbers ℕ
 
 ---
-### Order
+### Order (יחסי סדר)
 ---
 // lesson 7 00:00:00
 
 
-#### Partial Order
+#### Partial Order (יחס סדר חלקי)
 > 𝑹 over A (≤) is a partial order iff it's [antireflexive](#antireflexivity) and [transitive](#transitivity)
 
 _Properties_
 - [Antisymmetric](#antisymmetry) // because antireflexive and transitive
+- set A with partial order is a קבוצה סדורה חלקית
 
 _Examples_
-- ⊂ over 𝓟(A)
+- ⊂ over 𝓟(ℕ) // A∈𝓟(ℕ) is antisym because A⊄A, and trans because A⊂B⊂C ⇒ A⊂C
 
 ???  
 for all a, b, and c:  
@@ -180,9 +183,12 @@ _Examples_
 - equality  
 ???
 
-#### Total Order
-> Partial order \and [connexive](#connexivity) (aka "linearly ordered")  
+#### Total Order (יחס סדר מלא)
+> Partial order and [connexive](#connexivity) (aka "linearly ordered")  
 > ∀(x,y)∈A (x≠y → ⟨x,y⟩∈𝑹 ⊻ ⟨y,x⟩∈𝑹) // note the \xor. verify
+
+_Properties_
+- set A with total order is a קבוצה סדורה לינארית
 
 _Examples_
 - \< over ℕ // also over ℝ?
@@ -190,15 +196,29 @@ _Examples_
 _Counter Examples_
 - if A≠∅ then 𝑰A isn't total order because for all a∈A: a=a
 
+
+### Minimal / Maximal Element (איבר מינימלי)
+> Element a in partially ordered set A is a minimal element if there's no other element x∈A that x≺a  
+> (𝑷, ≤) is partially ordered set ⟹
+> - { y∈𝑷 | ∀x∈𝑷, y≤x} → y is least element // x is all the elements in 𝑷  
+> - { y∈𝑷 | ∀x∈𝑷, x≤y} → y is greatest element
+// lesson 7 00:36
+
+_Properties_
+- minimal / maximal elements don't necessarily exist // e.g. no hands stickman graph
+- minimal and maximal are unique if exist
+
+_Examples_
+![](./relations_hesse.gif)
 ---
 ### Partitions
 ---
 
-#### Partition of A is a set of non-empty, non-overlapping subsets of A whose \union = A
+#### Partition of A is a set of non-empty, non-overlapping subsets of A whose union = A
 _Properties_
-- every a∈A is \in exactly one block
+- every a∈A is in exactly one block
 - no block contains ∅
-- \union of blocks = A
+- union of blocks = A
 - \intersection of any two blocks = ∅
 - → A is finite ⇒ rank of P is |X| − |P| ?
 
@@ -210,20 +230,20 @@ _Examples_
 _Counter Examples_
 - \not partitions of {1,2,3}: 
   - {{}, {1,3}, {2}} // contains ∅
-  - {{1, 2}, {2, 3}} // 2 exists \in more than one block
+  - {{1, 2}, {2, 3}} // 2 exists in more than one block
   - {{1}, {2}} // no block contains 3
 
 ---
 
 #### Equivalence Class: {x∈𝑺 | x≡a} where a∈𝑺
-> Given 𝑹 is an equivalence relation on 𝑺, the equivalence class of an element a \in 𝑺 is the set {x∈𝑺 | ⟨x,a⟩∈𝑹}  
-> ⟦a⟧ = {b|a𝑹b} = {b|⟨a,b⟩ ∈ 𝑹} // all elements \in 𝑺 that when paired with a, exist \in 𝑹  
-> In other words: going over 𝑹, the elements \in ⟦a⟧ are all the elements that a is paired with
+> Given 𝑹 is an equivalence relation on 𝑺, the equivalence class of an element a in 𝑺 is the set {x∈𝑺 | ⟨x,a⟩∈𝑹}  
+> ⟦a⟧ = {b|a𝑹b} = {b|⟨a,b⟩ ∈ 𝑹} // all elements in 𝑺 that when paired with a, exist in 𝑹  
+> In other words: going over 𝑹, the elements in ⟦a⟧ are all the elements that a is paired with
 
 _Properties_
 - ⋃ of all equivalence classes = 𝑺 ?
-- a ∈ ⟦a⟧ // every element exists \in its equivalence class
-- the items \in each equivalence class of 𝑺 exist only \in their equivalence class ?
+- a ∈ ⟦a⟧ // every element exists in its equivalence class
+- the items in each equivalence class of 𝑺 exist only in their equivalence class ?
 - every possible pair of eq. classes is zar ? 
 
 _Examples_
