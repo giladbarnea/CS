@@ -1,4 +1,5 @@
 
+
 #### 𝑹: {⟨x,y⟩ for ⟨x,y⟩ ∈ A<sup>2</sup> if x𝑹y}
 
 
@@ -38,6 +39,7 @@ _Examples_
 - {⟨x,y⟩ ∈ ℕ<sup>2</sup> | x+y﹤x}
 
 <br>
+
 #### Identity 𝑰<sub>A</sub>
 
 _Properties_
@@ -115,7 +117,7 @@ _Properties_
 
 - if 𝑺 is symmetric then both 𝑹∪𝑺 and 𝑹∩𝑺 are reflexive
 
-- if 𝑺 is symmetric then 𝑹\𝑺 is symmetric
+- if 𝑺 is symmetric then 𝑹𝑺 is symmetric
 
 _Examples_
 
@@ -194,13 +196,14 @@ _Properties_
 
 - if 𝑻 is symmetric and antisymmetric then it's also transitive
 
+
 _Examples_
 
-- A={1,2,3}; 𝑹 = {⟨__1__,2⟩, ⟨2,__3__⟩, __⟨1,3⟩__} ⇒ 𝑹<sup>2</sup> = {⟨1,3⟩} ⊆ 𝑹
+- A={1,2,3}; 𝑹 = {⟨__1__,2⟩, ⟨2,__3__⟩, __⟨1,3⟩__} ⟹ 𝑹<sup>2</sup> = {⟨1,3⟩} ⊆ 𝑹
 
-- A={1,2,3}; 𝑻 = {⟨1,2⟩} ⇒ 𝑻<sup>2</sup> = ∅ ⊆ 𝑻
+- A={1,2,3}; 𝑻 = {⟨1,2⟩} ⟹ 𝑻<sup>2</sup> = ∅ ⊆ 𝑻
 
-- 𝑾 = {⟨1,1⟩} ⇒ 𝑾<sup>2</sup> = {⟨1,1⟩} ⊆ 𝑾
+- 𝑾 = {⟨1,1⟩} ⟹ 𝑾<sup>2</sup> = {⟨1,1⟩} ⊆ 𝑾
 
 - 𝑰<sub>A</sub>
 
@@ -212,6 +215,9 @@ _Examples_
 
 - <, ≤
 
+- 𝑻 = (⟨2,1⟩, ⟨2,3⟩) ⟹ 𝑻<sup>2</sup> = ∅⊆𝑻
+
+<br>
 
 _Counter Examples_
 
@@ -257,14 +263,16 @@ _Examples_
 
 
 ---
-### Order
+
+### Order (יחסי סדר)
 
 ---
 
 <span class="grey">lesson 7 00:00:00</span>
 
 <br>
-#### Partial Order
+
+#### Partial Order (יחס סדר חלקי)
 
 > 𝑹 over A (≤) is a partial order iff it's [antireflexive](#antireflexivity) and [transitive](#transitivity)
 
@@ -272,6 +280,8 @@ _Examples_
 _Properties_
 
 - [Antisymmetric](#antisymmetry) <span class="comment">because antireflexive and transitive</span>
+
+- set A with partial order is a קבוצה סדורה חלקית
 
 
 _Examples_
@@ -291,10 +301,15 @@ _Examples_
 ???
 
 
-#### Total Order
+#### Total Order (יחס סדר מלא)
 
 > Partial order and [connexive](#connexivity) (aka "linearly ordered")  
 > ∀(x,y)∈A (x≠y → ⟨x,y⟩∈𝑹 ⊻ ⟨y,x⟩∈𝑹) <span class="comment">note the xor. verify</span>
+
+
+_Properties_
+
+- set A with total order is a קבוצה סדורה לינארית
 
 
 _Examples_
@@ -306,14 +321,40 @@ _Counter Examples_
 
 - if A≠∅ then 𝑰<sub>A</sub> isn't total order because for all a∈A: a=a
 
+<br>
+
+### Minimal / Maximal Element (איבר מינימלי / מקסימלי)
+
+> Element a in partially ordered set A is a minimal element if there's no other element x∈A that x≺a  
+> (𝑷, ≤) is partially ordered set ⟹
+
+> - { y∈𝑷 | ∀x∈𝑷, y≤x} → y is least element <span class="comment">x is all the elements in 𝑷</span>  
+> - { y∈𝑷 | ∀x∈𝑷, x≤y} → y is greatest element
+
+<span class="grey">lesson 7 00:36:00</span>
+
+
+_Properties_
+
+- a partially ordered, __finite__ set has at least one min element and one max element <span class="comment">p. 110</span>
+
+- a partially ordered, __infinite__ set __may__ have min / max elements
+
+
+_Examples_
+
+![](./relations_hesse.gif)
+
+![](./relations_hesse2.gif)
 
 ---
+
 ### Partitions
 
 ---
 
 
-#### Partition of A is a set of non-empty, non-overlapping subsets of A whose union = A
+#### Partition of A is a set of non-empty, non-overlapping subsets of A whose ∪ = A
 
 _Properties_
 
@@ -321,7 +362,7 @@ _Properties_
 
 - no block contains ∅
 
-- union of blocks = A
+- ∪ of blocks = A
 
 - intersection of any two blocks = ∅
 
@@ -340,8 +381,11 @@ _Examples_
 _Counter Examples_
 
 - not partitions of {1,2,3}: 
+
   - {{}, {1,3}, {2}} <span class="comment">contains ∅</span>
+
   - {{1, 2}, {2, 3}} <span class="comment">2 exists in more than one block</span>
+
   - {{1}, {2}} <span class="comment">no block contains 3</span>
 
 
@@ -373,9 +417,14 @@ _Examples_
 - Relation ≡<sub>ℤ</sub> is ⟨a,b⟩∈≡<sub>ℤ</sub> ⟺ (a − b)%2==0 ⟹ two equivalence classes: even numbers and odd numbers
 
 - 𝑺 = {1,2,3,4,5}
+
   - ≡<sub>𝑺</sub> = {⟨1,__1__⟩, ⟨1,__2__⟩, ⟨1,__3__⟩, ⟨2,2⟩, ⟨3,3⟩, ⟨4,4⟩, ⟨5,5⟩, ⟨2,1⟩, ⟨2,3⟩, ⟨3,2⟩, ⟨3,1⟩}  
   - ⟦1⟧ = __{1, 2, 3}__ <span class="comment">everything that 1 is related to</span>
+
   - ⟦2⟧ = {2, 1, 3}
+
   - ⟦3⟧ = {3, 2, 1} <span class="comment">note that ⟦1⟧ ≡ ⟦2⟧ ≡ ⟦3⟧</span>
+
   - ⟦4⟧ = {4}
+
   - ⟦5⟧ = {5}
