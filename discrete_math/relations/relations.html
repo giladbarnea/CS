@@ -2,7 +2,7 @@
     <html>
       <head>
         <meta charset="utf-8">
-        <link href="markdown.css" type="text/css" rel="stylesheet" />
+        <link href="../markdown.css" type="text/css" rel="stylesheet" />
 
       </head>
 
@@ -12,7 +12,7 @@
 <p><img alt="" src="../Documents/CompSci/discrete_math/relations2.gif" /></p>
 <h4>𝑹<sup>2</sup>: a𝑹<sup>2</sup>c ⟺ {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ 𝑹 ∧ ⟨b,c⟩ ∈ 𝑹)}</h4>
 <blockquote>
-<p>an ordered pair ⟨a,c⟩∈𝑹<sup>2</sup> means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹</p>
+<p>An ordered pair ⟨a,c⟩∈𝑹<sup>2</sup> means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹</p>
 </blockquote>
 <p><img alt="" src="./relations1.gif" /><br />
 <br></p>
@@ -341,20 +341,21 @@ for all a, b, and c:<br />
 <li>if A≠∅ then 𝑰<sub>A</sub> isn't total order because for all a∈A: a=a</li>
 </ul>
 <p><br></p>
-<h3>Minimal / Maximal Element (איבר מינימלי / מקסימלי)</h3>
-<blockquote>
-<p>Element a in partially ordered set A is a minimal element if there's no other element x∈A that x≺a<br />
-(𝑷, ≤) is partially ordered set ⟹</p>
-<ul>
-<li>{ y∈𝑷 | ∀x∈𝑷, y≤x} → y is least element <span class="comment">x is all the elements in 𝑷</span>  </li>
-<li>{ y∈𝑷 | ∀x∈𝑷, x≤y} → y is greatest element</li>
-</ul>
-</blockquote>
+<h3>Element: Minimal/Maximal, Least/Greatest</h3>
 <p><span class="grey">lesson 7 00:36:00</span></p>
+<h4>Minimal Element (איבר מינימלי)</h4>
+<blockquote>
+<p>Element a in partially ordered set ⟨A,≺⟩ is a minimal element if there's no other element x∈A that x≺a</p>
+</blockquote>
+<p><br></p>
+<h4>Maximal Element (איבר מקסימלי)</h4>
+<blockquote>
+<p>Element a in partially ordered set ⟨A,≺⟩ is a maximal element if there's no other element x∈A that a≺x</p>
+</blockquote>
 <p><em>Properties</em></p>
 <ul>
 <li>
-<p>a partially ordered, <strong>finite</strong> set has at least one min element and one max element <span class="comment">p. 110</span></p>
+<p>a partially ordered, <strong>finite</strong> set must have a min element and a max element (or more) <span class="comment">p. 110</span></p>
 </li>
 <li>
 <p>a partially ordered, <strong>infinite</strong> set <strong>may</strong> have min / max elements</p>
@@ -363,6 +364,26 @@ for all a, b, and c:<br />
 <p><em>Examples</em></p>
 <p><img alt="" src="./relations_hesse.gif" /></p>
 <p><img alt="" src="./relations_hesse2.gif" /></p>
+<h4>Least Element (איבר ראשון)</h4>
+<blockquote>
+<p>Element a in partially ordered set ⟨A,≺⟩ is the least element if for all x∈A: a≺x ⋁ a=x</p>
+<p>(𝑷, ≤) is partially ordered set ⟹ { y∈𝑷 | ∀x∈𝑷, y≤x} → y is least element <span class="comment">x is all the elements in 𝑷</span></p>
+</blockquote>
+<p><span class="grey">lesson 7 01:05:00</span></p>
+<p><em>Properties</em></p>
+<ul>
+<li>The least element is necessarily a minimal element <span class="comment">the only min el? 01:10:50</span></li>
+</ul>
+<p><br></p>
+<h4>Greatest Element (איבר אחרון)</h4>
+<blockquote>
+<p>Element a in partially ordered set ⟨A,≺⟩ is the greatest element if for all x∈A: x≺a ⋁ x=a</p>
+<p>(𝑷, ≤) is partially ordered set ⟹ {y∈𝑷 | ∀x∈𝑷, x≤y} → y is greatest element</p>
+</blockquote>
+<p><em>Properties</em></p>
+<ul>
+<li>The greatest element is necessarily a maximal element <span class="comment">the only max el? 01:10:50</span></li>
+</ul>
 <hr />
 <h3>Partitions</h3>
 <hr />

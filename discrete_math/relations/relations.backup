@@ -6,7 +6,7 @@
 ![](../Documents/CompSci/discrete_math/relations2.gif)
 
 #### 𝑹2: a𝑹2c ⟺ {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ 𝑹 ∧ ⟨b,c⟩ ∈ 𝑹)}  
-> an ordered pair ⟨a,c⟩∈𝑹2 means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹
+> An ordered pair ⟨a,c⟩∈𝑹2 means there's a "middle" b∈B that satisfies ⟨a,b⟩∈𝑹 and ⟨b,c⟩∈𝑹
 
 ![](./relations1.gif)  
 
@@ -200,20 +200,41 @@ _Counter Examples_
 - if A≠∅ then 𝑰A isn't total order because for all a∈A: a=a
 
 
-### Minimal / Maximal Element (איבר מינימלי / מקסימלי)
-> Element a in partially ordered set A is a minimal element if there's no other element x∈A that x≺a  
-> (𝑷, ≤) is partially ordered set ⟹
-> - { y∈𝑷 | ∀x∈𝑷, y≤x} → y is least element // x is all the elements in 𝑷  
-> - { y∈𝑷 | ∀x∈𝑷, x≤y} → y is greatest element
+### Element: Minimal/Maximal, Least/Greatest
 // lesson 7 00:36:00
 
+#### Minimal Element (איבר מינימלי)
+> Element a in partially ordered set ⟨A,≺⟩ is a minimal element if there's no other element x∈A that x≺a
+
+
+#### Maximal Element (איבר מקסימלי)
+> Element a in partially ordered set ⟨A,≺⟩ is a maximal element if there's no other element x∈A that a≺x
+
 _Properties_
-- a partially ordered, __finite__ set has at least one min element and one max element // p. 110
+- a partially ordered, __finite__ set must have a min element and a max element (or more) // p. 110
 - a partially ordered, __infinite__ set __may__ have min / max elements
 
 _Examples_
 ![](./relations_hesse.gif)
 ![](./relations_hesse2.gif)
+
+#### Least Element (איבר ראשון)
+> Element a in partially ordered set ⟨A,≺⟩ is the least element if for all x∈A: a≺x ⋁ a=x
+> (𝑷, ≤) is partially ordered set ⟹ { y∈𝑷 | ∀x∈𝑷, y≤x} → y is least element // x is all the elements in 𝑷
+
+// lesson 7 01:05:00
+
+_Properties_
+- The least element is necessarily a minimal element // the only min el? 01:10:50
+
+
+#### Greatest Element (איבר אחרון)
+> Element a in partially ordered set ⟨A,≺⟩ is the greatest element if for all x∈A: x≺a ⋁ x=a
+> (𝑷, ≤) is partially ordered set ⟹ {y∈𝑷 | ∀x∈𝑷, x≤y} → y is greatest element
+
+_Properties_
+- The greatest element is necessarily a maximal element // the only max el? 01:10:50
+
 ---
 ### Partitions
 ---
