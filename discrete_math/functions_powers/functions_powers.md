@@ -17,3 +17,7 @@ _Examples_
     - Domain: D(𝒇)=[-2,2]
     - Range: Ra(𝒇)=[0,5]  
     - Graph: G(𝒇)={⟨x,x**2⟩|x∈[2,−2]} // graph dictates domain, doesn't dictate range
+    - 𝒇(2)=4 and 𝒇(−2)=4 // 4 is the image of 2,−2; and 2,−2 are מקורות of 4
+
+_Note_
+- Not all elements in Ra(𝒇) are an image of some element in D(𝒇) // lesson8 00:09:38
