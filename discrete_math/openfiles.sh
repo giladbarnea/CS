@@ -2,22 +2,22 @@
 BASEPATH='/home/gilad/Documents/CompSci/discrete_math'
 cd $BASEPATH || return 1
 xdg-open $BASEPATH
-PDF='mamans/past/maman_12__2019c.pdf'
-VID='2020-08-05_lesson7_order_relations.mp4'
+PDF='mamans/past/2019c/פתרון ממן 13.pdf'
+VID='2020-08-10_lesson8_functions_powers/2020-08-10_lesson8_functions_powers.mp4'
 if [ -z "$(pgrep -fa textbook.pdf)" ]; then
   xdg-open textbook.pdf
 else
   echo "textbook.pdf already open"
 fi
-if [ -z "$(pgrep -fa "$(basename $PDF)")" ]; then
-  xdg-open $PDF
+if [ -z "$(pgrep -fa "$(basename "$PDF")")" ]; then
+  xdg-open "$PDF"
 else
   echo "$PDF already open"
 fi
 source /home/gilad/Code/MyTool/mytool/scripts/util.sh
 
 if [ -z "$(pgrep -fa $VID)" ]; then
-  launch vlc lessons/2020-08-05_lesson7_order_relations/$VID
+  launch vlc lessons/$VID
 else
   echo "$VID already open"
 fi
@@ -27,3 +27,6 @@ else
   echo "python3 -m http.server already open"
 fi
 launch xdg-open "http://localhost:8000/relations/relations.html"
+
+# search:
+# grep -nIrEH "קבוצת כל המספרים הממשיים האי" "."
