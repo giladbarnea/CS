@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
-cd /home/gilad/Documents/CompSci/discrete_math
+BASEPATH='/home/gilad/Documents/CompSci/discrete_math'
+cd $BASEPATH || return 1
+xdg-open $BASEPATH
 PDF='mamans/past/maman_12__2019c.pdf'
 VID='2020-08-05_lesson7_order_relations.mp4'
 if [ -z "$(pgrep -fa textbook.pdf)" ]; then
@@ -24,4 +26,4 @@ if [ -z "$(pgrep -fa "python3.* -m http.server")" ]; then
 else
   echo "python3 -m http.server already open"
 fi
-xdg-open "http://localhost:8000/relations/relations.html"
+launch xdg-open "http://localhost:8000/relations/relations.html"
