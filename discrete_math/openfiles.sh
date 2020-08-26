@@ -27,6 +27,7 @@ else
   echo "python3 -m http.server already open"
 fi
 launch xdg-open "http://localhost:8000/relations/relations.html"
+launch xdg-open "http://localhost:8000/functions_powers/functions_powers.html"
 
 # search:
 # grep -nIrEH "קבוצת כל המספרים הממשיים האי" "."
