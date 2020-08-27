@@ -1,0 +1,45 @@
+=== Run information ===
+
+Evaluator:    weka.attributeSelection.CfsSubsetEval -P 1 -E 1
+Search:       weka.attributeSelection.BestFirst -D 1 -N 5
+Relation:     clean_data-weka.filters.unsupervised.attribute.Remove-R1-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0-weka.filters.unsupervised.attribute.NumericToNominal-Rlast
+Instances:    4690
+Attributes:   12
+              fixed acidity
+              volatile acidity
+              citric acid
+              residual sugar
+              chlorides
+              free sulfur dioxide
+              total sulfur dioxide
+              density
+              pH
+              sulphates
+              alcohol
+              quality
+Evaluation mode:    evaluate on all training data
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Best first.
+	Start set: no attributes
+	Search direction: forward
+	Stale search after 5 node expansions
+	Total number of subsets evaluated: 69
+	Merit of best subset found:    0.108
+
+Attribute Subset Evaluator (supervised, Class (nominal): 12 quality):
+	CFS Subset Evaluator
+	Including locally predictive attributes
+
+Selected attributes: 2,3,5,6,8,11 : 6
+                     volatile acidity
+                     citric acid
+                     chlorides
+                     free sulfur dioxide
+                     density
+                     alcohol
+

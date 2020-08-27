@@ -130,9 +130,11 @@ dmypy.json
 
 *.mp4
 *.mkv
+*.ts
 *~lock*
 .idea
 .wa_appid
 *.vscode
 *.run
 *click
+*sys

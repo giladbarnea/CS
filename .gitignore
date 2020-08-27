@@ -138,3 +138,4 @@ dmypy.json
 *.run
 *click
 *sys
+*.zip
