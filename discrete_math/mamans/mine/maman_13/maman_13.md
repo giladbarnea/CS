@@ -1,0 +1,21 @@
+גלעד ברנע ת.ז. 203627310
+# ממ"ן 13
+## 1
+**Find the power of each of the following sets**
+---
+
+### א
+**The set of all real numbers A⊆(0,1) that when expanded as an infinite fraction, each digit appears adjacent to an equal digit.**
+<thin>
+First, A⊆(0,1) ⟹ |A|≤|(0,1)|.
+
+On the other hand, function 𝒇:(0,1)→A, e.g: 𝒇(0.a<sub>1</sub>a<sub>2</sub>...) = 0.a<sub>1</sub>a<sub>1</sub>a<sub>2</sub>a<sub>2</sub>... is one-to-one (injective), therefore:
+|(0,1)|≤|A|
+Considering Cantor-Bernstein: |(0,1)|≤|A| ⟹ **|(0,1)| = |A| = ℵ**
+
+---
+###ב
+**((ℕ)×(0,1)) ∩ (ℝ×ℚ)**
+<thin>
+The intersection means that:  
+⟨x,y⟩∈((ℕ)×(0,1)) ∩ (ℝ×ℚ) ⟺ ⟨x,y⟩∈((ℕ)×(0,1)) ∧ ⟨x,y⟩∈(ℝ×ℚ) 

@@ -91,6 +91,7 @@ span.grey, grey {
 
 span.comment, comment {
     margin-left: 25px;
+    margin-right: 25px;
     /*padding-left: 25px;*/
     color: rgb(110, 110, 110);
     background: rgb(245, 245, 245);
@@ -130,6 +131,7 @@ blockquote {
     color: black;
     /*border-left: .25em solid #dfe2e5;*/
     border-left: .25em solid #b3c0c8;
+    border-right: .25em solid #b3c0c8;
 }
 
 blockquote.dark {
@@ -140,7 +142,7 @@ blockquote.dark {
 blockquote > * {
     letter-spacing: 1pt;
     line-height: 20pt;
-    font-family: "Roboto Mono Light for Powerline";
+    font-family: "Roboto Mono Light for Powerline", "David CLM", monospace;
 }
 
 blockquote > :first-child {
@@ -156,7 +158,7 @@ p {
 }
 
 em {
-    font-family: "DejaVu Serif";
+    font-family: "DejaVu Serif", sans-serif;
     font-size: 12pt;
     font-style: normal;
     margin-bottom: 0;
