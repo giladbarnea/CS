@@ -83,7 +83,7 @@ Let X be the set of all odd, natural numbers. It follows that for every set Y th
 ~Y⊆ℕ and is infinite ⟹ |~Y|=ℵ0 ⟹ every subset of X belongs to K.  
 /%sets  
 Therefore 𝓟(X)⊆K ⇒ |𝓟(X)|≤|K|.
-Since |X|=ℵ0 ⟹ |𝓟(X)| = 2**|X| = 2<sup>ℵ0</sup>, therefore 2<sup>ℵ0</sup>≤|K| ⟹ <b>|K|≠ℵ0</b> 
+Since |X|=ℵ0 ⟹ |𝓟(X)| = 2**|X| = 2<sup>ℵ0</sup>, therefore 2<sup>ℵ0</sup>≤|K| ⟹ __|K|≠ℵ0__ 
 
 ---
 ### ב
@@ -99,13 +99,47 @@ Z is a set that satisfies Y≤Z≤X (and so is infinite and contained in ℕ)
 It follows that |~Z|=ℵ0 and that |Z|=ℵ0 ⟹ Z∈M ⟹ {Z∈𝓟(ℕ) | Y⊆Z⊆X}⊆M.
 /%sets
 For convenience, let Q={Z∈𝓟(ℕ) | Y⊆Z⊆X}.
-Let's define function 𝒇:Q → 𝓟(X\\Y). 𝒇 is onto and one-to-one ⟹ Q ~ 𝓟(X\\Y).
+Let's define function 𝒇 from Q to 𝓟(X\\Y), defined as 𝒇(B)=B\\F. 𝒇 is onto and one-to-one ⟹ Q ~ 𝓟(X\\Y).
 Since X\\Y={4n | n∈ℕ} ⟹ |X\\Y|=ℵ0, therefore |𝓟(X\\Y)|=2<sup>ℵ0</sup>=ℵ ⟹ |Q|=ℵ.
-Q is contained in M therefore |M|≥ℵ therefore |M|≠ℵ0
+Q is contained in M therefore |M|≥ℵ therefore __|M|≠ℵ0__
 
 ---
 ### ג
 > |𝓟(ℕ)\\K|=ℵ0
+
+The statement is true.
+K is the set of all sets partial to ℕ whose complement is infinite, therefore 𝓟(ℕ)\\K is the set of all set partial to ℕ whose complement is __finite__.
+Let X(ℕ) be the set of all finite sets that are partial to ℕ. In other words, the union of all finite sets of natural numbers.
+A finite set S of natural numbers is countable, because S is contained in a set of natural numbers ranging from ∅ to n, where n if the greatest element in S.
+Therefore X(ℕ) consist of a countable number of countable sets ⟹ X(ℕ) itself is countable.
+Moreover, X(ℕ) is infinite ⟹ |X(ℕ)|=ℵ0. // (0)
+%sets
+Let's define function 𝒇 from 𝓟(ℕ)\\K to X(ℕ), defined as 𝒇(A)=~A. 𝒇 is onto and one-to-one ⟹ |𝓟(ℕ)\\K| = |X(ℕ)|. // (1)
+/%sets
+Combining (0) and (1), we get __|𝓟(ℕ)\\K|=ℵ0__
+ 
 ---
 ### ד
 > |𝓟(ℕ)\\M|=ℵ0
+
+The statement is true.
+Based on the definition of M:  
+𝓟(ℕ)\\M is the set of all sets partial to ℕ which are finite or that their complement is finite.
+Let X = {A∈𝓟(ℕ) | |A|=ℵ0} ⟹  
+𝓟(ℕ)\\X is the set of all finite sets partial to ℕ ⟹  
+𝓟(ℕ)\\M = (𝓟(ℕ)\\K)∪(𝓟(ℕ)\\X).
+Because 𝓟(ℕ)\\X is the same as X(ℕ) from gimel, |𝓟(ℕ)\\X|=ℵ0.  
+Considering the conclusion of gimel (|𝓟(ℕ)\\K|=ℵ0), and given that the union of sets with cardinality of ℵ0 has itself a cardinality of ℵ0 ⟹ __|𝓟(ℕ)\\M|=ℵ0__.
+
+---
+
+## 3
+> Let:  
+> A = {A𝑖 | 𝑖∈ℕ} where Ai⊆ℕ, Ai≠Aj, Ai∩Aj=∅, for every 𝑖,𝑗∈ℕ, 𝑖≠𝑗  
+> B is a set of non-empty, open intervals in ℝ such that no two intervals overlap  
+> C is an uncountable, infinite set of open intervals in ℝ.
+> Prove: 
+
+---
+###א 
+> |B|≤|A|
