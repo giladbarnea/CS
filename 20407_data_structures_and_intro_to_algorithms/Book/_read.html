@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>20407</title>
+		<style>
+			 img {
+			 position:absolute; min-height:100%;}
+#img0 {
+z-index:1;
+}
+#img1 {
+z-index:2;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+}
+body {
+overflow:hidden;}
+#rightchild{
+height: 50px;
+  top: 0;
+  width:200px; 
+  margin: 10px;
+  right:0; 
+  bottom: 0;
+  position:absolute;
+  font-size: 170%;
+}
+button {
+display:inline-block;padding: 5px 10px 5px 10px;}
+		</style>
+		<script>
+		const img0_pattern = "page{num}_2.jpg";
+		const img1_pattern = "{num}.svg";
+			function nextPage() {
+				const curr_page = parseInt(document.querySelector("body").dataset.page);
+				var img1 = document.querySelector("#img1");
+				var img0 = document.querySelector("#img0");
+				const newpage = curr_page+1;
+				img0.src = img0_pattern.replace("{num}",("000" + newpage).slice(-4));
+				img1.src = img1_pattern.replace("{num}",("000" + newpage).slice(-4));
+				document.querySelector("body").dataset.page = newpage;
+			}
+			function prevPage() {
+				const curr_page = parseInt(document.querySelector("body").dataset.page);
+				var img1 = document.querySelector("#img1");
+				var img0 = document.querySelector("#img0");
+				const newpage = curr_page-1;
+				img0.src = img0_pattern.replace("{num}",("000" + newpage).slice(-4));
+				img1.src = img1_pattern.replace("{num}",("000" + newpage).slice(-4));
+				document.querySelector("body").dataset.page = newpage;
+			}
+		</script>
+	</head>
+	<body data-page="1">
+	<!--
+	<div class="background" style="position: relative; background-position: center center; background-repeat: no-repeat; height: 100%; width: 100%; background-size: cover;">
+		<img class="img-fit" draggable="false" style="text-indent: -999px; transform: translate(0px, 0px); filter: none;" src="page0001_2.jpg" data-hq="1" data-src="">
+		<img class="img-fit" draggable="false" data-hq="0" src="0001.svg"style="text-indent: -999px; transform: translate(0px, 0px);">
+	</div>
+	-->
+	
+	<div class="img-overlay-wrap">
+
+  <img src="page0001_2.jpg" id="img0"/>
+  <img  src="0001.svg" id="img1" />
+		
+	</div>
+	<div id="rightchild">
+		<button onclick="nextPage()">Next</button>
+		<button onclick="prevPage()" >Previous</button>
+	</div>
+</body>
+</html>

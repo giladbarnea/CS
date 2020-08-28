@@ -1,0 +1,52 @@
+$ php run.php 
+init
+Initialized.
+insert 100 5
+100
+insert 300 7
+300
+insert 150 3
+150
+insert 400 1
+400
+next
+300
+changep 150 10 
+150
+next
+150
+delete 150
+150
+next
+300
+delete 400
+400
+next
+300
+insert 100 9
+-1
+next
+300
+insert 250 7
+250
+next
+250
+delete 250
+250
+next
+300
+delete 300
+300
+next
+100
+insert 44 15
+44
+next
+44
+delete 44
+44
+next
+100
+quit
+
+Goodbye

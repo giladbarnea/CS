@@ -1,0 +1,16 @@
+סיכומי הרצאות מבוססים על קורס אלגוריתמים שהועבר על ידי ספי נאור, בחורף 2008-2009. הסיכומים על ידי רעות וקסלר.
+
+    * Lecture 1 - Breadth-First Search
+    * Lecture 2 - Breadth-First Search, Depth-First Search
+    * Lecture 3 - Depth-First Search, Inseparable Components
+    * Lecture 4 - Minimal Spanning Trees
+    * Lecture 5 - Greedy Algorithms, Huffman Trees
+    * Lecture 6 - Huffman Trees, Dijkstra's Algorithm
+    * Lecture 7 - Dijkstra's Algorithm, Bellman-Ford Algorithm
+    * Lecture 8 - Floyd-Warshall, Dynamic Programming
+    * Lecture 9 - Dynamic Programming
+    * Lecture 10 - Fast Fourier Transform
+    * Lecture 11 - Matrix Multiplication, Network Flow
+    * Lecture 12 - Network Flow
+    * Lecture 13 - Network Flow, Ford-Fulkerson Algorithm, Edmond-Karp Algorithm
+    * Lecture 14 - Network Flow, Matching

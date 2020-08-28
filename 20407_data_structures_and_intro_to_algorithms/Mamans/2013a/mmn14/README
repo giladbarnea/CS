@@ -1,0 +1,42 @@
+To build:
+
+gcc -std=c99 -Wall -Wextra -o mmn14 mmn14.c -lm
+gcc -std=c99 -Wall -Wextra -o mmn14 mmn14.c -lm -DUNIQUE -DRANDPIVOT
+
+Defining UNIQUE builds without executing modulo 1000 on array values.
+Defining RANDPIVOT causes quicksort to be built using a random pivot.
+
+You can define one without the other.
+
+There is also a command line interface for volume testing:
+
+./mmn14 1000 5 1024
+
+It works on powers of 4.  So the above runs 1000 iterations on an array of
+1024 elements with k values of 4, 64, 256 and 1024.  The n value must be a
+power of 4 also.  The second parameter should be such that 4^(second param) ==
+3rd param.  So 4^5 = 1024, 4^6 = 4096, etc... Otherwise unique value counts
+won't be reported correctly.
+
+An example:
+
+$ gcc -std=c99 -Wall -Wextra -o mmn14 mmn14.c -lm -DUNIQUE
+$ ./mmn14 1000 5 1024
+n = 1024
+k =	4	16	64	256	1024
+Heap	1979 2193 3047 6374 17316 
+Lomuto	2066 2250 3194 8306 33771 
+Hoare	2067 2273 3186 8274 33568 
+
+Avg. Distinct values == 1024
+
+$ gcc -std=c99 -Wall -Wextra -o mmn14 mmn14.c -lm -DRANDPIVOT
+$ ./mmn14 1000 5 1024
+n = 1024
+k =	4	16	64	256	1024
+Heap	1978 2193 3046 6373 17315 
+Lomuto	2051 2236 2829 5258 13276 
+Hoare	2059 2183 2793 5272 13375 
+
+Avg. Distinct values == 641
+

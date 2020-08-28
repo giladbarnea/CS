@@ -1,0 +1,99 @@
+$ php run.php 
+Enter command: 1
+Enter a list of numbers, separated by space: 5 17 43 1 9 13 66 32 17 59 27
+A MultiHeap has been built.
+
+Max: 66, 59, 43, 32, 27, 13, 5, 1, 17, 9, 17
+Min: 1, 5, 13, 17, 9, 43, 66, 32, 17, 59, 27
+
+Enter command: 5
+The maximum, 66, has been deleted
+
+Max: 59, 32, 43, 17, 27, 13, 5, 1, 17, 9
+Min: 1, 5, 13, 17, 9, 43, 27, 32, 17, 59
+
+Enter command: 4
+The minimum is 1
+
+Max: 59, 32, 43, 17, 27, 13, 5, 1, 17, 9
+Min: 1, 5, 13, 17, 9, 43, 27, 32, 17, 59
+
+Enter command: 2
+Enter a number: 72
+The number has been inserted.
+
+Max: 72, 59, 43, 17, 32, 13, 5, 1, 17, 9, 27
+Min: 1, 5, 13, 17, 9, 43, 27, 32, 17, 59, 72
+
+Enter command: 6
+The minimum, 1, has been deleted
+
+Max: 72, 59, 43, 17, 32, 13, 5, 27, 17, 9
+Min: 5, 9, 13, 17, 59, 43, 27, 32, 17, 72
+
+Enter command: 3
+The maximum is 72
+
+Max: 72, 59, 43, 17, 32, 13, 5, 27, 17, 9
+Min: 5, 9, 13, 17, 59, 43, 27, 32, 17, 72
+
+Enter command: 4
+The minimum is 5
+
+Max: 72, 59, 43, 17, 32, 13, 5, 27, 17, 9
+Min: 5, 9, 13, 17, 59, 43, 27, 32, 17, 72
+
+Enter command: 2
+Enter a number: 3
+The number has been inserted.
+
+Max: 72, 59, 43, 17, 32, 13, 5, 27, 17, 9, 3
+Min: 3, 5, 13, 17, 9, 43, 27, 32, 17, 72, 59
+
+Enter command: 5
+The maximum, 72, has been deleted
+
+Max: 59, 32, 43, 17, 9, 13, 5, 27, 17, 3
+Min: 3, 5, 13, 17, 9, 43, 27, 32, 17, 59
+
+Enter command: 4
+The minimum is 3
+
+Max: 59, 32, 43, 17, 9, 13, 5, 27, 17, 3
+Min: 3, 5, 13, 17, 9, 43, 27, 32, 17, 59
+
+Enter command: 6
+The minimum, 3, has been deleted
+
+Max: 59, 32, 43, 17, 9, 13, 5, 27, 17
+Min: 5, 9, 13, 17, 59, 43, 27, 32, 17
+
+Enter command: 5
+The maximum, 59, has been deleted
+
+Max: 43, 32, 17, 17, 9, 13, 5, 27
+Min: 5, 9, 13, 17, 17, 43, 27, 32
+
+Enter command: 2
+Enter a number: 40
+The number has been inserted.
+
+Max: 43, 40, 17, 32, 9, 13, 5, 27, 17
+Min: 5, 9, 13, 17, 17, 43, 27, 32, 40
+
+Enter command: 3
+The maximum is 43
+
+Max: 43, 40, 17, 32, 9, 13, 5, 27, 17
+Min: 5, 9, 13, 17, 17, 43, 27, 32, 40
+
+Enter command: 4
+The minimum is 5
+
+Max: 43, 40, 17, 32, 9, 13, 5, 27, 17
+Min: 5, 9, 13, 17, 17, 43, 27, 32, 40
+
+Enter command: 8
+
+Goodbye
+

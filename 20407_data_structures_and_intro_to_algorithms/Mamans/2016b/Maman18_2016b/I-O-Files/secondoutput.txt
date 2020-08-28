@@ -1,0 +1,156 @@
+printMemberTree
+dbDriver: |"+ Asis 026503151"|
+dbDriver: |"+ Cohen 026553151"|
+dbDriver: |"+ Lapid 096503151"|
+dbDriver: |"+ Sharon 026573151"|
+dbDriver: |"+ Bush  026507151"|
+dbDriver: |"+ Baraq 026803151"|
+dbDriver: |"+ Trump 026603151"|
+dbDriver: |"+ Clinton 036804151"|
+dbDriver: |"+ Levy 016803151"|
+printMemberTree
+016803151
+026503151
+026507151
+026553151
+026573151
+026603151
+026803151
+036804151
+096503151
+dbDriver: |"+ Asis 016503151"|
+dbDriver: |"+ Cohen 016553151"|
+dbDriver: |"+ Lapid 016563151"|
+dbDriver: |"+ Sharon 016573151"|
+dbDriver: |"+ Bush  016507151"|
+dbDriver: |"+ Baraq 016803151"|
+Something went wrong
+dbDriver: |"+ Trump 016603151"|
+dbDriver: |"+ Clinton 016804151"|
+dbDriver: |"+ Levy 016811151"|
+printMemberTree
+016503151
+016507151
+016553151
+016563151
+016573151
+016603151
+016803151
+016804151
+016811151
+026503151
+026507151
+026553151
+026573151
+026603151
+026803151
+036804151
+096503151
+dbDriver: |"+ Asis 026593151"|
+dbDriver: |"+ Cohen 026593151"|
+Something went wrong
+dbDriver: |"+ Lapid 096593151"|
+dbDriver: |"+ Sharon 026593151"|
+Something went wrong
+dbDriver: |"+ Bush  026597151"|
+dbDriver: |"+ Baraq 026893151"|
+dbDriver: |"+ Trump 026693151"|
+dbDriver: |"+ Clinton 036894151"|
+dbDriver: |"+ Levy 016893151"|
+printMemberTree
+016503151
+016507151
+016553151
+016563151
+016573151
+016603151
+016803151
+016804151
+016811151
+016893151
+026503151
+026507151
+026553151
+026573151
+026593151
+026597151
+026603151
+026693151
+026803151
+026893151
+036804151
+036894151
+096503151
+096593151
+dbDriver: |"?AX1276"|
+The book code:AX1276,is not read by any reader.
+
+dbDriver: |"?026803151"|
+Books of Member:Baraq,id:026803151 is:
+
+****
+
+dbDriver: |"?036804151"|
+Books of Member:Clinton,id:036804151 is:
+
+****
+
+dbDriver: |"?AX1280"|
+The book code:AX1280,is not read by any reader.
+
+dbDriver: |"?!"|
+Most Books by:
+Name: Levy, ID: 016893151 .
+Name: Clinton, ID: 036894151 .
+Name: Trump, ID: 026693151 .
+Name: Baraq, ID: 026893151 .
+Name: Bush, ID: 026597151 .
+Name: Lapid, ID: 096593151 .
+Name: Asis, ID: 026593151 .
+Name: Levy, ID: 016811151 .
+Name: Clinton, ID: 016804151 .
+Name: Trump, ID: 016603151 .
+Name: Bush, ID: 016507151 .
+Name: Sharon, ID: 016573151 .
+Name: Lapid, ID: 016563151 .
+Name: Cohen, ID: 016553151 .
+Name: Asis, ID: 016503151 .
+Name: Levy, ID: 016803151 .
+Name: Clinton, ID: 036804151 .
+Name: Trump, ID: 026603151 .
+Name: Baraq, ID: 026803151 .
+Name: Bush, ID: 026507151 .
+Name: Sharon, ID: 026573151 .
+Name: Lapid, ID: 096503151 .
+Name: Cohen, ID: 026553151 .
+Name: Asis, ID: 026503151 .
+each of them, borrow 0 books
+dbDriver: |"Baraq        026803151       AX1274       +"|
+dbDriver: |"Baraq 026893151       AX1275       +"|
+dbDriver: |"Trump 026693151     	  AX1276  	     +"|
+dbDriver: |"Clinton 036894151       AX1277       +"|
+dbDriver: |"?AX1276"|
+The book code:AX1276,is read by: Trump,id: 026693151.
+
+dbDriver: |"?026803151"|
+Books of Member:Baraq,id:026803151 is:
+AX1274	
+****
+
+dbDriver: |"?036804151"|
+Books of Member:Clinton,id:036804151 is:
+
+****
+
+dbDriver: |"?AX1280"|
+The book code:AX1280,is not read by any reader.
+
+dbDriver: |"?!"|
+Most Books by:
+Name: Clinton, ID: 036894151 .
+Name: Trump, ID: 026693151 .
+Name: Baraq, ID: 026893151 .
+Name: Baraq, ID: 026803151 .
+each of them, borrow 1 books
+Driver:OUT!.
+
