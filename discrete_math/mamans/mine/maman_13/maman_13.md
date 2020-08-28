@@ -152,6 +152,15 @@ Let 𝒇 be a function from I→B defined by 𝒇(𝛼)=B𝛼 for all 𝛼∈I.
 𝒇 is one-to-one and onto ⟹ |B|=|I|.
 Because every non-empty open interval contains all rational numbers, and because for all 𝛼∈I, set B𝛼 is a non-empty open interval ⟹ for all 𝛼∈I there exists a number q𝛼∈ℚ such that q𝛼∈B𝛼.
 Let 𝒈 be a function from I→ℚ defined by 𝒇(𝛼)=q𝛼 for all 𝛼∈I.  
-To prove (by negation) that 𝒈 is one-to-one, let's assume that 𝒇(𝛼)=𝒇(b) for 𝛼,b∈I where 𝛼≠b ⟹ q𝛼 = qb.  
-q𝛼∈B𝛼 and qb∈Bb ⟹ q𝛼∈(B𝛼∩Bb) which negates the definition that no two intervals in B overlap.
-Having concluded that 𝒈 is one-to-one ⟹ |I|≤|ℚ|=ℵ0 ⟹ |B|≤ℵ0 ⟹ __|B|≤|A|__
+To prove (by negation) that 𝒈 is one-to-one, let's assume that 𝒇(𝛼)=𝒇(𝛽) for 𝛼,b∈I where 𝛼≠𝛽 ⟹ q𝛼 = q𝛽.  
+q𝛼∈B𝛼 and q𝛽∈B𝛽 ⟹ q𝛼∈(B𝛼∩B𝛽) which negates the definition of B (no two intervals in B overlap).
+Having concluded that 𝒈 is one-to-one ⟹ |I|≤|ℚ|=ℵ0 ⟹ |B|≤ℵ0 ⟹ __|B|≤|A|__.
+
+---
+###ב 
+> Prove that two intervals I,J∈C exist such that |I∩J|=|ℝ|
+
+We have concluded in alef that if two intervals are don't overlap, then their set is countable.
+Combining the definition of C together with the aforementioned conclusion, it follows that there exist I,J∈C such that I∩J≠∅.
+Let I=(a,b); J=(c,d). Assuming a≤c, since I∩J≠∅ ⟹ c﹤b ⟹ I∩J=(c,b).
+We know that every non-degenerate is equivalent to ℝ, therefore __|I∩J|=|(b,c)|=|ℝ|__.
