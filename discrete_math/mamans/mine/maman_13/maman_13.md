@@ -99,7 +99,7 @@ Z is a set that satisfies Y≤Z≤X (and so is infinite and contained in ℕ)
 It follows that |~Z|=ℵ0 and that |Z|=ℵ0 ⟹ Z∈M ⟹ {Z∈𝓟(ℕ) | Y⊆Z⊆X}⊆M.
 /%sets
 For convenience, let Q={Z∈𝓟(ℕ) | Y⊆Z⊆X}.
-Let's define function 𝒇 from Q to 𝓟(X\\Y), defined as 𝒇(B)=B\\F. 𝒇 is onto and one-to-one ⟹ Q ~ 𝓟(X\\Y).
+Let's define function 𝒇 from Q to 𝓟(X\\Y), defined by 𝒇(B)=B\\F. 𝒇 is onto and one-to-one ⟹ Q ~ 𝓟(X\\Y).
 Since X\\Y={4n | n∈ℕ} ⟹ |X\\Y|=ℵ0, therefore |𝓟(X\\Y)|=2<sup>ℵ0</sup>=ℵ ⟹ |Q|=ℵ.
 Q is contained in M therefore |M|≥ℵ therefore __|M|≠ℵ0__
 
@@ -114,7 +114,7 @@ A finite set S of natural numbers is countable, because S is contained in a set 
 Therefore X(ℕ) consist of a countable number of countable sets ⟹ X(ℕ) itself is countable.
 Moreover, X(ℕ) is infinite ⟹ |X(ℕ)|=ℵ0. // (0)
 %sets
-Let's define function 𝒇 from 𝓟(ℕ)\\K to X(ℕ), defined as 𝒇(A)=~A. 𝒇 is onto and one-to-one ⟹ |𝓟(ℕ)\\K| = |X(ℕ)|. // (1)
+Let's define function 𝒇 from 𝓟(ℕ)\\K to X(ℕ), defined by 𝒇(A)=~A. 𝒇 is onto and one-to-one ⟹ |𝓟(ℕ)\\K| = |X(ℕ)|. // (1)
 /%sets
 Combining (0) and (1), we get __|𝓟(ℕ)\\K|=ℵ0__
  
@@ -135,7 +135,7 @@ Considering the conclusion of gimel (|𝓟(ℕ)\\K|=ℵ0), and given that the un
 
 ## 3
 > Let:  
-> A = {A𝑖 | 𝑖∈ℕ} where Ai⊆ℕ, Ai≠Aj, Ai∩Aj=∅, for every 𝑖,𝑗∈ℕ, 𝑖≠𝑗  
+> A = {A𝑖 | 𝑖∈ℕ} where Ai⊆ℕ, A𝑖≠A𝑗, A𝑖∩A𝑗=∅, for every 𝑖,𝑗∈ℕ, 𝑖≠𝑗  
 > B is a set of non-empty, open intervals in ℝ such that no two intervals overlap  
 > C is an uncountable, infinite set of open intervals in ℝ.
 > Prove: 
@@ -143,3 +143,11 @@ Considering the conclusion of gimel (|𝓟(ℕ)\\K|=ℵ0), and given that the un
 ---
 ###א 
 > |B|≤|A|
+
+First let's prove that |A|=ℵ0.
+Function 𝒇:ℕ→A defined by 𝒇(𝑖)=A𝑖 for all 𝑖∈ℕ is onto.  
+Also, because 𝑖,𝑗∈ℕ and 𝑖≠𝑗, the following holds: A𝑖≠A𝑗 ⟹ 𝒇(𝑖)≠𝒇(𝑗) ⟹ A~ℕ ⟹ |A|=ℵ0.
+Let B={B𝛼 | 𝛼∈I} where I is a matching set of indices.  
+Let 𝒇 be a function from I→B defined by 𝒇(𝛼)=B𝛼 for every 𝛼∈I.  
+𝒇 is one-to-one and onto ⟹ |B|=|I|.
+Because a non-empty open interval contains all rational numbers, 
