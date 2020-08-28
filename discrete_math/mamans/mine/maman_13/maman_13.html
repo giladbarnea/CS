@@ -17,7 +17,7 @@
 <p>The set of all real numbers A⊆(0,1) that when expanded as an infinite fraction, each digit appears adjacent to an equal digit.</p>
 </blockquote>
 <p>First, A⊆(0,1) ⟹ |A|≤|(0,1)|.</p>
-<p>On the other hand, function 𝒇:(0,1)→A, e.g: 𝒇(0.a<sub>1</sub>a<sub>2</sub>...) = 0.a<sub>1</sub>a<sub>1</sub>a<sub>2</sub>a<sub>2</sub>... is one-to-one (injective), therefore:</p>
+<p>On the other hand, function 𝒇:(0,1)→A, e.g: 𝒇(0.a<sub>1</sub>a<sub>2</sub>...) = 0.a<sub>1</sub>a<sub>1</sub>a<sub>2</sub>a<sub>2</sub>... is one-to-one, therefore:</p>
 <p>|(0,1)|≤|A|</p>
 <p>Considering Cantor-Bernstein: |(0,1)|≤|A| ⟹ <strong>|(0,1)| = |A| = ℵ</strong></p>
 <hr />
@@ -69,6 +69,49 @@ given B⊆A and |B|=ℵ<sub>0</sub>, the two sets satisfy |A\B|=|A| if A\B is in
 <p>Let A=(0,10<sup>−10</sup>); B=(0,10<sup>−10</sup>)∩ℚ. It follows that B⊆A and |B|=ℵ<sub>0</sub>, therefore |A\B|=|A|.</p>
 <p>Since |A|=ℵ and A\B=(0,10<sup>−10</sup> )\ℚ ⟹ |(0,10<sup>−10</sup> )\ℚ|=ℵ.</p>
 <p>Because |𝓟(A)|=2<sup>|A|</sup> ⟹ |𝓟((0,10<sup>−10</sup> )\ℚ)| = 2<sup>|(0,10<sup>-10</sup>)\Q|</sup>=<strong>2<sup>ℵ</sup></strong> </p>
+<hr />
+<h2>2</h2>
+<blockquote>
+<p>Let:<br />
+M = {A∈𝓟(ℕ) | |A|=ℵ<sub>0</sub> ∧ |<span class="over">A</span>|=ℵ<sub>0</sub>}<br />
+K = {A∈𝓟(ℕ) | |<span class="over">A</span>|=ℵ<sub>0</sub>}</p>
+<p>Prove or disprove the following:</p>
+</blockquote>
+<hr />
+<h3>א</h3>
+<blockquote>
+<p>|K|=ℵ<sub>0</sub></p>
+</blockquote>
+<p>The statement is false.</p>
+<p>Let X be the set of all odd, natural numbers. It follows that for every set Y that satisfies Y⊆X, the following holds: <span class="over">X</span>⊆<span class="over">Y</span>.</p>
+<p><span class="over">Y</span>⊆ℕ and is infinite ⟹ |<span class="over">Y</span>|=ℵ<sub>0</sub> ⟹ every subset of X belongs to K.  </p>
+<p>Therefore 𝓟(X)⊆K ⇒ |𝓟(X)|≤|K|.</p>
+<p>Since |X|=ℵ<sub>0</sub> ⟹ |𝓟(X)| = 2<sup>|X|</sup> = 2<sup>ℵ<sub>0</sub></sup>, therefore 2<sup>ℵ<sub>0</sub></sup>≤|K| ⟹ <b>|K|≠ℵ<sub>0</sub></b> </p>
+<hr />
+<h3>ב</h3>
+<blockquote>
+<p>|M|=ℵ<sub>0</sub></p>
+</blockquote>
+<p>The statement is false.</p>
+<p>Let:<br />
+X be the set of all odd, natural numbers<br />
+Y = {4n+2 | n∈ℕ}<br />
+Z is a set that satisfies Y≤Z≤X (and so is infinite and contained in ℕ)</p>
+<p>It follows that |<span class="over">Z</span>|=ℵ<sub>0</sub> and that |Z|=ℵ<sub>0</sub> ⟹ Z∈M ⟹ {Z∈𝓟(ℕ) | Y⊆Z⊆X}⊆M.</p>
+<p>For convenience, let Q={Z∈𝓟(ℕ) | Y⊆Z⊆X}.</p>
+<p>Let's define function 𝒇:Q → 𝓟(X\Y). 𝒇 is onto and one-to-one ⟹ Q ~ 𝓟(X\Y).</p>
+<p>Since X\Y={4n | n∈ℕ} ⟹ |X\Y|=ℵ<sub>0</sub>, therefore |𝓟(X\Y)|=2<sup>ℵ<sub>0</sub></sup>=ℵ ⟹ |Q|=ℵ.</p>
+<p>Q is contained in M therefore |M|≥ℵ therefore |M|≠ℵ0</p>
+<hr />
+<h3>ג</h3>
+<blockquote>
+<p>|𝓟(ℕ)\K|=ℵ<sub>0</sub></p>
+</blockquote>
+<hr />
+<h3>ד</h3>
+<blockquote>
+<p>|𝓟(ℕ)\M|=ℵ<sub>0</sub></p>
+</blockquote>
 
     </body>
 

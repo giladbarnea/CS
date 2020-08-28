@@ -9,7 +9,7 @@
 
 First, A⊆(0,1) ⟹ |A|≤|(0,1)|.
 
-On the other hand, function 𝒇:(0,1)→A, e.g: 𝒇(0.a<sub>1</sub>a<sub>2</sub>...) = 0.a<sub>1</sub>a<sub>1</sub>a<sub>2</sub>a<sub>2</sub>... is one-to-one (injective), therefore:
+On the other hand, function 𝒇:(0,1)→A, e.g: 𝒇(0.a<sub>1</sub>a<sub>2</sub>...) = 0.a<sub>1</sub>a<sub>1</sub>a<sub>2</sub>a<sub>2</sub>... is one-to-one, therefore:
 |(0,1)|≤|A|
 Considering Cantor-Bernstein: |(0,1)|≤|A| ⟹ **|(0,1)| = |A| = ℵ**
 
@@ -62,3 +62,50 @@ given B⊆A and |B|=ℵ0, the two sets satisfy |A\B|=|A| if A\B is infinite or A
 Let A=(0,10**−10); B=(0,10**−10)∩ℚ. It follows that B⊆A and |B|=ℵ0, therefore |A\B|=|A|.
 Since |A|=ℵ and A\B=(0,10**−10 )\\ℚ ⟹ |(0,10**−10 )\\ℚ|=ℵ.
 Because |𝓟(A)|=2**|A| ⟹ |𝓟((0,10**−10 )\\ℚ)| = 2**|(0,10**-10)\\Q|=__2**ℵ__ 
+
+--- 
+%sets
+## 2
+> Let:  
+> M = {A∈𝓟(ℕ) | |A|=ℵ0 ∧ |~A|=ℵ0}  
+> K = {A∈𝓟(ℕ) | |~A|=ℵ0}
+> Prove or disprove the following:
+
+/%sets
+
+---
+### א
+> |K|=ℵ0
+
+The statement is false.
+%sets
+Let X be the set of all odd, natural numbers. It follows that for every set Y that satisfies Y⊆X, the following holds: ~X⊆~Y.
+~Y⊆ℕ and is infinite ⟹ |~Y|=ℵ0 ⟹ every subset of X belongs to K.  
+/%sets  
+Therefore 𝓟(X)⊆K ⇒ |𝓟(X)|≤|K|.
+Since |X|=ℵ0 ⟹ |𝓟(X)| = 2**|X| = 2<sup>ℵ0</sup>, therefore 2<sup>ℵ0</sup>≤|K| ⟹ <b>|K|≠ℵ0</b> 
+
+---
+### ב
+> |M|=ℵ0
+
+The statement is false.
+Let:  
+X be the set of all odd, natural numbers  
+Y = {4n+2 | n∈ℕ}  
+Z is a set that satisfies Y≤Z≤X (and so is infinite and contained in ℕ)
+
+%sets
+It follows that |~Z|=ℵ0 and that |Z|=ℵ0 ⟹ Z∈M ⟹ {Z∈𝓟(ℕ) | Y⊆Z⊆X}⊆M.
+/%sets
+For convenience, let Q={Z∈𝓟(ℕ) | Y⊆Z⊆X}.
+Let's define function 𝒇:Q → 𝓟(X\\Y). 𝒇 is onto and one-to-one ⟹ Q ~ 𝓟(X\\Y).
+Since X\\Y={4n | n∈ℕ} ⟹ |X\\Y|=ℵ0, therefore |𝓟(X\\Y)|=2<sup>ℵ0</sup>=ℵ ⟹ |Q|=ℵ.
+Q is contained in M therefore |M|≥ℵ therefore |M|!=%aleph0
+
+---
+### ג
+> |𝓟(ℕ)\\K|=ℵ0
+---
+### ד
+> |𝓟(ℕ)\\M|=ℵ0

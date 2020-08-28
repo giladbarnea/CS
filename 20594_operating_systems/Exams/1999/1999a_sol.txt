@@ -1,0 +1,18 @@
+1-c
+2-a
+3-d
+4-d (question from the first edition of "Modern operating systems")
+5-c
+6-b
+7-e
+8-d
+9-b (assuming UNIX operating systems)
+10-d (b+c)
+11-d
+12-d
+13-c (question from the programming part of one of the mamanas at 1999a)
+14-a
+15-b
+16-d
+17-a (question from the first edition of "Modern operating systems")
+18-d(a+b)
