@@ -132,7 +132,7 @@ Considering the conclusion of gimel (|𝓟(ℕ)\K|=ℵ<sub>0</sub>), and given t
 <h2>3</h2>
 <blockquote>
 <p>Let:<br />
-A = {A<sub>𝑖</sub> | 𝑖∈ℕ} where A<sub>𝑖</sub>⊆ℕ, A<sub>𝑖</sub>≠A<sub>𝑗</sub>, A<sub>𝑖</sub>∩A<sub>𝑗</sub>=∅, for every 𝑖,𝑗∈ℕ, 𝑖≠𝑗<br />
+A = {A<sub>𝑖</sub> | 𝑖∈ℕ} where A<sub>𝑖</sub>⊆ℕ, A<sub>𝑖</sub>≠A<sub>𝑗</sub>, A<sub>𝑖</sub>∩A<sub>𝑗</sub>=∅, for all 𝑖,𝑗∈ℕ, 𝑖≠𝑗<br />
 B is a set of non-empty, open intervals in ℝ such that no two intervals overlap<br />
 C is an uncountable, infinite set of open intervals in ℝ.</p>
 <p>Prove: </p>
@@ -145,10 +145,14 @@ C is an uncountable, infinite set of open intervals in ℝ.</p>
 <p>First let's prove that |A|=ℵ<sub>0</sub>.</p>
 <p>Function 𝒇:ℕ→A defined by 𝒇(𝑖)=A<sub>𝑖</sub> for all 𝑖∈ℕ is onto.<br />
 Also, because 𝑖,𝑗∈ℕ and 𝑖≠𝑗, the following holds: A<sub>𝑖</sub>≠A<sub>𝑗</sub> ⟹ 𝒇(𝑖)≠𝒇(𝑗) ⟹ A~ℕ ⟹ |A|=ℵ<sub>0</sub>.</p>
-<p>Let B={B𝛼 | 𝛼∈I} where I is a matching set of indices.<br />
-Let 𝒇 be a function from I→B defined by 𝒇(𝛼)=B𝛼 for every 𝛼∈I.<br />
+<p>Let B={B<sub>𝛼</sub> | 𝛼∈I} where I is a matching set of indices.<br />
+Let 𝒇 be a function from I→B defined by 𝒇(𝛼)=B<sub>𝛼</sub> for all 𝛼∈I.<br />
 𝒇 is one-to-one and onto ⟹ |B|=|I|.</p>
-<p>Because a non-empty open interval contains all rational numbers, </p>
+<p>Because every non-empty open interval contains all rational numbers, and because for all 𝛼∈I, set B<sub>𝛼</sub> is a non-empty open interval ⟹ for all 𝛼∈I there exists a number q<sub>𝛼</sub>∈ℚ such that q<sub>𝛼</sub>∈B<sub>𝛼</sub>.</p>
+<p>Let 𝒈 be a function from I→ℚ defined by 𝒇(𝛼)=q<sub>𝛼</sub> for all 𝛼∈I.<br />
+To prove (by negation) that 𝒈 is one-to-one, let's assume that 𝒇(𝛼)=𝒇(b) for 𝛼,b∈I where 𝛼≠b ⟹ q<sub>𝛼</sub> = qb.<br />
+q<sub>𝛼</sub>∈B<sub>𝛼</sub> and qb∈Bb ⟹ q<sub>𝛼</sub>∈(B<sub>𝛼</sub>∩Bb) which negates the definition that no two intervals in B overlap.</p>
+<p>Having concluded that 𝒈 is one-to-one ⟹ |I|≤|ℚ|=ℵ<sub>0</sub> ⟹ |B|≤ℵ<sub>0</sub> ⟹ <strong>|B|≤|A|</strong></p>
 
     </body>
 

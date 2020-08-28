@@ -135,7 +135,7 @@ Considering the conclusion of gimel (|𝓟(ℕ)\\K|=ℵ0), and given that the un
 
 ## 3
 > Let:  
-> A = {A𝑖 | 𝑖∈ℕ} where Ai⊆ℕ, A𝑖≠A𝑗, A𝑖∩A𝑗=∅, for every 𝑖,𝑗∈ℕ, 𝑖≠𝑗  
+> A = {A𝑖 | 𝑖∈ℕ} where Ai⊆ℕ, A𝑖≠A𝑗, A𝑖∩A𝑗=∅, for all 𝑖,𝑗∈ℕ, 𝑖≠𝑗  
 > B is a set of non-empty, open intervals in ℝ such that no two intervals overlap  
 > C is an uncountable, infinite set of open intervals in ℝ.
 > Prove: 
@@ -148,6 +148,10 @@ First let's prove that |A|=ℵ0.
 Function 𝒇:ℕ→A defined by 𝒇(𝑖)=A𝑖 for all 𝑖∈ℕ is onto.  
 Also, because 𝑖,𝑗∈ℕ and 𝑖≠𝑗, the following holds: A𝑖≠A𝑗 ⟹ 𝒇(𝑖)≠𝒇(𝑗) ⟹ A~ℕ ⟹ |A|=ℵ0.
 Let B={B𝛼 | 𝛼∈I} where I is a matching set of indices.  
-Let 𝒇 be a function from I→B defined by 𝒇(𝛼)=B𝛼 for every 𝛼∈I.  
+Let 𝒇 be a function from I→B defined by 𝒇(𝛼)=B𝛼 for all 𝛼∈I.  
 𝒇 is one-to-one and onto ⟹ |B|=|I|.
-Because a non-empty open interval contains all rational numbers, 
+Because every non-empty open interval contains all rational numbers, and because for all 𝛼∈I, set B𝛼 is a non-empty open interval ⟹ for all 𝛼∈I there exists a number q𝛼∈ℚ such that q𝛼∈B𝛼.
+Let 𝒈 be a function from I→ℚ defined by 𝒇(𝛼)=q𝛼 for all 𝛼∈I.  
+To prove (by negation) that 𝒈 is one-to-one, let's assume that 𝒇(𝛼)=𝒇(b) for 𝛼,b∈I where 𝛼≠b ⟹ q𝛼 = qb.  
+q𝛼∈B𝛼 and qb∈Bb ⟹ q𝛼∈(B𝛼∩Bb) which negates the definition that no two intervals in B overlap.
+Having concluded that 𝒈 is one-to-one ⟹ |I|≤|ℚ|=ℵ0 ⟹ |B|≤ℵ0 ⟹ __|B|≤|A|__
