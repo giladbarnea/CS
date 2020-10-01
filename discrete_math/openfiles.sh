@@ -14,7 +14,7 @@ if [ -z "$(pgrep -fa "$(basename "$PDF")")" ]; then
 else
   echo "$PDF already open"
 fi
-source /home/gilad/Code/MyTool/mytool/scripts/util.sh
+source /home/gilad/Code/bashscripts/procs_and_execs.sh
 
 if [ -z "$(pgrep -fa $VID)" ]; then
   launch vlc lessons/$VID
