@@ -99,7 +99,7 @@ No pair in A×B satisfies ⟨a,b⟩ ∈ 𝑹</p>
 <p>&lt;, &gt;, ∅<sub>A</sub></p>
 </li>
 <li>
-<p>a=−b ⋰</p>
+<p>𝑎=−𝑏 ⋰</p>
 </li>
 </ul>
 <h4>Antireflexivity</h4>
@@ -110,7 +110,12 @@ No pair in A×B satisfies ⟨a,b⟩ ∈ 𝑹</p>
 </blockquote>
 <p><em>Examples</em></p>
 <ul>
-<li>≠, &lt;, &gt;, ∅<sub>A</sub></li>
+<li>
+<p>﹤ <span class="comment">never: 𝑛﹤𝑛</span></p>
+</li>
+<li>
+<p>≠, ﹥, ∅<sub>A</sub></p>
+</li>
 </ul>
 <p><em>Counter Examples</em></p>
 <ul>
@@ -181,16 +186,16 @@ No pair in A×B satisfies ⟨a,b⟩ ∈ 𝑹</p>
 <p>&lt;, &gt;, ∅<sub>A</sub></p>
 </li>
 <li>
-<p>b﹥a<sup>2</sup></p>
+<p>𝑏﹥𝑎<sup>2</sup></p>
 </li>
 </ul>
 <p><em>Counter Examples</em></p>
 <ul>
 <li>
-<p>≠, ≤, ≥, 𝑼<sub>A</sub>, 𝑰<sub>A</sub>, a=−b ⋰, ≠</p>
+<p>≠, ≤, ≥, 𝑼<sub>A</sub>, 𝑰<sub>A</sub>, 𝑎=−𝑏 ⋰, ≠</p>
 </li>
 <li>
-<p>b﹤a<sup>2</sup> <span class="comment">⟨3,4⟩ and ⟨4,3⟩ are symmetric</span></p>
+<p>𝑏﹤𝑎<sup>2</sup> <span class="comment">⟨3,4⟩ and ⟨4,3⟩ are symmetric</span></p>
 </li>
 </ul>
 <h4>Weak Antisymmetry</h4>
@@ -240,7 +245,10 @@ If you see an x that leads to y that leads to z, then expect x to lead to z <spa
 <p>if |A|﹥1 then ≠ is trans</p>
 </li>
 <li>
-<p>&lt;, ≤</p>
+<p>&lt; over ℕ <span class="comment">𝑙﹤𝑚 ∧ 𝑚﹤𝑛 ⟹ 𝑙﹤𝑛</span></p>
+</li>
+<li>
+<p>≤</p>
 </li>
 <li>
 <p>𝑻 = (⟨2,1⟩, ⟨2,3⟩) ⟹ 𝑻<sup>2</sup> = ∅⊆𝑻</p>
@@ -334,11 +342,40 @@ for all a, b, and c:<br />
 </ul>
 <p><em>Examples</em></p>
 <ul>
-<li>&lt; over ℕ <span class="comment">also over ℝ?</span></li>
+<li>
+<p>﹤ over ℕ <span class="comment">also over ℝ?</span></p>
+</li>
+<li>
+<p>﹤ over every subgroup of ℝ</p>
+</li>
 </ul>
 <p><em>Counter Examples</em></p>
 <ul>
-<li>if A≠∅ then 𝑰<sub>A</sub> isn't total order because for all a∈A: a=a</li>
+<li>if A≠∅ then 𝑰<sub>A</sub> isn't total order because for all 𝑎∈A: 𝑎=𝑎</li>
+</ul>
+<h4>Yahas Mashve יחס משווה, או תכונת ההשוואה</h4>
+<p><span class="grey">lesson 8 00:00:50 / p97</span></p>
+<blockquote>
+<p>Each ⟨𝑎,𝑏⟩∈A safisfies exactly one of:</p>
+<ul>
+<li>
+<p>𝑎𝑹𝑏</p>
+</li>
+<li>
+<p>𝑏𝑹𝑎</p>
+</li>
+<li>
+<p>𝑎=𝑏</p>
+</li>
+</ul>
+</blockquote>
+<p><em>Properties</em></p>
+<ul>
+<li>If we can't find 𝑎𝑹𝑏 nor 𝑏𝑹𝑎, then 𝑎=𝑏</li>
+</ul>
+<p><em>Examples</em></p>
+<ul>
+<li>﹤ over ℕ</li>
 </ul>
 <p><br></p>
 <h3>Element: Minimal/Maximal, Least/Greatest</h3>
@@ -400,7 +437,7 @@ for all a, b, and c:<br />
 <p>union of blocks = A</p>
 </li>
 <li>
-<p>intersection of any two blocks = ∅</p>
+<p>\intersection of any two blocks = ∅</p>
 </li>
 <li>
 <p>→ A is finite ⇒ rank of P is |X| − |P| ?</p>

@@ -53,7 +53,7 @@ _Examples_
 _Counter Examples_
 - ≠ (which is 𝑼A − 𝑰A)
 - <, >, ∅A
-- a=−b ⋰
+- 𝑎=−𝑏 ⋰
 
 #### Antireflexivity
 > 𝑹:=rel(A) is antireflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)  
@@ -61,7 +61,8 @@ _Counter Examples_
 > 𝑰A ∩ 𝑹 = ∅ // just 𝑰A ⊈ 𝑹 isn't enough; 𝑰A = {⟨1,1⟩, ⟨2,2⟩}⊈𝑹 = {⟨1,1⟩, ⟨1,2⟩} but ⟨1,1⟩∈𝑹 so isn't antireflexive
 
 _Examples_
-- ≠, <, >, ∅A
+- ﹤ // never: 𝑛﹤𝑛
+- ≠, ﹥, ∅A
 
 _Counter Examples_
 - 𝑼A, 𝑰A, a=−b ⋰, ≤, ≥
@@ -97,11 +98,11 @@ _Properties_
 
 _Examples_
 - <, >, ∅A
-- b﹥a**2
+- 𝑏﹥𝑎**2
 
 _Counter Examples_
-- ≠, ≤, ≥, 𝑼A, 𝑰A, a=−b ⋰, ≠
-- b﹤a**2 // ⟨3,4⟩ and ⟨4,3⟩ are symmetric
+- ≠, ≤, ≥, 𝑼A, 𝑰A, 𝑎=−𝑏 ⋰, ≠
+- 𝑏﹤𝑎**2 // ⟨3,4⟩ and ⟨4,3⟩ are symmetric
 
 #### Weak Antisymmetry
 > 𝑹 ∩ 𝑹−1 ⊆ 𝑰A  
@@ -131,7 +132,8 @@ _Examples_
 - ∅A
 - 𝑼A // if ⟨a,b⟩ ∈ A2 and ⟨b,a⟩ ∈ A2 then ⟨a,c⟩ ∈ A2
 - if |A|﹥1 then ≠ is trans
-- <, ≤
+- < over ℕ // 𝑙﹤𝑚 ∧ 𝑚﹤𝑛 ⟹ 𝑙﹤𝑛
+- ≤
 - 𝑻 = (⟨2,1⟩, ⟨2,3⟩) ⟹ 𝑻**2 = ∅⊆𝑻
 
 
@@ -194,10 +196,24 @@ _Properties_
 - set A with total order is a קבוצה סדורה לינארית
 
 _Examples_
-- \< over ℕ // also over ℝ?
+- ﹤ over ℕ // also over ℝ?
+- ﹤ over every subgroup of ℝ
 
 _Counter Examples_
-- if A≠∅ then 𝑰A isn't total order because for all a∈A: a=a
+- if A≠∅ then 𝑰A isn't total order because for all 𝑎∈A: 𝑎=𝑎
+
+#### Yahas Mashve יחס משווה, או תכונת ההשוואה
+// lesson 8 00:00:50 / p97
+> Each ⟨𝑎,𝑏⟩∈A safisfies exactly one of:
+> - 𝑎𝑹𝑏
+> - 𝑏𝑹𝑎
+> - 𝑎=𝑏
+
+_Properties_
+- If we can't find 𝑎𝑹𝑏 nor 𝑏𝑹𝑎, then must 𝑎=𝑏
+
+_Examples_
+- ﹤ over ℕ
 
 
 ### Element: Minimal/Maximal, Least/Greatest
