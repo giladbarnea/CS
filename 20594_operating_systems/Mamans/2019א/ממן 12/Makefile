@@ -1,8 +1,0 @@
-CC=gcc -g
-FLAGS = -Wall  -L./ -m32
-
-smash: shell.c
-	$(CC) $(FLAGS) shell.c -o smash
-
-clean:
-	rm -f smash

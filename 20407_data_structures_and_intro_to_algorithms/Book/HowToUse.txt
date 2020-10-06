@@ -1,4 +1,0 @@
-1. Download the .zip archive, and extract it.
-2. In the archive there's an HTML file (named _read.html)
-3. Open this file in a browser (Chrome, Firefox, Edge, etc.)
-4. Use the naviagtion buttons on the right side in order to view the next or previous page.
