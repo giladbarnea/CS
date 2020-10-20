@@ -1,0 +1,26 @@
+A∪B = {x|(x∈A)∨(x∈B)}
+[(A∪B)⊆C] ⇔ [(A⊆C)∧(B⊆C)]         p33
+
+
+
+
+A\B   =   {x|(x∈A)∧(x∉B)}
+A\B   =   A∩Bc
+A\B   =   (A∪B)\B           p41 (1.21)
+A\B   =   A\(A∩B)
+
+A\B = Bc\Ac
+(A\B)=A ⇔ (A∩B)=∅       p42 q26
+A\B=∅ ⇔ A⊆B
+(A\B=B\A) ⇔ A=B
+A∪(B\A) = A∪B
+A∩(B\A) = ∅
+(B⊆A) → [(B∪(A\B)) = A]
+(C⊆D) → [(A\D) ⊆ (A\C)]
+(A\B)∪(B\A) = (A∪B)\(A∩B)       p42 q30
+
+Symmetric Difference
+AΔB = {x|(x∈A)∧(x∉B) ∨ (x∈B)∧(x∉A)}
+AΔB = (A\B)∪(B\A)
+A∩(B\C) = (A\B)∩(A∩C)
+

@@ -1,0 +1,72 @@
+Logic
+For any P, Q:
+(P → Q) ∨ (Q → P)       (always True)
+
+An arg is valid iff:
+If premises are True, then conclusion is True
+So a counter-example is when premises are True but conclusion is False
+
+Ideompotence
+P ≡ (P ∨ P)
+P ≡ (P ∧ P)
+
+Commutativity
+(P ∨ Q) ≡ (Q ∨ P)
+(P ∧ Q) ≡ (Q ∧ P)
+
+Associativity
+(P ∨ Q) ∨ R ≡ P ∨ (Q ∨ R)
+(P ∧ Q) ∧ R ≡ P ∧ (Q ∧ R)
+
+DeMorgan
+¬(P ∨ Q) ≡ (¬P) ∧ (¬Q)
+¬(P ∧ Q) ≡ (¬P) ∨ (¬Q)
+
+Distributivity
+P ∧ (Q ∨ R) ≡ (P ∧ Q) ∨ (P ∧ R)
+P ∨ (Q ∧ R) ≡ (P ∨ Q) ∧ (P ∨ R)
+
+With   True / False
+(P ∨   True) ≡ True
+(P ∧   False) ≡ False
+(P ∨   False) ≡ P
+(P ∧   True) ≡ P
+(P ∨   ¬P) ≡ True
+(P ∧   ¬P) ≡ False
+
+Double Negation
+P ≡ ¬(¬P)
+
+Implication
+(P → Q) ≡ (¬P ∨ Q) ≡ ¬(P ∧ ¬Q)      DM
+(P → Q) ≡ (¬Q → ¬P)                 Contrapos.
+¬(P → Q) ≡ (P ∧ ¬Q)
+
+Equivalence
+(P ↔ Q) ≡ (P → Q) ∧ (Q → P)
+(P ↔ Q) ≡ (P ∧ Q) ∨ [(¬P) ∧ (¬Q)]       DM
+¬(P ↔ Q) ≡ (P ∧ ¬Q) ∨ (¬P ∧ Q)
+
+Exportation
+(P ∧ Q) → R ≡ P → (Q → R)
+
+Absurdity
+(P → Q) ∧ (P → ¬Q) ≡ ¬P
+
+
+Modal Logic
+∀xφ ≡ ¬[∃x¬φ]
+∃xφ ≡ ¬[∀x¬φ]
+
+DeMorgan
+¬∀xφ ≡ ∃x¬φ
+∀x¬φ ≡ ¬∃xφ
+
+If x is the set of {a,b,c}, then
+∀xP(x) ≡ P(a) ∧ P(b) ∧ P(c)
+∃xP(x) ≡ P(a) ∨ P(b) ∨ P(c)
+
+Applying DeMorgan:
+P(a) ∧ P(b) ∧ P(c) ≡ ¬(¬P(a) ∨ ¬P(b) ∨ ¬P(c))
+P(a) ∨ P(b) ∨ P(c) ≡ ¬(¬P(a) ∧ ¬P(b) ∧ ¬P(c))
+

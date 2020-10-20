@@ -1,0 +1,33 @@
+203627310 .‫ז‬.‫גלעד ב רנע ת‬
+
+
+11 ‫ממ"ן‬
+1
+Prove: AΔB⊆D ∧ BΔC⊆D → AΔC⊆D
+
+Since (X→Z) ∧ (Y→Z) ≡ (X∨Y)→Z, also: (AΔB⊆D ∧ BΔC⊆D) ≡ (AΔB ∪ BΔC) ⊆
+D. Proof: (X→Z) ∧ (Y→Z) Z∨¬X ∧ Z∨¬Y Z∨(X∨Y) (X∨Y) → Z
+
+AΔB⊆D ∧ BΔC⊆D (x∈(AΔB) → x∈D) ∧ (x∈(BΔC) → x∈D) x∈(AΔB ∪ BΔC) →
+x∈D (AΔB ∪ BΔC) ⊆ D Therefore: (AΔB⊆D ∧ BΔC⊆D) ≡ (AΔB ∪ BΔC) ⊆ D //
+(1) I'll prove that AΔC ⊆ (AΔB ∪ BΔC), then it would follow by transience that
+AΔC⊆C Expanding (AΔB ∪ BΔC): (B∩A) ∪ (B∩C) ∪ (B∩A) ∪ (B∩C) [Bn(A∪C)]
+∪ [Bn(AuC)] (AΔB ∪ BΔC) ≡ [Bn(A∪C)] ∪ [Bn(AuC)] // (2)
+
+Expanding AΔC: (AnC) u (AnC) (A∪C) n (AuC) AΔC ≡ (A∪C) n (AuC) // (3)
+
+Define: P = B; Q = (A∪C); R = (AuC) So proving Q∧R → (¬P∨Q ∨ P∧R), will
+prove that AΔC ⊆ (AΔB ∪ BΔC) Proving Q∧R → (¬P∨Q ∨ P∧R) is always true:
+Premise: (Q∧R); Conclusion: (¬P∨Q ∨ P∧R). Premise → Conclusion is always
+true if the following holds: Whenever the Premise is true, also the Conclusion
+is true. Assuming that Premise is true: Q∧R ≡ 𝚻 ⟹ Q≡𝚻 ∧ R≡𝚻 Using that in
+the Conclusion: (¬P∨Q ∨ P∧R) ≡ (¬P∨𝚻 ∨ P∧𝚻) ≡ ¬P∨P ≡ 𝚻 Therefore the
+conclusion is dependent upon the premise, therefore Q∧R → (¬P∨Q ∨ P∧R)
+≡ 𝚻 // (4) P, Q and R are placeholders (defined above), so I'll use their "real"
+values: Q∧R → (¬P∨Q ∨ P∧R) ≡ (A∪C)∩(AuC) → [Bn(A∪C)] ∪ [Bn(AuC)] //
+Using (3): AΔC ⊆ [Bn(A∪C)] ∪ [Bn(AuC)] // Using (2): AΔC ⊆ (AΔB ∪ BΔC) //
+(5) Since it's given that: AΔB⊆D ∧ BΔC⊆D Using (1), it's equivalent to: (AΔB
+∪ BΔC) ⊆ D And because of (5), we know that AΔC ⊆ (AΔB ∪ BΔC) Together
+with the transience of ⊆, // X⊆Y and Y⊆Z ⇒ X⊆Z AΔB⊆D ∧ BΔC⊆D →
+AΔC⊆D
+

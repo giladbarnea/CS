@@ -1,0 +1,55 @@
+⁠L ⁠
+   e⁠s⁠
+      s⁠o⁠
+         n⁠ ⁠
+            2
+∈ vs ⊆
+Definition: A⊆B ⇔ ∀x[ (x∈A) → (x∈B) ]
+In other wrds: A is a subset of B, iff, every x in A is a member of B
+∈   left_side in right_side
+⊆   all(x in right_side for x in left_side)
+
+Examples
+A = { 1, 2, {1,2,3} }
+{1,2,3} ∈ A
+{1,2,3} ⊈ A
+
+∅   ∉∅≡∅∉   {}   no items on right   side, nothing belongs to it
+∅   ∈ {∅}    right side contains 1   item: ∅, so ∅ in right side
+∅   ⊆∅       every set is a subset   of itself
+∅   ⊆ {∅}    empty set is a subset   of every set
+∅   ⊆ {1}    “
+∅   ∉ {1}
+
+{∅}   ⊆ {∅}       all(x in right_side for x in left_side)
+{∅}   ∉ {∅}       [foo] in [foo]? no
+{∅}   ∈ { {∅} }       [foo] in [ [foo] ]? yes
+{∅}   ⊈ { {∅} }       foo in [ [foo] ]? no
+
+{ {∅,1} } ∉ { {∅}, 1 }
+{ {∅,1} } ⊈ { {∅}, 1 }
+
+|∅| = 0
+|{∅}| = 1
+
+P⁠
+⁠ o⁠
+   w⁠e⁠
+      r ⁠⁠
+         S⁠e⁠
+            t
+Definition: X∈P(A) ⇔ X⊆A
+In other words: X belongs to the set of all A's subgroups, iff X itself is a subset of A.
+
+Always true: ∅ ∈ P(A)         because ∅ is a subset of every set
+|P(A)| = 2**|A|
+
+Examples
+A = { ∅, 0, {0} };
+{∅} ∈ P(A)?
+    {∅}∈P(A) ⇔ {∅}⊆A          power set definition
+    {∅}⊆A ⇔ ∅∈A               subset definition
+    Since ∅ is a member of A,     ∅∈A
+    and we only used ⇔,           Truth value "propagates" backwards
+    {∅}∈P(A)                      The set containing ∅ is a member of the set containing all of A's subsets.
+

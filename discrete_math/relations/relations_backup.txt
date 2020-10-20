@@ -1,0 +1,226 @@
+𝑹: {⟨x,y⟩ for ⟨x,y⟩ ∈ A 2 if x𝑹y}
+
+𝑻·𝑹: {⟨a,c⟩ | ∃b ∈ B (⟨a,b⟩ ∈ 𝑻 ∧ ⟨b,c⟩ ∈ 𝑹)}
+
+𝑹 2 : a𝑹 2 c ⟺ {⟨a,c⟩ | ∃b ∈ A (⟨a,b⟩ ∈ 𝑹 ∧ ⟨b,c⟩ ∈ 𝑹)}
+
+an ordered pair ⟨a,c⟩∈𝑹 2 means there's a "middle" b∈B that satisfies
+⟨b,c⟩∈𝑹
+Examples
+ • (a=−b) 2 = 𝑰
+                ℝ
+ • ⟨a,b⟩ ∈ 𝑹 2 ⟺ ⟨a,c⟩,⟨c,b⟩ ∈ 𝑹
+
+Empty ∅ A
+
+𝑹:=rel(A×B) = ∅
+No pair ∈ A×B satisfies ⟨a,b⟩ ∈ 𝑹
+Properties
+ • 𝑺·∅ A = ∅
+ • anti−symmetric
+ • symmetric ?
+Examples
+ • {⟨x,y⟩ ∈ ℕ 2 | x+y﹤x}
+
+Identity 𝑰 A
+
+Properties
+ • 𝑹·𝑰 A = 𝑹
+
+Reflexivity
+𝑹:=rel(A) is reflexive if ∀a ∈ A(⟨a,a⟩ ∈ 𝑹)
+𝑹 is reflexive if every a ∈ A satisfies ⟨a,a⟩∈𝑹. In other words:
+𝑰A ⊆ 𝑹
+A = { −1, 0, 1 }. Is ⋱ contained ∈ 𝑹?
+𝑹 = lambda a,b: a⊙b; all(R(x,x) for x ∈ A)?
+Properties
+ • ⟺ 𝑹 −1 is reflexive
+ • → 𝑹 ⊆ 𝑹 2 (and 𝑹 2 is reflexive)
+ • → 𝑹⊆𝑹 2
+ • if 𝑺⊆𝑹 then 𝑺 is reflexive
+ • if 𝑺 is reflexive then both 𝑹∪𝑺 ∧ 𝑹∩𝑺 are reflexive
+Examples
+ • 𝑼 A : ∀a ∈ A(⟨a,a⟩ ∈ A×A = 𝑼A)
+ • 𝑰 A : ∀a ∈ A(⟨a,a⟩ ∈ {⟨−1, −1⟩, ⟨0, 0⟩, ⟨1, 1⟩})
+ • ≤, ≥        both contain ⋱
+Counter Examples
+ • ≠ (which is 𝑼 A − 𝑰A)
+ • <, >, ∅ A
+ • a=−b ⋰
+
+Anti-Reflexivity
+𝑹:=rel(A) is anti−reflexive iff ¬∃a ∈ A(⟨a,a⟩ ∈ 𝑹)
+𝑹 is reflexive if every a ∈ A satisfies ⟨a,a⟩ ∉ 𝑹. In other words:
+𝑰A ∩ 𝑹 = ∅    just 𝑰 A ⊈ 𝑹 isn't enough; 𝑰 A = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑹 = {⟨
+but ⟨1,1⟩ ∈ 𝑹 so isn't anti−reflexive
+Examples
+ • ≠, <, >, ∅ A
+
+Counter Examples
+ • 𝑼 A , 𝑰 A , a=−b ⋰, ≤, ≥
+
+Symmetry
+
+𝑹:=rel(A) is symmetric iff 𝑹 = 𝑹 −1
+𝑹 is symmetric if every ⟨x,y⟩ ∈ 𝑹 satisfies ⟨y,x⟩ ∈ 𝑹
+   assuming both x ∧ y exist ∈ A
+∀x∀y(⟨x,y⟩∈𝑹 → ⟨y,x⟩∈𝑹)
+𝑹 = lambda a,b: a⊙b; all(rel(y,x) for x,y ∈ R)?
+Properties
+ • if 𝑺 is symmetric then both 𝑹∪𝑺 ∧ 𝑹∩𝑺 are reflexive
+ • if 𝑺 is symmetric then 𝑹\𝑺 is symmetric
+Examples
+ • ∅         can't point at ⟨x,y⟩ ∧ say ⟨y,x⟩ is ¬ ∈ ∅ −1
+     A
+ • 𝑼 A , 𝑰 A , a=−b ⋰, ≠
+Counter Examples
+  • ≤, ≥, <, >
+
+Anti-Symmetry
+
+𝑹:=rel(A) is anti−symmetric iff 𝑹 ∩ 𝑹 −1 = ∅
+𝑹 is anti−symmetric if every ⟨x,y⟩ ∈ 𝑹 satisfies ⟨y,x⟩ ∉ 𝑹
+∀x∀y((x,y) ∈ 𝑹 → (y,x) ∉ 𝑹)
+
+𝑹 ∩ 𝑹 −1 = ∅ means there can't be a ⟨x,x⟩
+Properties
+  • → 𝑹 is anti−reflexive
+  • → 𝑹 −1 is anti−symmetric
+  •   if 𝑺⊆𝑹 then 𝑺 is anti−symmetric
+  •   if 𝑺∪𝑻 is anti−symmetric then both 𝑺 ∧ 𝑻 are anti−symmetric
+  •   → 𝑹∩𝑺 is anti−symmetric
+  •   if 𝑹 is antireflexive ∧ transitive then it's asymmetric ∧ anti−s
+Examples
+  • <, >, ∅ A
+  • b﹥a 2
+
+Counter Examples
+  • ≠, ≤, ≥, 𝑼 A , 𝑰 A , a=−b ⋰, ≠
+  • b﹤a 2        ⟨3,4⟩ ∧ ⟨4,3⟩ are symmetric
+
+Weak Anti-Symmetry
+
+𝑹 ∩ 𝑹 −1 ⊆ 𝑰 A
+
+∀x∀y(⟨x,y⟩ ∈ 𝑹 ∧ ⟨y,x⟩ ∈ 𝑹 → x=y)
+if both ⟨x,y⟩ ∈ 𝑹 ∧ ⟨y,x⟩ ∈ 𝑹 it's only because they're equal
+for x,y ∈ A: if x≠y ∧ ⟨x,y⟩ ∈ 𝑹 then must ⟨y,x⟩ ∉ 𝑹
+A S vs WA S : A S requires every pair's opposite to ¬ be ∈ 𝑹, whereas WA
+the same only for pairs that x=y
+Examples
+  • 𝑰A
+
+Transitivity
+
+𝑹2 ⊆ 𝑹
+∀x∀y∀z((𝑹(x,y) ∧ 𝑹(y,z)) → 𝑹(x,z))
+Every (x,y,z)∈A that satisfy ⟨x,y⟩∈𝑹 ∧ ⟨y,z⟩∈𝑹 also satisfy ⟨x,z⟩∈𝑹
+If you see an x that leads to y that leads to z, then expect x to le
+   this is why 𝑹 2 ⊆ 𝑹
+Properties
+ • if 𝑻 is symmetric ∧ anti−symmetric then it's also transitive
+Examples
+ • A={1,2,3}; 𝑹 = {⟨1,2⟩, ⟨2,3⟩, ⟨1,3⟩} ⇒ 𝑹 2 = {⟨1,3⟩} ⊆ 𝑹
+ • A={1,2,3}; 𝑻 = {⟨1,2⟩} ⇒ 𝑻 2 = ∅ ⊆ 𝑻
+ • 𝑾 = {⟨1,1⟩} ⇒ 𝑾 2 = {⟨1,1⟩} ⊆ 𝑾
+ • 𝑰A
+ • ∅A
+ • 𝑼         if ⟨a,b⟩ ∈ A 2 ∧ ⟨b,a⟩ ∈ A 2 then ⟨a,c⟩ ∈ A 2
+     A
+ • if |A|﹥1 then ≠ is trans
+ • <, ≤
+Counter Examples
+ • 𝑷={⟨1,2⟩, ⟨2,1⟩} ⇒ 𝑷 2 = {⟨1,1⟩, ⟨2,2⟩} ⊈ 𝑷
+      iow: 1 leads to 2 leads to 1, but ⟨1,1⟩ ⊈ 𝑷
+ • ∃x∃y∃z(𝑹(x,y) ∧ 𝑹(y,z) ∧ ¬𝑹(x,z))
+
+
+Equivalance
+𝑹 over A is equivalence iff 𝑹 is reflexive, symmetric ∧ transitive
+Examples
+ • 𝑼 A , 𝑰 A , equality
+ • "Has the same absolute value" on the set of real numbers
+ • if A=∅ then ∅ A is symmetric, transitive ∧ reflexive
+
+Counter Examples
+ • ≥    reflexive ∧ transitive but ¬ symmetric
+ • if A≠∅ then ∅ A is symmetric ∧ transitive, but ¬ reflexive
+
+Connexivity
+lesson 7 00:06:00
+𝑹 over A is connexive iff ∀(x,y)∈A (x≠y → ⟨x,y⟩∈𝑹 ⋁ ⟨y,x⟩∈𝑹)
+Order
+lesson 7 00:00:00
+
+Partial Order
+𝑹 over A (≤) is a partial order iff it's antireflexive ∧ transitive
+Properties
+ • Antisymmetric      because antireflexive ∧ transitive
+Examples
+ • ⊂ over 𝓟(A)
+???
+for all a, b, ∧ c:
+ • a ≤ a    reflex
+ • if a ≤ b ∧ b ≤ a, then a = b           antisymm
+ • if a ≤ b ∧ b ≤ c, then a ≤ c           trans
+Examples
+ • equality
+   ???
+
+Total Order
+Partial order ∧ connexive (aka "linearly ordered")
+∀(x,y)∈A (x≠y → ⟨x,y⟩∈𝑹 ⊻ ⟨y,x⟩∈𝑹)     note the xor. verify
+Examples
+ • ⊂ over ℕ      also over ℝ?
+Counter Examples
+ • if A≠∅ then 𝑰 A isn't total order because for all a∈A: a=a
+
+
+
+Partitions
+Partition of A is a set of non−empty, non−overlapping subsets of A w
+Properties
+ •   every a∈A is ∈ exactly one block
+ •   no block contains ∅
+ •   ∪ of blocks = A
+ •   ∩ of any two blocks = ∅
+ •   → A is finite ⇒ rank of P is |X| − |P| ?
+Examples
+ • {A} is partition of A        trivial
+ • ∅'s only partition is ∅
+ • {1,2,3} has five partitions: {{1},{2},{3}}, {{1, 2}, {3}}, {{1,
+   {{1},{2, 3}}, {{1, 2, 3}}
+Counter Examples
+ • ¬ partitions of {1,2,3}:
+     ◦ {{}, {1,3}, {2}}    contains ∅
+     ◦ {{1, 2}, {2, 3}}    2 exists ∈ more than one block
+     ◦ {{1}, {2}}    no block contains 3
+
+
+Equivalence Class: {x∈𝑺 | x≡a} where a∈𝑺
+Given 𝑹 is an equivalence relation on 𝑺, the equivalence class of an
+∈ 𝑺 is the set {x∈𝑺 | ⟨x,a⟩∈𝑹}
+⟦a⟧ = {b|a𝑹b} = {b|⟨a,b⟩ ∈ 𝑹}
+   all elements ∈ 𝑺 that when paired with a, exist ∈ 𝑹
+In other words: going over 𝑹, the elements ∈ ⟦a⟧ are all the element
+paired with
+Properties
+ • ⋃ of all equivalence classes = 𝑺 ?
+ • a ∈ ⟦a⟧    every element exists ∈ its equivalence class
+ • the items ∈ each equivalence class of 𝑺 exist only ∈ their equiv
+   ?
+ • every possible pair of eq. classes is zar ?
+Examples
+ • 𝑿 = all cars; relation ≡ 𝑿 = "has the same color as"; one particu
+   equivlance class consists of all green cars
+ • Relation ≡ ℤ is ⟨a,b⟩∈≡ ℤ ⟺ (a − b)%2==∅ ⟹ two equivalence classes
+   numbers ∧ odd numbers
+ • 𝑺 = {1,2,3,4,5}
+     ◦ ≡ 𝑺 = {⟨1,1⟩, ⟨1,2⟩, ⟨1,3⟩, ⟨2,2⟩, ⟨3,3⟩, ⟨4,4⟩, ⟨5,5⟩, ⟨2,1⟩
+       ⟨3,2⟩, ⟨3,1⟩}
+     ◦ ⟦1⟧ = {1, 2, 3}     everything that 1 is related to
+     ◦ ⟦2⟧ = {2, 1, 3}
+     ◦ ⟦3⟧ = {3, 2, 1}     note that ⟦1⟧ ≡ ⟦2⟧ ≡ ⟦3⟧
+     ◦ ⟦4⟧ = {4}
+     ◦ ⟦5⟧ = {5}
+

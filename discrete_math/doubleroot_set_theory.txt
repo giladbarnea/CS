@@ -1,0 +1,51 @@
+                                                           Cheat Sheet –Sets
+
+Notation                                                 Intersection
+Roster Form                                                     A ∩ B = {x: x ∈ A and x ∈ B}
+         A = {a, e, i, o, u}
+         B = {1, 2, 3, 4, 5, 6}                          Properties
+                                                                A∩A =A
+Set Builder Form
+         A = {x: x is a vowel of the English alphabet}          A∩ϕ =ϕ
+         B = {x: x ϵ N, x ≤ 6}
+                                                                A ∩ Ac = ϕ
+Subset
+         A ⊆ B, if x ∈ A ⇒ x ∈ B ∀ x ∈ A                        A∩U=A
+Properties
+         A⊆A                                                    A∩B =B∩A
+         ϕ⊆A
+                                                                A ∩ (B ∩ C) = (A ∩ B) ∩ C
+                      c      c
+         A⊆B⇒B ⊆A
+                                                                A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)
+         A ⊆ B, B ⊆ A ⟺ A = B
+         A ⊆ B, B ⊆ C ⇒ A ⊆ C                                   A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
+
+         A ⊆A∪B                                          Difference
+         A ⊆ B, A ⊆ C ⇒ A ∪ B ⊆ C                               A − B = {x: x ∈ A and x ∉ B}
+         A∩B ⊆A                                          Properties
+         C ⊆ A, C ⊆ B ⇒ C ⊆ A ∩ B                               A−A =ϕ
+Complement                                                      ϕ−A=ϕ
+         Ac = {x: x ∉ A and x ∈ U}
+Properties                                                      A−ϕ =A
+         (Ac )c = A
+                                                                A − B = A ∩ Bc
+         Uc = ϕ
+         ϕc = U                                                 U − A = Ac
+
+         (A ∪ B)c = Ac ∩ B c                                    A−U=ϕ
+         (A ∩ B)c = Ac ∪ B c
+                                                                C − (A ∩ B) = (C − A) ∪ (C − B)
+Union
+         A ∪ B = {x: x ∈ A or x ∈ B}                            C − (A ∪ B) = (C − A) ∩ (C − B)
+Properties                                                      (A − B) ∩ C = (A ∩ C) − B = A ∩ (C − B)
+         A∪A =A
+         A∪ϕ =A                                                 (A − B) ∪ (B − A) = (A ∪ B) − (A ∩ B)
+
+         A ∪ Ac = U                                      Cartesian Product
+         A∪U=U                                                  A×B = {(x, y): x ∈ A and y ∈ B}
+         A∪B =B∪A
+         A ∪ (B ∪ C) = (A ∪ B) ∪ C
+
+                                               © www.doubleroot.in
+
